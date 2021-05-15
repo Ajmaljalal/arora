@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Box, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, ModalProps } from '@chakra-ui/react'
 import { BaseButton } from '../../components/buttons/button'
-import JobPostSteps from './job-post-steps'
+import JobPostSteps from './job-post-steps-menu'
 import JobSummaryForm from './job-summary-form'
 import PageTitle from '../../components/headings/page-title'
-import JobDescription from './job-description'
-import JobResponsibilities from './job-responsibilities'
+import JobDescription from './job-description-form'
+import JobResponsibilities from './job-responsibilities-form'
 
 type CreateJobPostProps = {
 } & Omit<ModalProps, 'children'>
