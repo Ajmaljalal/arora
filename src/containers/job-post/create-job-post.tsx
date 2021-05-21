@@ -6,6 +6,10 @@ import JobSummaryForm from './job-summary-form'
 import PageTitle from '../../components/headings/page-title'
 import JobDescription from './job-description-form'
 import JobResponsibilities from './job-responsibilities-form'
+import JobSkillsRequiremnets from './job-skills-requirements-form'
+import JobImpacts from './job-impacts-form'
+import HiringPipeline from './job-hiring-pipeline-form'
+import JobScoreCard from './job-score-card-form'
 
 type CreateJobPostProps = {
 } & Omit<ModalProps, 'children'>
@@ -14,6 +18,10 @@ const jobPostStepComponents = [
   JobSummaryForm,
   JobDescription,
   JobResponsibilities,
+  JobSkillsRequiremnets,
+  JobImpacts,
+  HiringPipeline,
+  JobScoreCard
 ]
 
 const JobPostStepItems = [
@@ -55,7 +63,6 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
       setCurrentStep(step)
     } else {
       const nextStepIndex = currentStep.index + 1
-      console.log(currentStep.index, nextStepIndex)
       if (nextStepIndex < JobPostStepItems.length) {
         const nextStep = JobPostStepItems[nextStepIndex]
         setCurrentStep({ name: nextStep.name, index: nextStepIndex })
@@ -82,7 +89,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
             <JobPostSteps onStepChange={handleCurrentStepChange} jobPostStepItems={JobPostStepItems} currentStep={currentStep.name} />
             <Box width='100%' maxWidth='636px'>
               <Box mb='32px' pb='24px' borderBottom='1px solid' borderColor='brand.grey200'>
-                <PageTitle text='Job summary' />
+                <PageTitle text={currentStep.name} />
               </Box>
               <Box maxHeight='600px' overflowY='auto'>
                 {<CurrenStep />}
