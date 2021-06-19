@@ -5,7 +5,6 @@ import JobResponsibilities from "../job-responsibilities-form"
 import JobScoreCard from "../job-score-card-form"
 import JobSkillsRequiremnets from "../job-skills-requirements-form"
 import JobSummaryForm from "../job-summary-form"
-import { FormDataTypes } from "./objects"
 
 
 export const jobPostStepComponents = [
@@ -53,16 +52,3 @@ export const jobPostStepItems = [
     isComplete: false
   }
 ]
-
-export const getCurrentFormData = (formData: FormDataTypes, currentStep: { name: string; index: number }) => {
-  let currentFormData = formData
-  switch (currentStep.name) {
-    case 'Job Description':
-    case 'Responsibilities':
-    case 'Skills & Requirements':
-    case 'Candidate Impacts':
-    case 'Hiring Pipeline':
-    default:
-      return currentFormData
-  }
-}
