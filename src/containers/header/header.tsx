@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Avatar, Box, Divider, HStack, useColorMode, useColorModeValue, useDisclosure, useMediaQuery } from '@chakra-ui/react'
+import React, { useMemo } from 'react'
+import { Avatar, Box, Divider, HStack, useColorModeValue, useDisclosure } from '@chakra-ui/react'
 import AddIcon from '../../../public/assets/icons/add-white.svg'
 import NotificationIcon from '../../../public/assets/icons/notification.svg'
 import { CenteredIconButton } from '../../components/buttons/centered-icon-button'
@@ -32,11 +32,14 @@ const Header = () => {
 					w='40px'
 					h='40px'
 					name='Ajmal Jalal'
-					src='https://bit.ly/tioluwani-kolawole'
+					src=''
 				/>
 			</HStack>
 		)
 	}
+	const memoizedCreateJobPostComponent = useMemo(() => {
+		return <CreateJobPost isOpen={isOpen} onClose={onClose} />
+	}, [isOpen])
 
 
 	// Component return
@@ -56,7 +59,7 @@ const Header = () => {
 			<Divider orientation='vertical' borderColor='brand.grey200' mx='30px' />
 			<SearchBar />
 			{rightSideQuickActions()}
-			<CreateJobPost isOpen={isOpen} onClose={onClose} />
+			{memoizedCreateJobPostComponent}
 		</Box>
 	)
 }
