@@ -1,4 +1,4 @@
-import { FormControl, FormErrorMessage, FormHelperText, FormLabel, Input, InputGroup, InputLeftAddon, InputLeftElement } from '@chakra-ui/react'
+import { FormControl, FormLabel, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import React from 'react'
 
 type InputFieldProps = {
@@ -40,7 +40,7 @@ const InputField = ({
           placeholder={`Enter ${label.toLowerCase()}`}
           name={label}
           border='1px solid'
-          borderColor='brand.grey300'
+          borderColor='brand.grey200'
           borderRadius='4px'
           color='brand.grey400'
           _hover={{
