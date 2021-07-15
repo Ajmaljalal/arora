@@ -14,9 +14,9 @@ const LeftNavBar = () => {
   const currentPage = useSelector(selectNav);
   return (
     <Box
-      maxWidth='260px'
-      minWidth='260px'
-      width='260px'
+      maxWidth='230px'
+      minWidth='230px'
+      width='230px'
       height='100vh'
       bg='brand.black'
       color={textColor}
