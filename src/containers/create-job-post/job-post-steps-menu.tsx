@@ -8,7 +8,7 @@ type JobPostStepsProps = {
   currentStep: string
 }
 
-const JobPostSteps = ({ onStepChange, jobPostStepItems, currentStep }: JobPostStepsProps) => {
+const JobPostStepsMenu = ({ onStepChange, jobPostStepItems, currentStep }: JobPostStepsProps) => {
 
   const handleCurrentStepChange = (step: { name: string, index: number }) => {
     onStepChange(step)
@@ -92,5 +92,5 @@ const JobPostSteps = ({ onStepChange, jobPostStepItems, currentStep }: JobPostSt
   )
 }
 
-export default JobPostSteps
+export default JobPostStepsMenu
 
