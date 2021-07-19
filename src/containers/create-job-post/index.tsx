@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react'
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, ModalProps } from '@chakra-ui/react'
 import { BaseButton } from '../../components/buttons/button'
-import JobPostStepsMenu from './job-post-steps-menu'
+import JobPostStepsMenu from '../../components/form/form-steps-menu'
 import PageTitle from '../../components/headings/page-title'
 import {
   jobPostStepComponents,
@@ -79,7 +79,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
     return (
       <ModalBody bg='brand.white' pt='20px'>
         <HStack align='flex-start' spacing={20}>
-          <JobPostStepsMenu onStepChange={handleCurrentStepChange} jobPostStepItems={jobPostStepItems} currentStep={currentStep.name} />
+          <JobPostStepsMenu onStepChange={handleCurrentStepChange} stepItems={jobPostStepItems} currentStep={currentStep.name} />
           <Box width='100%' maxWidth='636px'>
             <Box mb='32px' pb='24px' borderBottom='1px solid' borderColor='brand.grey200'>
               <PageTitle text={currentStep.name} />
@@ -88,7 +88,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
               <InlineAlert status='success' title='Missing required fields' message='field marked with * cannot be empty or 0!' />
             }
             {renderCurrentStepForm()}
-            {renderBottomButons()}
+            {renderBottomBtns()}
           </Box>
         </HStack>
       </ModalBody>
@@ -115,7 +115,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
     )
   }
 
-  const renderBottomButons = () => {
+  const renderBottomBtns = () => {
     return (
       <HStack spacing={4} mt='50px' justifyContent='flex-end'>
         <BaseButton text='Cancel' outlined={true} onClick={closeModal} borderColor='brand.primary' color='brand.primary' />
@@ -124,7 +124,6 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
     )
   }
 
-  console.log(jobSummaryFormData)
   return (
     <Modal
       isOpen={isOpen}

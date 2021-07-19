@@ -2,13 +2,13 @@ import React from 'react'
 import { Badge, List, ListIcon, ListItem } from '@chakra-ui/react'
 import GreenCheckIcon from '../../../public/assets/icons/check-circle-green-fill.svg'
 
-type JobPostStepsProps = {
+type FormStepsProps = {
   onStepChange: ({ name: string, index: number }) => void
-  jobPostStepItems: any[]
+  stepItems: any[]
   currentStep: string
 }
 
-const JobPostStepsMenu = ({ onStepChange, jobPostStepItems, currentStep }: JobPostStepsProps) => {
+const FormStepsMenu = ({ onStepChange, stepItems, currentStep }: FormStepsProps) => {
 
   const handleCurrentStepChange = (step: { name: string, index: number }) => {
     onStepChange(step)
@@ -58,7 +58,7 @@ const JobPostStepsMenu = ({ onStepChange, jobPostStepItems, currentStep }: JobPo
   }
 
   const renderJobPostStepItems = () => {
-    return jobPostStepItems.map((item: { name: string, isComplete: boolean }, index: number) => {
+    return stepItems.map((item: { name: string, isComplete: boolean }, index: number) => {
       const isCurrent = item.name === currentStep
       const isComplete = item.isComplete
       return (
@@ -92,5 +92,5 @@ const JobPostStepsMenu = ({ onStepChange, jobPostStepItems, currentStep }: JobPo
   )
 }
 
-export default JobPostStepsMenu
+export default FormStepsMenu
 
