@@ -188,6 +188,7 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
       onClose={closeModal}
       size='full'
       closeOnOverlayClick={false}
+      key='create-job-post'
     >
       <ModalOverlay />
       <ModalContent h='100%' color='brand.black' bg='bran.white'>
