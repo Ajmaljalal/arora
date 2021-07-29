@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { RadioGroup, Stack } from '@chakra-ui/react';
+import { Text, Box, RadioGroup, Stack, Wrap, position } from '@chakra-ui/react';
 import FormWrapper from '../../components/form/form-wrapper';
 import RadioButton from '../../components/form/radio-button';
 import { JobHiringPipelineObject } from './utils/objects';
 import DropdownList from '../../components/dropdown/dropdown';
-import InputField from '../../components/form/input';
+import CustomTag from '../../components/tag';
+import { BaseButton } from '../../components/buttons/button';
 
 export interface HiringPipelineProps {
   data: JobHiringPipelineObject
@@ -12,48 +13,122 @@ export interface HiringPipelineProps {
 }
 
 const pipelines = [
-  'Pipeline zero',
-  'Pipeline one',
-  'Pipeline three',
-  'Pipeline four',
-  'Pipeline Five'
+  {
+    name: 'Pipeline one',
+    stages: [
+      {
+        stageName: 'Screening',
+        stageType: 'initial screening'
+      },
+      {
+        stageName: 'Interview',
+        stageType: 'Phone call'
+      },
+      {
+        stageName: 'Interview',
+        stageType: 'Technical'
+      },
+      {
+        stageName: 'Interview',
+        stageType: 'Final round'
+      }
+    ]
+  },
+  {
+    name: 'Pipeline two',
+    stages: [
+      {
+        stageName: 'Screening',
+        stageType: 'initial screening'
+      },
+      {
+        stageName: 'Interview',
+        stageType: 'Phone call'
+      },
+      {
+        stageName: 'Interview',
+        stageType: 'Technical'
+      },
+      {
+        stageName: 'Interview',
+        stageType: 'Final round'
+      },
+      {
+        stageName: 'Offer',
+        stageType: 'Offer sent'
+      },
+      {
+        stageName: 'Offer',
+        stageType: 'Offer accepted'
+      },
+      {
+        stageName: 'Offer',
+        stageType: 'Offer rejected'
+      },
+      {
+        stageName: 'Offer',
+        stageType: 'Offer rejected'
+      }
+    ]
+  }
 ]
+
 
 const HiringPipelineForm = (props: HiringPipelineProps) => {
   const [radioButtonValue, setRadioButtonValue] = React.useState('selectFromPipelines')
-  const [selectedItem, setselectedItem] = useState('Select a pipeline')
-  const [pipelineTitle, setPipelineTitle] = useState('')
+  const [selectedPipeline, setSelectedPipeline] = useState('Select a pipeline')
+
+  const pipelineNames = pipelines.map(pipeline => pipeline.name)
+  const currentPipelineStages = pipelines.filter(pipeline => pipeline.name === selectedPipeline)[0]?.stages
 
   const handleDropdownItemChange = (option: string) => {
-    setselectedItem(option)
+    setSelectedPipeline(option)
   }
 
-
-  const renderRadioButtons = () => {
-    return (
-      <RadioGroup defaultValue={radioButtonValue} name="pipeline" colorScheme='red' ml='2px' mb='16px' onChange={(value) => setRadioButtonValue(value)}>
-        <Stack spacing={20} direction='row'>
-          <RadioButton value='selectFromPipelines' text='Select from saved pipelines' currentValue={radioButtonValue} />
-          <RadioButton value='createNewPipeline' text='Create a new pipeline' currentValue={radioButtonValue} />
-        </Stack>
-      </RadioGroup>
-    )
+  const renderPipelineStages = () => {
+    const lastIndex = currentPipelineStages?.length - 1
+    return currentPipelineStages && currentPipelineStages.map((stage, index) => {
+      return (
+        <Wrap
+          key={stage.stageType + stage.stageName}
+          border='1px solid' mt='16px'
+          borderColor='brand.grey200'
+          borderRadius='4px'
+          p='10px'
+          width='350px'
+          spacing={4}
+          position='relative'
+          _after={{
+            content: "''",
+            display: index == lastIndex ? 'none' : 'block',
+            height: '16px',
+            border: '1px solid',
+            borderColor: 'brand.grey300',
+            position: 'absolute',
+            left: '90%',
+            top: '100%',
+          }}
+        >
+          <Text fontWeight='500'>{stage.stageName}</Text>
+          <CustomTag text={stage.stageType} color='brand.grey500' bg='brand.grey100' size='sm' />
+        </Wrap>
+      )
+    })
   }
 
   return (
-    <FormWrapper>
-      {renderRadioButtons()}
-      {
-        radioButtonValue === 'selectFromPipelines' &&
+
+    <FormWrapper height='550px'>
+      {/* {renderRadioButtons()} */}
+      <Box display='flex' justifyContent='space-between' alignItems='flex-end' mb='10px' pb='10px'>
         <DropdownList
-          key={selectedItem}
-          selectedItem={selectedItem}
-          items={pipelines}
+          key={selectedPipeline}
+          selectedItem={selectedPipeline}
+          items={pipelineNames}
           onSelectItem={handleDropdownItemChange}
         />
-      }
-
-      {
+      </Box>
+      {/* {
         radioButtonValue === 'createNewPipeline' &&
         <InputField
           value={pipelineTitle}
@@ -61,7 +136,10 @@ const HiringPipelineForm = (props: HiringPipelineProps) => {
           width='250px'
           onChange={(e) => setPipelineTitle(e.target.value)}
         />
-      }
+      } */}
+      <Box height='400px' overflowY='auto'>
+        {renderPipelineStages()}
+      </Box>
     </FormWrapper>
   );
 }
