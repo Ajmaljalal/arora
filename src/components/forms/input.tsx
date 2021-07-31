@@ -6,9 +6,6 @@ type InputFieldProps = {
   value: string | number
   isRequired?: boolean
   label?: string
-  isInvalid?: boolean
-  errorMessage?: string
-  helperText?: string
   width?: string
   type?: string
   leftAddOn?: string | null
@@ -18,16 +15,13 @@ const InputField = ({
   onChange,
   isRequired = false,
   label,
-  isInvalid,
-  errorMessage,
-  helperText,
   width,
   type,
   leftAddOn = null,
   value
 }: InputFieldProps) => {
   return (
-    <FormControl mt='15px' width={width} isRequired={isRequired} isInvalid={isInvalid}>
+    <FormControl mb='10px' width={width} isRequired={isRequired}>
       <FormLabel htmlFor={label.toLowerCase()} fontSize='16px' fontWeight='600'>{label}</FormLabel>
       <InputGroup>
         {
@@ -61,8 +55,6 @@ const InputField = ({
           _invalid={{ boxShadow: 'none', borderColor: 'brand.red' }}
         />
       </InputGroup>
-      <FormErrorMessage >{errorMessage}</FormErrorMessage>
-      <FormHelperText>{helperText}</FormHelperText>
     </FormControl>
   )
 }
