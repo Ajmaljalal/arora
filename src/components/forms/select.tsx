@@ -7,8 +7,6 @@ type SelectFieldProps = {
   options: string[]
   isRequired?: boolean
   label?: string
-  isInvalid?: boolean
-  errorMessage?: string
   helperText?: string
   width?: string
 }
@@ -17,15 +15,12 @@ const SelectField = ({
   onChange,
   isRequired = false,
   label,
-  isInvalid,
-  errorMessage,
-  helperText,
   width,
   value,
   options
 }: SelectFieldProps) => {
   return (
-    <FormControl mt='15px' width={width} isRequired={isRequired} isInvalid={isInvalid}>
+    <FormControl mb='10px' width={width} isRequired={isRequired}>
       <FormLabel htmlFor={label.toLowerCase()} fontSize='16px' fontWeight='600'>{label}</FormLabel>
       <Select
         id={label.toLowerCase()}
@@ -57,8 +52,6 @@ const SelectField = ({
           })
         }
       </Select>
-      <FormErrorMessage>{errorMessage}</FormErrorMessage>
-      <FormHelperText>{helperText}</FormHelperText>
     </FormControl>
   )
 }
