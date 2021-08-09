@@ -1,26 +1,27 @@
-import React, { useMemo } from 'react'
-import { Avatar, Box, Divider, HStack, useColorModeValue, useDisclosure } from '@chakra-ui/react'
+import React from 'react'
+import { Avatar, Box, Divider, HStack, useColorModeValue } from '@chakra-ui/react'
 import AddIcon from '../../../public/assets/icons/add-white.svg'
 import NotificationIcon from '../../../public/assets/icons/notification.svg'
 import { CenteredIconButton } from '../../components/buttons/centered-icon-button'
 import SearchBar from './header-searchbar'
 import ClientsDropDown from './header-client-options'
-import CreateJobPost from '../create-job-post'
 
 
 const Header = () => {
 	const borderBottomColor = useColorModeValue('grey', 'lightGray')
-	const { isOpen, onOpen, onClose } = useDisclosure()
+
 
 	const rightSideQuickActions = () => {
 		return (
 			<HStack>
 				<CenteredIconButton
 					Icon={<AddIcon />}
-					onClick={onOpen}
+					onClick={() => console.log('clicked')}
 					bg='brand.secondary'
 					isRound
+					href='/create-job-post'
 				/>
+
 				<CenteredIconButton
 					Icon={<NotificationIcon />}
 					onClick={() => console.log('clicked')}
@@ -37,9 +38,6 @@ const Header = () => {
 			</HStack>
 		)
 	}
-	const memoizedCreateJobPostComponent = useMemo(() => {
-		return <CreateJobPost isOpen={isOpen} onClose={onClose} />
-	}, [isOpen])
 
 
 	// Component return
@@ -59,7 +57,6 @@ const Header = () => {
 			<Divider orientation='vertical' borderColor='brand.grey200' mx='30px' />
 			<SearchBar />
 			{rightSideQuickActions()}
-			{memoizedCreateJobPostComponent}
 		</Box>
 	)
 }
