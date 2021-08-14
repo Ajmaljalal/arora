@@ -2,8 +2,9 @@ import React, { ChangeEvent, useState } from 'react'
 import { Box, HStack, Text } from '@chakra-ui/react'
 import { JobResponsibilitiesObject } from './utils/objects'
 import TrashIcon from '../../../public/assets/icons/trash-empty.svg'
-import EditIcon from '../../../public/assets/icons/edit.svg'
+import EditIcon from '../../../public/assets/icons/edit-green.svg'
 import CustomTextArea from '../../components/form/text-area'
+import BorderedListItem from '../../components/bordered-list-item'
 
 type JobResponsibilitiesFormProps = {
   data: JobResponsibilitiesObject
@@ -38,26 +39,8 @@ const JobResponsibilitiesForm = ({ data, onChange, onDelete }: JobResponsibiliti
   return (
     <>
       <Box maxHeight='500px' overflowY='auto'>
-        {data.responsibilities?.map(responsibility => {
-          return (
-            <HStack
-              key={responsibility}
-              p='10px 16px'
-              border='1px solid'
-              borderColor='brand.grey300'
-              borderRadius='4px'
-              mb='8px'
-              cursor='pointer'
-              display='flex'
-              justifyContent='space-between'
-              alignItems='flex-start'
-              spacing={3}
-            >
-              <Text flex={1} fontSize='14' fontWeight='400'>{responsibility}</Text>
-              <EditIcon onClick={() => handleEdit(responsibility)} />
-              <TrashIcon onClick={() => handleDelete(responsibility)} />
-            </HStack>
-          )
+        {data.responsibilities?.map((responsibility, index) => {
+          return <BorderedListItem text={responsibility} onDelete={handleDelete} onEdit={handleEdit} number={index + 1} />
         })}
       </Box>
       <CustomTextArea value={fieldValue} handleChange={handleChange} handleSubmit={handleSubmit} />
