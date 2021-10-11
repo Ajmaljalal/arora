@@ -1,6 +1,4 @@
-import { Fonts } from "../components/fonts"
 // 1. Import `extendTheme`
-
 import { extendTheme } from "@chakra-ui/react"
 
 // 2. Call `extendTheme` and pass your custom values
@@ -32,11 +30,6 @@ const theme = extendTheme({
       grey50: '#CDCED0',
     }
   },
-  fonts: {
-    body: "'silka'",
-    div: "'silka' 'san-serif'",
-    heading: "'silka-bold' 'san-serif'",
-  }
 })
 
 export default theme
