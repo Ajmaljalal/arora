@@ -58,7 +58,6 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
   const handleChagne = (e: ChangeEvent<HTMLInputElement>) => {
     const fieldName = e.target.name.split(' ').join('')
     let value: string | number = e.target.value
-    console.log(value)
     if (e.target.type === 'number' && value) {
       value = parseInt(value)
     }
