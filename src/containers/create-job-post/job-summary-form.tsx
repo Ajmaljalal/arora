@@ -28,7 +28,7 @@ const JobSummaryForm = ({ onChange, data }: JobSummaryFormProps) => {
     <>
       <InputField value={data?.JobTitle} onChange={onChange} label='Job Title' isRequired={true} />
       <Box display='flex' justifyContent='space-between'>
-        <SelectField value={data?.JobType} onChange={onChange} label='Job Type' width='48%' options={jobTypes} />
+        <SelectField value={data?.JobType} onChange={onChange} label='Job Type' width='48%' options={jobTypes} isRequired={true} />
         <SelectField value={data?.JobMethod} onChange={onChange} label='Job Method' width='48%' options={jobMethods} isRequired={true} />
       </Box>
       <Box display='flex' justifyContent='space-between'>
