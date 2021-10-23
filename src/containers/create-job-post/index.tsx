@@ -58,10 +58,10 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
   const handleChagne = (e: ChangeEvent<HTMLInputElement>) => {
     const fieldName = e.target.name.split(' ').join('')
     let value: string | number = e.target.value
+    console.log(value)
     if (e.target.type === 'number' && value) {
       value = parseInt(value)
     }
-    // Temp objects to store and keep track of form data temporarily when the value of an input changes
     const currentInputData = {
       [fieldName]: value
     }
@@ -72,6 +72,17 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
     const formDataTemp = {
       ...formData,
       [currentStep.name]: currentFormData
+    }
+    setFormData(formDataTemp)
+  }
+
+  const handleJobResponsibilitiesChange = (e: ChangeEvent<HTMLInputElement>) => {
+    let value: string = e.target.value
+    const responsibilities: string[] = formData.jobResponsibilities.responsibilities
+    responsibilities.push(value)
+    const formDataTemp = {
+      ...formData,
+      jobResponsibilities: { responsibilities: responsibilities, isComplete: true }
     }
     setFormData(formDataTemp)
   }
@@ -99,35 +110,23 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
 
   }
 
-  const getFormCompletionStatus = () => {
-    let jobDescription = ''
-    convertToRaw(textEditorState.getCurrentContent()).blocks.forEach(block => jobDescription += block.text.split(','))
-    return {
-      jobSummary: formData.jobSummary.isComplete,
-      jobResponsibilities: formData.jobResponsibilities.isComplete,
-      jobSkillsRequirements: formData.jobSkillsRequirements.isComplete,
-      jobImpacts: formData.jobImpacts.isComplete,
-      jobPipeline: formData.jobPipeline.isComplete,
-      jobScoreCard: formData.jobScoreCard.isComplete,
-      jobDescription: jobDescription.trim().length > 0
-    }
-  }
-
 
   const renderModalBody = () => {
-    const formsCompletionStatus = getFormCompletionStatus()
+    const formsCompletionStatus = getFormcompletionStatus(textEditorState, formData)
     return (
       <ModalBody bg='brand.white' pt='20px'>
-        <HStack align='flex-start' spacing={20}>
+        <HStack align='flex-start' spacing='10em'>
           <FormStepsMenu onStepChange={handleCurrentStepChange} stepItems={JobPostStepItems} currentStep={currentStep.name} formsCompletionStatus={formsCompletionStatus} />
-          <Box width='100%' maxWidth='636px'>
+          <Box width='636px'>
             <Box mb='32px' pb='24px' borderBottom='1px solid' borderColor='brand.grey200'>
               <PageTitle text={currentStep.text} />
             </Box>
             {formErr &&
               <InlineAlert status='error' title='Missing required fields' message={formErr} />
             }
-            {renderCurrentForm()}
+            <Box maxHeight='600px' overflowY='auto'>
+              {renderCurrentForm()}
+            </Box>
             {renderBottomBtns()}
           </Box>
         </HStack>
@@ -139,18 +138,13 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
   const renderCurrentForm = () => {
     let CurrentStepForm = JobPostForms[currentStep.name]
     const currentFormData = formData[currentStep.name]
-    if (currentStep.name === 'jobDescription') {
-      return (
-        <Box maxHeight='600px' overflowY='auto'>
-          {<CurrentStepForm onChange={handleRichTextEditorChange} data={textEditorState} />}
-        </Box>
-      )
-    } else {
-      return (
-        <Box maxHeight='600px' overflowY='auto'>
-          {<CurrentStepForm onChange={handleChagne} data={currentFormData} />}
-        </Box>
-      )
+    switch (currentStep.name) {
+      case 'jobDescription':
+        return <CurrentStepForm onChange={handleRichTextEditorChange} data={textEditorState} />
+      case 'jobResponsibilities':
+        return <CurrentStepForm onChange={handleJobResponsibilitiesChange} data={currentFormData} />
+      default:
+        return <CurrentStepForm onChange={handleChagne} data={currentFormData} />
     }
   }
 
@@ -181,3 +175,22 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
 }
 
 export default CreateJobPost
+
+
+
+function getFormcompletionStatus(textEditorState: EditorState, formData: any) {
+  return () => {
+    let jobDescription = ''
+    convertToRaw(textEditorState.getCurrentContent()).blocks.forEach(block => jobDescription += block.text.split(','))
+    return {
+      jobSummary: formData.jobSummary.isComplete,
+      jobResponsibilities: formData.jobResponsibilities.isComplete,
+      jobSkillsRequirements: formData.jobSkillsRequirements.isComplete,
+      jobImpacts: formData.jobImpacts.isComplete,
+      jobPipeline: formData.jobPipeline.isComplete,
+      jobScoreCard: formData.jobScoreCard.isComplete,
+      jobDescription: jobDescription.trim().length > 0
+    }
+  }
+}
+
