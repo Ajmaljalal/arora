@@ -1,4 +1,17 @@
+import { EditorState } from "draft-js"
 
+
+export type CurrentStepObject = {
+  name: string
+  text: string
+  index: number
+}
+
+export const CurrentStepInitialState: CurrentStepObject = {
+  text: 'Job Summary',
+  name: 'jobSummary',
+  index: 0
+}
 
 export type JobSummaryObject = {
   JobTitle: string
@@ -13,7 +26,7 @@ export type JobSummaryObject = {
 }
 
 export type JobDescriptionObject = {
-  description: string
+  description: EditorState
   isComplete: boolean
 }
 
@@ -46,18 +59,7 @@ export type JobScoreCardObject = {
   isComplete: boolean
 }
 
-export type JobSummaryFormErrorsObject = {
-  titleErr: string
-  typeErr: string
-  methodErr: string
-  locationErr: string
-  deadlineErr: string
-  minSalaryErr: string
-  maxSalaryErr: string
-  experienceErr: string
-}
-
-export const jobSummaryInitialState: JobSummaryObject = {
+export const JobSummaryInitialState: JobSummaryObject = {
   JobTitle: '',
   JobType: '',
   JobMethod: '',
@@ -69,38 +71,37 @@ export const jobSummaryInitialState: JobSummaryObject = {
   isComplete: false
 }
 
-export const jobSummaryFormErrorsInitialState: JobSummaryFormErrorsObject = {
-  titleErr: '',
-  typeErr: '',
-  methodErr: '',
-  locationErr: '',
-  deadlineErr: '',
-  minSalaryErr: '',
-  maxSalaryErr: '',
-  experienceErr: ''
-}
-
-export const JobDescriptionInitialState = {
-  description: '',
+export const JobDescriptionInitialState: JobDescriptionObject = {
+  description: null,
   isComplete: false
 }
 
-export const JobResponsibilitiesInitialState = {
+export const JobResponsibilitiesInitialState: JobResponsibilitiesObject = {
   responsibilities: [],
   isComplete: false
 }
 
-export const JobSkillsReqInitialState = {
+export const JobSkillsReqInitialState: JobSkillsReqObject = {
   skills: [],
   requirements: [],
   isComplete: false
 }
 
-export const JobImpactsInitialState = {
+export const JobImpactsInitialState: JobImpactsObject = {
   firstMonth: [],
   threeMonth: [],
   sixMonth: [],
   oneYear: [],
+  isComplete: false
+}
+
+export const JobHiringPipelineInitialState: JobHiringPipelineObject = {
+  id: '',
+  isComplete: false
+}
+
+export const JobScoreCardInitialState: JobScoreCardObject = {
+  id: '',
   isComplete: false
 }
 
@@ -113,3 +114,12 @@ export type FormDataTypes =
   | JobImpactsObject
   | JobHiringPipelineObject
   | JobScoreCardObject
+
+export const formDataInitialValues = {
+  jobSummary: JobSummaryInitialState,
+  jobResponsibilities: JobResponsibilitiesInitialState,
+  jobSkillsRequirements: JobSkillsReqInitialState,
+  jobImpacts: JobImpactsInitialState,
+  jobPipeline: JobHiringPipelineInitialState,
+  jobScoreCard: JobScoreCardInitialState
+}
