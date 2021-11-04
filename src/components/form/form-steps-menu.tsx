@@ -80,7 +80,7 @@ const FormStepsMenu = ({ onStepChange, stepItems, formsCompletionStatus, current
         >
           {
             isCurrent ? renderCurrentStepNumberBadge(index) : isComplete ?
-              <ListIcon as={GreenCheckIcon} width='25px' height='24px' /> : renderNotCompleteStepNumberBadge(index)
+              <ListIcon as={GreenCheckIcon} width='25px' height='25px' /> : renderNotCompleteStepNumberBadge(index)
           }
           {item.text}
         </ListItem>
