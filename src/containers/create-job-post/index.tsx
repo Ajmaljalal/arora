@@ -6,12 +6,9 @@ import PageTitle from '../../components/headings/page-title'
 import {
   getCurrentFormData,
   jobPostStepComponents,
-  jobPostStepItems,
-  jobSummaryFormErrorsInitialState,
-  JobSummaryFormErrorsObject,
-  jobSummaryInitialState,
-  JobSummaryObject
+  jobPostStepItems
 } from './utils'
+import { jobSummaryFormErrorsInitialState, JobSummaryFormErrorsObject, jobSummaryInitialState, JobSummaryObject } from './utils/objects'
 
 type CreateJobPostProps = {
 } & Omit<ModalProps, 'children'>
