@@ -43,7 +43,7 @@ export const JobPostStepItems = [
   {
     text: 'Candidate Impacts',
     name: 'jobImpacts',
-    desc: 'What will be the applicant busy with in one, three, six months?'
+    desc: 'What will be the applicant busy with in the first month, three months, and in a year?'
   },
   {
     text: 'Job Description',
