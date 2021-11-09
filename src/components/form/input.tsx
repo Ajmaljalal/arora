@@ -42,7 +42,8 @@ const InputField = ({
           border='1px solid'
           borderColor='brand.grey200'
           borderRadius='4px'
-          color='brand.grey400'
+          color='brand.grey300'
+          fontSize='18px'
           _hover={{
             borderColor: 'brand.grey300',
             color: 'brand.grey400'
@@ -51,8 +52,7 @@ const InputField = ({
             borderColor: 'brand.secondary',
             color: 'brand.black'
           }}
-          _placeholder={{ color: 'brand.grey400' }}
-          _invalid={{ boxShadow: 'none', borderColor: 'brand.red' }}
+          _placeholder={{ color: 'brand.grey300' }}
         />
       </InputGroup>
     </FormControl>
