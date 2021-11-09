@@ -7,9 +7,10 @@ import CustomTextArea from '../../components/form/text-area'
 type JobResponsibilitiesFormProps = {
   data: JobResponsibilitiesObject
   onChange: (e) => void
+  onDelete: (res: string) => void
 }
 
-const JobResponsibilitiesForm = ({ data, onChange }: JobResponsibilitiesFormProps) => {
+const JobResponsibilitiesForm = ({ data, onChange, onDelete }: JobResponsibilitiesFormProps) => {
   const [fieldValue, setFieldValue] = useState('')
   const responsibilities = data.responsibilities
 
@@ -26,7 +27,13 @@ const JobResponsibilitiesForm = ({ data, onChange }: JobResponsibilitiesFormProp
   }
 
   const handleEdit = (e) => {
-    setFieldValue(e.target.innerText)
+    const text = e.target?.innerText
+    setFieldValue(text)
+    onDelete(text)
+  }
+
+  const handleDelete = (e) => {
+    onDelete(e.target?.previousElementSibling?.innerText)
   }
 
   return (
@@ -48,7 +55,7 @@ const JobResponsibilitiesForm = ({ data, onChange }: JobResponsibilitiesFormProp
               spacing={3}
             >
               <Text flex={1} fontSize='14' fontWeight='400' onClick={handleEdit}>{responsibility}</Text>
-              <TrashIcon />
+              <TrashIcon onClick={handleDelete} />
             </HStack>
           )
         })}
