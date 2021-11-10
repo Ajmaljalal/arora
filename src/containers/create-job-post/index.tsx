@@ -77,11 +77,30 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
 
   const handleJobResponsibilitiesChange = (e: ChangeEvent<HTMLInputElement>) => {
     let value: string = e.target.value
+    let isComplete: boolean = false
     const responsibilities: string[] = formData.jobResponsibilities.responsibilities
+    if (responsibilities.includes(value)) return
     responsibilities.push(value)
+    if (responsibilities.length) {
+      isComplete = true
+    }
     const formDataTemp = {
       ...formData,
-      jobResponsibilities: { responsibilities: responsibilities, isComplete: true }
+      jobResponsibilities: { responsibilities: responsibilities, isComplete: isComplete }
+    }
+    setFormData(formDataTemp)
+  }
+
+  const handleDeleteJobResponsibility = (responsibilityToDelete: string) => {
+    const responsibilities: string[] = formData.jobResponsibilities.responsibilities
+    const newResponsibilities = responsibilities.filter(responsibility => responsibility !== responsibilityToDelete)
+    let isComplete: boolean = true
+    if (!responsibilities.length) {
+      isComplete = false
+    }
+    const formDataTemp = {
+      ...formData,
+      jobResponsibilities: { responsibilities: newResponsibilities, isComplete: isComplete }
     }
     setFormData(formDataTemp)
   }
@@ -141,7 +160,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
       case 'jobDescription':
         return <CurrentStepForm onChange={handleRichTextEditorChange} data={textEditorState} />
       case 'jobResponsibilities':
-        return <CurrentStepForm onChange={handleJobResponsibilitiesChange} data={currentFormData} />
+        return <CurrentStepForm onChange={handleJobResponsibilitiesChange} onDelete={handleDeleteJobResponsibility} data={currentFormData} />
       default:
         return <CurrentStepForm onChange={handleChagne} data={currentFormData} />
     }
@@ -178,18 +197,16 @@ export default CreateJobPost
 
 
 function getFormcompletionStatus(textEditorState: EditorState, formData: any) {
-  return () => {
-    let jobDescription = ''
-    convertToRaw(textEditorState.getCurrentContent()).blocks.forEach(block => jobDescription += block.text.split(','))
-    return {
-      jobSummary: formData.jobSummary.isComplete,
-      jobResponsibilities: formData.jobResponsibilities.isComplete,
-      jobSkillsRequirements: formData.jobSkillsRequirements.isComplete,
-      jobImpacts: formData.jobImpacts.isComplete,
-      jobPipeline: formData.jobPipeline.isComplete,
-      jobScoreCard: formData.jobScoreCard.isComplete,
-      jobDescription: jobDescription.trim().length > 0
-    }
+  let jobDescription = ''
+  convertToRaw(textEditorState.getCurrentContent()).blocks.forEach(block => jobDescription += block.text.split(','))
+  return {
+    jobSummary: formData.jobSummary.isComplete,
+    jobResponsibilities: formData.jobResponsibilities.isComplete,
+    jobSkillsRequirements: formData.jobSkillsRequirements.isComplete,
+    jobImpacts: formData.jobImpacts.isComplete,
+    jobPipeline: formData.jobPipeline.isComplete,
+    jobScoreCard: formData.jobScoreCard.isComplete,
+    jobDescription: jobDescription.trim().length > 0
   }
 }
 
