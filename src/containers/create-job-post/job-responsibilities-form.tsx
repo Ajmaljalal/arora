@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
-import { Box, CloseButton, HStack, Input, Text, Textarea } from '@chakra-ui/react'
+import { Box, HStack, Text } from '@chakra-ui/react'
 import { JobResponsibilitiesObject } from './utils/objects'
 import TrashIcon from '../../../public/assets/icons/trash-empty.svg'
 import CustomTextArea from '../../components/form/text-area'
@@ -12,7 +12,6 @@ type JobResponsibilitiesFormProps = {
 
 const JobResponsibilitiesForm = ({ data, onChange, onDelete }: JobResponsibilitiesFormProps) => {
   const [fieldValue, setFieldValue] = useState('')
-  const responsibilities = data.responsibilities
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setFieldValue(e.target.value)
@@ -26,20 +25,19 @@ const JobResponsibilitiesForm = ({ data, onChange, onDelete }: JobResponsibiliti
     }
   }
 
-  const handleEdit = (e) => {
-    const text = e.target?.innerText
+  const handleEdit = (text: string) => {
     setFieldValue(text)
     onDelete(text)
   }
 
-  const handleDelete = (e) => {
-    onDelete(e.target?.previousElementSibling?.innerText)
+  const handleDelete = (text: string) => {
+    onDelete(text)
   }
 
   return (
     <>
       <Box maxHeight='500px' overflowY='auto'>
-        {responsibilities?.map(responsibility => {
+        {data.responsibilities?.map(responsibility => {
           return (
             <HStack
               key={responsibility}
@@ -54,8 +52,9 @@ const JobResponsibilitiesForm = ({ data, onChange, onDelete }: JobResponsibiliti
               alignItems='flex-start'
               spacing={3}
             >
-              <Text flex={1} fontSize='14' fontWeight='400' onClick={handleEdit}>{responsibility}</Text>
-              <TrashIcon onClick={handleDelete} />
+              <Text flex={1} fontSize='14' fontWeight='400'>{responsibility}</Text>
+              <TrashIcon onClick={() => handleEdit(responsibility)} />
+              <TrashIcon onClick={() => handleDelete(responsibility)} />
             </HStack>
           )
         })}
