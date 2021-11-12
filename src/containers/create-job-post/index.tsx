@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
-import { Box, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, ModalProps } from '@chakra-ui/react'
+import { Box, HStack, Modal, Text, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from '@chakra-ui/react'
 import { BaseButton } from '../../components/buttons/button'
 import FormStepsMenu from '../../components/form/form-steps-menu'
 import PageTitle from '../../components/headings/page-title'
@@ -11,28 +11,36 @@ import { CurrentStepInitialState, CurrentStepObject, formDataInitialValues, Form
 import InlineAlert from '../../components/alerts/inline-alert'
 import { convertToRaw, EditorState } from 'draft-js'
 import { checkEmptyFields } from '../../utils/form'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 type CreateJobPostProps = {
-} & Omit<ModalProps, 'children'>
+}
 
-
-const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
-  const [currentStep, setCurrentStep] = useState<CurrentStepObject>(CurrentStepInitialState)
+const CreateJobPostModal = ({ }: CreateJobPostProps) => {
+  const [currentStep, setCurrentStep] = useState(CurrentStepInitialState)
   const [formData, setFormData] = useState(formDataInitialValues)
   const [textEditorState, setTextEditorState] = useState<EditorState>(EditorState.createEmpty())
   const [formErr, setFormErr] = useState('')
+  const router = useRouter()
 
   const closeModal = () => {
-    // Make sure on closing the modal all form data and related state is empty
-    setFormData(formDataInitialValues)
+    setFormData(clearForm())
     setTextEditorState(EditorState.createEmpty())
     setFormErr('')
     setCurrentStep(CurrentStepInitialState)
-    onClose()
+    router.back()
+  }
+
+  const clearForm = () => {
+    formDataInitialValues.jobResponsibilities.responsibilities = []
+    formDataInitialValues.jobSkillsRequirements.requirements = []
+    formDataInitialValues.jobSkillsRequirements.skills = []
+    return formDataInitialValues
   }
 
 
-  const handleCurrentStepChange = (nextStep: CurrentStepObject) => {
+  const handleCurrentStepChange = (nextStep) => {
     const isEmpty = checkEmptyFields(formData[currentStep.name])
     const isMovingBack = currentStep.index > nextStep.index
     const isJumpingSteps = nextStep.index - currentStep.index > 1
@@ -41,13 +49,13 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
     //   setFormErr('field marked with * cannot be empty or 0!')
     //   return
     // }
-    if (nextStep.text) {
+    if (nextStep.name) {
       setCurrentStep(nextStep)
     } else {
       const nextStepIndex = currentStep.index + 1
       if (nextStepIndex < JobPostStepItems.length) {
         const nextStep = JobPostStepItems[nextStepIndex]
-        setCurrentStep({ name: nextStep.name, text: nextStep.text, index: nextStepIndex })
+        setCurrentStep({ ...nextStep, index: nextStepIndex })
       }
     }
     toggleCurrentFormCompletionStatus(isEmpty)
@@ -95,7 +103,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
     const responsibilities: string[] = formData.jobResponsibilities.responsibilities
     const newResponsibilities = responsibilities.filter(responsibility => responsibility !== responsibilityToDelete)
     let isComplete: boolean = true
-    if (!responsibilities.length) {
+    if (!newResponsibilities.length) {
       isComplete = false
     }
     const formDataTemp = {
@@ -111,7 +119,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
 
 
   const toggleCurrentFormCompletionStatus = (isEmpty: boolean) => {
-    if (currentStep.name === 'jobDescription') {
+    if (currentStep.name === 'jobDescription' || currentStep.name === 'jobResponsibilities') {
       return
     }
     const currentFormData: FormDataTypes = formData[currentStep.name]
@@ -129,20 +137,36 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
   }
 
 
+  const getFormcompletionStatus = () => {
+    let jobDescription = ''
+    convertToRaw(textEditorState.getCurrentContent()).blocks.forEach(block => jobDescription += block.text.split(','))
+    return {
+      jobSummary: formData.jobSummary.isComplete,
+      jobResponsibilities: formData.jobResponsibilities.isComplete,
+      jobSkillsRequirements: formData.jobSkillsRequirements.isComplete,
+      jobImpacts: formData.jobImpacts.isComplete,
+      jobPipeline: formData.jobPipeline.isComplete,
+      jobScoreCard: formData.jobScoreCard.isComplete,
+      jobDescription: jobDescription.trim().length > 0
+    }
+  }
+
+
   const renderModalBody = () => {
-    const formsCompletionStatus = getFormcompletionStatus(textEditorState, formData)
+    const formsCompletionStatus = getFormcompletionStatus()
     return (
       <ModalBody bg='brand.white' pt='20px'>
-        <HStack align='flex-start' spacing='10em'>
+        <HStack align='flex-start' spacing='8em'>
           <FormStepsMenu onStepChange={handleCurrentStepChange} stepItems={JobPostStepItems} currentStep={currentStep.name} formsCompletionStatus={formsCompletionStatus} />
-          <Box width='636px'>
+          <Box width='636px' minWidth='410px'>
             <Box mb='32px' pb='24px' borderBottom='1px solid' borderColor='brand.grey200'>
               <PageTitle text={currentStep.text} />
+              <Text fontSize={'14px'} fontWeight='400' color='brand.grey400' mt='8px'>{currentStep.desc}</Text>
             </Box>
             {formErr &&
               <InlineAlert status='error' title='Missing required fields' message={formErr} />
             }
-            <Box maxHeight='600px' overflowY='auto'>
+            <Box height='500px' overflowY='auto'>
               {renderCurrentForm()}
             </Box>
             {renderBottomBtns()}
@@ -155,7 +179,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
 
   const renderCurrentForm = () => {
     let CurrentStepForm = JobPostForms[currentStep.name]
-    const currentFormData = formData[currentStep.name]
+    const currentFormData = formData && formData[currentStep.name]
     switch (currentStep.name) {
       case 'jobDescription':
         return <CurrentStepForm onChange={handleRichTextEditorChange} data={textEditorState} />
@@ -169,7 +193,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
   const renderBottomBtns = () => {
     return (
       <HStack spacing={4} mt='50px' justifyContent='flex-end'>
-        <BaseButton text='Cancel' outlined={true} onClick={closeModal} borderColor='brand.primary' color='brand.primary' />
+        <Link href='/'><a><BaseButton text='Cancel' outlined={true} onClick={closeModal} borderColor='brand.primary' color='brand.primary' /></a></Link>
         <BaseButton text='Next' onClick={handleCurrentStepChange} color='brand.white' bg='brand.primary' />
       </HStack>
     )
@@ -177,7 +201,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
 
   return (
     <Modal
-      isOpen={isOpen}
+      isOpen={true}
       onClose={closeModal}
       size='full'
       closeOnOverlayClick={false}
@@ -192,21 +216,5 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
   )
 }
 
-export default CreateJobPost
-
-
-
-function getFormcompletionStatus(textEditorState: EditorState, formData: any) {
-  let jobDescription = ''
-  convertToRaw(textEditorState.getCurrentContent()).blocks.forEach(block => jobDescription += block.text.split(','))
-  return {
-    jobSummary: formData.jobSummary.isComplete,
-    jobResponsibilities: formData.jobResponsibilities.isComplete,
-    jobSkillsRequirements: formData.jobSkillsRequirements.isComplete,
-    jobImpacts: formData.jobImpacts.isComplete,
-    jobPipeline: formData.jobPipeline.isComplete,
-    jobScoreCard: formData.jobScoreCard.isComplete,
-    jobDescription: jobDescription.trim().length > 0
-  }
-}
+export default CreateJobPostModal
 
