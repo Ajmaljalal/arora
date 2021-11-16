@@ -2,14 +2,18 @@ import { EditorState } from "draft-js"
 
 
 export type CurrentStepObject = {
-  name: string
-  text: string
+  step: {
+    name: string
+    text: string
+    desc: string
+  }
   index: number
 }
 
-export const CurrentStepInitialState: CurrentStepObject = {
+export const CurrentStepInitialState = {
   text: 'Job Summary',
   name: 'jobSummary',
+  desc: 'Create a summary of your job!',
   index: 0
 }
 
@@ -42,10 +46,10 @@ export type JobSkillsReqObject = {
 }
 
 export type JobImpactsObject = {
-  firstMonth: string[]
-  threeMonth: string[]
-  sixMonth: string[]
-  oneYear: string[]
+  firstMonth: string
+  threeMonth: string
+  sixMonth: string
+  oneYear: string
   isComplete: boolean
 }
 
@@ -83,15 +87,15 @@ export const JobResponsibilitiesInitialState: JobResponsibilitiesObject = {
 
 export const JobSkillsReqInitialState: JobSkillsReqObject = {
   skills: [],
-  requirements: [],
+  requirements: ['some thing here'],
   isComplete: false
 }
 
 export const JobImpactsInitialState: JobImpactsObject = {
-  firstMonth: [],
-  threeMonth: [],
-  sixMonth: [],
-  oneYear: [],
+  firstMonth: '',
+  threeMonth: '',
+  sixMonth: '',
+  oneYear: '',
   isComplete: false
 }
 
