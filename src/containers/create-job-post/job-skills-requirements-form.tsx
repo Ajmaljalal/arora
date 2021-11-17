@@ -6,10 +6,10 @@ type JobSkillsRequirementsFormProps = {
   onChange: (e) => void
 }
 
-const JobSkillsRequiremnets = (props: JobSkillsRequirementsFormProps) => {
+const JobSkillsRequiremnetsForm = (props: JobSkillsRequirementsFormProps) => {
   return (
     <div>JobSkillsRequiremnets</div>
   )
 }
 
-export default JobSkillsRequiremnets
+export default JobSkillsRequiremnetsForm

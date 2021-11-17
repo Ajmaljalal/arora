@@ -6,7 +6,7 @@ export interface HiringPipelineProps {
   onChange: (e) => void
 }
 
-const HiringPipeline = (props: HiringPipelineProps) => {
+const HiringPipelineForm = (props: HiringPipelineProps) => {
   return (
     <div>
       hiring pipline
@@ -14,4 +14,4 @@ const HiringPipeline = (props: HiringPipelineProps) => {
   );
 }
 
-export default HiringPipeline
+export default HiringPipelineForm
