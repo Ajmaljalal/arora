@@ -10,7 +10,6 @@ import {
 import { CurrentStepInitialState, CurrentStepObject, formDataInitialValues, FormDataTypes } from './utils/objects'
 import InlineAlert from '../../components/alerts/inline-alert'
 import { convertToRaw, EditorState } from 'draft-js'
-import JobDescriptionFrom from './job-description-form'
 import { checkEmptyFields } from '../../utils/form'
 
 type CreateJobPostProps = {
@@ -26,6 +25,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
   const closeModal = () => {
     // Make sure on closing the modal all form data and related state is empty
     setFormData(formDataInitialValues)
+    setTextEditorState(EditorState.createEmpty())
     setFormErr('')
     setCurrentStep(CurrentStepInitialState)
     onClose()

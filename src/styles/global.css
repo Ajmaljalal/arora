@@ -1,0 +1,23 @@
+      @font-face {
+        font-family: 'silka-bold';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('../../public/assets//fonts//Silka-Bold.otf') format('otf');
+      }
+
+      @font-face {
+        font-family: 'silka-medium';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('../../public/assets/fonts/Silka-Medium.otf') format('otf');
+      }
+
+      @font-face {
+        font-family: 'silka';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('../../public/assets/fonts/Silka-Light.otf') format('otf');
+      }
