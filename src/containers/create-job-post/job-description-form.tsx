@@ -5,21 +5,20 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState } from "draft-js";
 import { useRouter } from "next/dist/client/router";
 import { EditorProps } from "react-draft-wysiwyg"
+import { FormDataTypes } from "./utils/objects";
 // import { convertFromRaw, convertToRaw } from "draft-js";
 
-// const Editor = dynamic(
-//   () => import("react-draft-wysiwyg").then((module) => module.Editor),
-//   {
-//     ssr: false,
-//   }
-// );
+type JobDescriptionFormProps = {
+  data: FormDataTypes
+  onChange: (e) => void
+}
 
 const Editor = dynamic<EditorProps>(
   () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
   { ssr: false }
 )
 
-const JobDescription = () => {
+const JobDescription = ({ }: JobDescriptionFormProps) => {
   const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty());
   const router = useRouter();
   // const { id } = router.query;

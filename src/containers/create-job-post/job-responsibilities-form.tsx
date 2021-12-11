@@ -1,8 +1,12 @@
 import React from 'react'
+import { FormDataTypes } from './utils/objects'
 
-type Props = {}
+type JobResponsibilitiesFormProps = {
+  data: FormDataTypes
+  onChange: (e) => void
+}
 
-const JobResponsibilities = (props: Props) => {
+const JobResponsibilities = (props: JobResponsibilitiesFormProps) => {
   return (
     <div>JobResponsibilities</div>
   )
