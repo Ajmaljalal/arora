@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Main from '../components/layouts/main'
-import Header from '../containers/header/header'
 import MainContainer from '../containers/main'
 import LeftNav from '../containers/nav/leftNav'
 
