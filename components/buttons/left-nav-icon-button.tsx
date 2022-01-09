@@ -21,17 +21,13 @@ export const LeftIconButton = ({ onSelect, text, Icon, isSelected }: LeftIconBut
       lineHeight='1.2'
       minWidth='170px'
       transition='all 0.5s cubic-bezier(.08,.52,.52,1)'
-      py='8px'
+      height='2.2rem'
       px='5px'
       borderRadius='3px'
       fontSize='14px'
       fontWeight='semibold'
       bg={isSelected ? 'brand.yellow' : ''}
       color={isSelected ? 'brand.primary' : 'brand.white'}
-      // _hover={{
-      //   bg: 'brand.yellow',
-      //   color: 'brand.primary',
-      // }}
       _focus={{
         bg: 'brand.yellow',
         color: 'brand.primary',
