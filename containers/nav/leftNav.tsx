@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Box, useColorModeValue } from '@chakra-ui/react'
-import { LeftIconButton } from '../../components/buttons/left-nav-icon-button'
-import { Dashboard } from '../../public/assets/icons/dashboard'
+import { CenteredIconButton } from '../../components/buttons/centered-icon-button'
+import { Bell } from '../../public/assets/icons/bell'
 
 function LeftNav() {
   const textColor = useColorModeValue('brand.white', 'brand.white')
-  const [currentMenuOption, setMenuOption] = useState('Home')
+  const [currentMenuOption, setMenuOption] = useState(null)
   return (
     <Box
       minWidth='200px'
@@ -13,11 +13,9 @@ function LeftNav() {
       bg='brand.primary'
       color={textColor}
     >
-      <LeftIconButton
-        text='Home'
-        Icon={<Dashboard color={currentMenuOption === 'Home' ? '' : 'white'} />}
-        onSelect={(text) => setMenuOption(text)}
-        isSelected={currentMenuOption === 'Home'}
+      <CenteredIconButton
+        Icon={<Bell color='gray' />}
+        onClick={() => console.log('clicked')}
       />
     </Box>
   )
