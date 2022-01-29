@@ -15,7 +15,7 @@ export const store = configureStore({
   devTools: true
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
+// Infer the `RootState` and `AppDispatch` types from the store itself //
 export type RootState = ReturnType<typeof store.getState>;
 
 // Inferred type: { users: UsersState}
