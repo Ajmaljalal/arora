@@ -5,7 +5,7 @@ import Header from '../header/header'
 
 function MainContainer() {
   return (
-    <Box display='flex' flexDirection='column' width='full' bg='brand.secondary'>
+    <Box display='flex' flexDirection='column' width='full' bg='brand.containerBackground'>
       <Header />
     </Box>
   )

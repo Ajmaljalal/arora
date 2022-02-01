@@ -9,10 +9,15 @@ const theme = extendTheme({
   },
   colors: {
     brand: {
-      primary: 'rgb(26, 30, 39)',
-      secondary: '#ECF5F5',
+      primary: '#4169E0',
+      primaryLight: 'rgba(229, 236, 255, 1)',
+      secondary: '#49C496',
+      containerBackground: '#F3F6F9',
       white: '#FFFFFF',
-      yellow: 'rgb(249, 218, 88)',
+      black: '#060A16',
+      grey: '#60728F',
+      greyDisabled: '#CDCED0',
+      red: '#EA4335'
     }
   }
 })

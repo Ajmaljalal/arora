@@ -7,9 +7,9 @@ function Header() {
 	return (
 		<Box
 			height='56px'
-			borderBottom={`0.5px solid ${borderBottomColor}`}
 			width='100%'
 			bg='brand.white'
+			boxShadow='0px 1px 8px rgba(6, 10, 22, 0.08)'
 		>
 		</Box>
 	)
