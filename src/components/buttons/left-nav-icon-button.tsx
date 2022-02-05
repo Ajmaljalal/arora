@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Box } from '@chakra-ui/react'
 
 type LeftIconButtonProps = {
@@ -19,18 +19,18 @@ export const LeftIconButton = ({ onSelect, text, Icon, isSelected }: LeftIconBut
       display='flex'
       alignItems='center'
       lineHeight='1.2'
-      minWidth='170px'
+      minWidth='228px'
       transition='all 0.5s cubic-bezier(.08,.52,.52,1)'
-      height='2.2rem'
-      px='5px'
+      px='8px'
+      py='13px'
       borderRadius='3px'
-      fontSize='14px'
-      fontWeight='semibold'
+      fontSize='16px'
+      fontWeight='500'
       bg={isSelected ? 'brand.yellow' : ''}
-      color={isSelected ? 'brand.primary' : 'brand.white'}
+      color='brand.white'
       _focus={{
-        bg: 'brand.yellow',
-        color: 'brand.primary',
+        bg: 'brand.primary',
+        color: 'brand.white',
       }}
     >
       <Box mr='8px' ml='3px'>{Icon}</Box>

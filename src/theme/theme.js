@@ -17,7 +17,8 @@ const theme = extendTheme({
       black: '#060A16',
       grey: '#60728F',
       greyDisabled: '#CDCED0',
-      red: '#EA4335'
+      red: '#EA4335',
+      darkGrey: '#77849E',
     }
   }
 })
