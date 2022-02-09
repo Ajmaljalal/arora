@@ -1,15 +1,15 @@
-import { Box, Button, useColorMode, useColorModeValue } from '@chakra-ui/react'
+import { Box, useColorMode, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 
 function Header() {
 	const { colorMode, toggleColorMode } = useColorMode()
-	const borderBottomColor = useColorModeValue('lightgray', 'grey')
+	const borderBottomColor = useColorModeValue('grey', 'lightGray')
 	return (
 		<Box
 			height='56px'
 			width='100%'
 			bg='brand.white'
-			boxShadow='0px 1px 8px rgba(6, 10, 22, 0.08)'
+			borderBottom={`1px solid ${borderBottomColor}`}
 		>
 		</Box>
 	)
