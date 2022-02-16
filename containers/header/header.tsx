@@ -8,8 +8,9 @@ function Header() {
 		<Box
 			height='56px'
 			borderBottom={`0.5px solid ${borderBottomColor}`}
+			width='100%'
+			bg='brand.white'
 		>
-			<Button onClick={toggleColorMode}>Dark</Button>
 		</Box>
 	)
 }

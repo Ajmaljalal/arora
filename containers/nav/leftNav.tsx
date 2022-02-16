@@ -3,13 +3,14 @@ import React from 'react'
 
 function LeftNav() {
   const borderBottomColor = useColorModeValue('lightgray', 'grey')
+  const textColor = useColorModeValue('brand.white', 'brand.white')
   return (
     <Box
-      minWidth='250px'
-      height='90vh'
-      borderRight={`0.5px solid ${borderBottomColor}`}
+      minWidth='200px'
+      height='100vh'
+      bg='brand.primary'
+      color={textColor}
     >
-      here
     </Box>
   )
 }
