@@ -4,6 +4,31 @@ import { LeftIconButton } from '../../components/buttons/left-nav-icon-button'
 import { NavItem, RecruiterNavItems } from './utils'
 
 
+const LeftNavBar = () => {
+  const textColor = useColorModeValue('brand.white', 'brand.white')
+  const [currentMenuOption, setMenuOption] = useState(null)
+  return (
+    <Box
+      maxWidth='260px'
+      minWidth='260px'
+      width='260px'
+      height='100vh'
+      bg='brand.black'
+      color={textColor}
+    >
+      {renderLogo()}
+      <VStack marginTop='20px'>
+        {renderNavItems(RecruiterNavItems.quick)}
+        {renderSectionTitle('Workspace')}
+        {renderNavItems(RecruiterNavItems.workspace)}
+        {renderSectionTitle('More')}
+        {renderNavItems(RecruiterNavItems.more)}
+      </VStack>
+    </Box>
+  )
+}
+
+
 
 const renderNavItems = (navItems: NavItem[]) => {
   return (
@@ -45,30 +70,6 @@ const renderSectionTitle = (text: string) => {
       >
         {text}
       </Text>
-    </Box>
-  )
-}
-
-const LeftNavBar = () => {
-  const textColor = useColorModeValue('brand.white', 'brand.white')
-  const [currentMenuOption, setMenuOption] = useState(null)
-  return (
-    <Box
-      maxWidth='260px'
-      minWidth='260px'
-      width='260px'
-      height='100vh'
-      bg='brand.black'
-      color={textColor}
-    >
-      {renderLogo()}
-      <VStack marginTop='20px'>
-        {renderNavItems(RecruiterNavItems.quick)}
-        {renderSectionTitle('Workspace')}
-        {renderNavItems(RecruiterNavItems.workspace)}
-        {renderSectionTitle('More')}
-        {renderNavItems(RecruiterNavItems.more)}
-      </VStack>
     </Box>
   )
 }
