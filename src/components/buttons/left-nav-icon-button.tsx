@@ -5,7 +5,7 @@ type LeftIconButtonProps = {
   text: string
   Icon: any
   isSelected: boolean
-  onSelect?: (id: string) => void
+  onSelect?: (id) => void
 }
 
 export const LeftIconButton = ({ onSelect, text, Icon, isSelected }: LeftIconButtonProps) => {
@@ -26,7 +26,7 @@ export const LeftIconButton = ({ onSelect, text, Icon, isSelected }: LeftIconBut
       borderRadius='3px'
       fontSize='16px'
       fontWeight='500'
-      bg={isSelected ? 'brand.yellow' : ''}
+      bg={isSelected ? 'brand.primary' : ''}
       color='brand.white'
       _focus={{
         bg: 'brand.primary',

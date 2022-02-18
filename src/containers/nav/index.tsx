@@ -2,11 +2,17 @@ import React, { useState } from 'react'
 import { Box, Heading, useColorModeValue, VStack, Text } from '@chakra-ui/react'
 import { LeftIconButton } from '../../components/buttons/left-nav-icon-button'
 import { NavItem, RecruiterNavItems } from './utils'
+import { useDispatch, useSelector } from '../../store/store'
+import {
+  changePage,
+  selectNav
+} from '../../store/nav';
 
 
 const LeftNavBar = () => {
   const textColor = useColorModeValue('brand.white', 'brand.white')
   const [currentMenuOption, setMenuOption] = useState(null)
+  const currentPage = useSelector(selectNav);
   return (
     <Box
       maxWidth='260px'
@@ -18,11 +24,11 @@ const LeftNavBar = () => {
     >
       {renderLogo()}
       <VStack marginTop='20px'>
-        {renderNavItems(RecruiterNavItems.quick)}
+        {renderNavItems(RecruiterNavItems.quick, currentPage)}
         {renderSectionTitle('Workspace')}
-        {renderNavItems(RecruiterNavItems.workspace)}
+        {renderNavItems(RecruiterNavItems.workspace, currentPage)}
         {renderSectionTitle('More')}
-        {renderNavItems(RecruiterNavItems.more)}
+        {renderNavItems(RecruiterNavItems.more, currentPage)}
       </VStack>
     </Box>
   )
@@ -30,15 +36,16 @@ const LeftNavBar = () => {
 
 
 
-const renderNavItems = (navItems: NavItem[]) => {
+const renderNavItems = (navItems: NavItem[], currentPage: string) => {
+  const dispatch = useDispatch();
   return (
     navItems.map(navItem => {
       return (
         <LeftIconButton
           text={navItem.text}
-          isSelected={true}
+          isSelected={currentPage === navItem.text}
           Icon={navItem.Icon}
-          onSelect={() => console.log('clicked')}
+          onSelect={() => dispatch(changePage(navItem.text))}
         />
       )
     })
@@ -51,7 +58,7 @@ const renderLogo = () => {
       <Heading
         as='h1'
         size='lg'
-        color='brand.secondary'
+        color='brand.white'
         margin='10px 25px'>
         Talentour
       </Heading>

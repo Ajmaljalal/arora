@@ -3,14 +3,14 @@ import {
   useDispatch as useDispatchBase,
   useSelector as useSelectorBase,
 } from 'react-redux';
-import { counterReducer } from './users/reducers';
+import { navbarReducer } from './nav/reducers';
 
 /**
  * Creates a store and includes all the slices as reducers.
  */
 export const store = configureStore({
   reducer: {
-    counter: counterReducer
+    navbar: navbarReducer
   },
   devTools: true
 });
