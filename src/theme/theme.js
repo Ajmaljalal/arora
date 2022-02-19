@@ -15,10 +15,15 @@ const theme = extendTheme({
       containerBackground: '#F3F6F9',
       white: '#FFFFFF',
       black: '#060A16',
-      grey: '#60728F',
-      greyDisabled: '#CDCED0',
       red: '#EA4335',
-      darkGrey: '#77849E',
+      yellow: '#FFD831',
+      orang: '#FF7B31',
+      grey500: '#77849E',
+      grey400: '#60728F',
+      grey300: '#ACBAD1',
+      grey200: '#ECF0FC',
+      grey100: '#F3F6F9',
+      grey50: '#CDCED0',
     }
   }
 })
