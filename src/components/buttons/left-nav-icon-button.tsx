@@ -1,5 +1,7 @@
 import React from 'react'
 import { Box } from '@chakra-ui/react'
+import Link from 'next/link'
+
 
 type LeftIconButtonProps = {
   text: string
@@ -9,32 +11,34 @@ type LeftIconButtonProps = {
 }
 
 export const LeftIconButton = ({ onSelect, text, Icon, isSelected }: LeftIconButtonProps) => {
+  const route = text === 'Home' ? '' : text.toLowerCase()
+  console.log(route)
   const handleSelect = () => {
     onSelect(text)
   }
   return (
-    <Box
-      onClick={handleSelect}
-      as='button'
-      display='flex'
-      alignItems='center'
-      lineHeight='1.2'
-      minWidth='228px'
-      transition='all 0.5s cubic-bezier(.08,.52,.52,1)'
-      px='8px'
-      py='10px'
-      borderRadius='3px'
-      fontSize='16px'
-      fontWeight='500'
-      bg={isSelected ? 'brand.primary' : ''}
-      color='brand.white'
-      _focus={{
-        bg: 'brand.primary',
-        color: 'brand.white',
-      }}
-    >
-      <Box mr='8px' ml='3px'>{Icon}</Box>
-      {text}
-    </Box>
+    <Link href={`/${route}`} passHref>
+      <a>
+        <Box
+          onClick={handleSelect}
+          as='button'
+          display='flex'
+          alignItems='center'
+          lineHeight='1.2'
+          minWidth='228px'
+          transition='all 0.5s cubic-bezier(.08,.52,.52,1)'
+          px='8px'
+          py='10px'
+          borderRadius='3px'
+          fontSize='16px'
+          fontWeight='500'
+          bg={isSelected ? 'brand.primary' : ''}
+          color='brand.white'
+        >
+          <Box mr='8px' ml='3px'>{Icon}</Box>
+          {text}
+        </Box>
+      </a>
+    </Link>
   )
 }

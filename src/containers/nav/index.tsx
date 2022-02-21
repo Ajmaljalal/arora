@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Box, Heading, useColorModeValue, VStack, Text } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
+import { Box, Heading, useColorModeValue, VStack, Text, Link } from '@chakra-ui/react'
 import { LeftIconButton } from '../../components/buttons/left-nav-icon-button'
 import { NavItem, RecruiterNavItems } from './utils'
 import { useDispatch, useSelector } from '../../store/store'
@@ -11,7 +11,6 @@ import {
 
 const LeftNavBar = () => {
   const textColor = useColorModeValue('brand.white', 'brand.white')
-  const [currentMenuOption, setMenuOption] = useState(null)
   const currentPage = useSelector(selectNav);
   return (
     <Box
@@ -36,21 +35,6 @@ const LeftNavBar = () => {
 
 
 
-const renderNavItems = (navItems: NavItem[], currentPage: string) => {
-  const dispatch = useDispatch();
-  return (
-    navItems.map(navItem => {
-      return (
-        <LeftIconButton
-          text={navItem.text}
-          isSelected={currentPage === navItem.text}
-          Icon={navItem.Icon}
-          onSelect={() => dispatch(changePage(navItem.text))}
-        />
-      )
-    })
-  )
-}
 
 const renderLogo = () => {
   return (
@@ -65,12 +49,28 @@ const renderLogo = () => {
     </Box>
   )
 }
+const renderNavItems = (navItems: NavItem[], currentPage: string) => {
+  const dispatch = useDispatch();
+  return (
+    navItems.map(navItem => {
+      return (
+        <LeftIconButton
+          key={navItem.text}
+          text={navItem.text}
+          isSelected={currentPage === navItem.text}
+          Icon={navItem.Icon}
+          onSelect={() => dispatch(changePage(navItem.text))}
+        />
+      )
+    })
+  )
+}
 
 const renderSectionTitle = (text: string) => {
   return (
     <Box width='full' pt='3'>
       <Text
-        textColor='brand.grey'
+        textColor='brand.grey500'
         size='sm'
         textAlign='left'
         marginLeft='28px'
