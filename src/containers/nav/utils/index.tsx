@@ -13,8 +13,8 @@ export type NavItem = {
 export const RecruiterNavItems = {
   quick: [
     {
-      text: 'Home',
-      Icon: <Home />
+      text: 'Dashboard',
+      Icon: <Dashboard />
     },
     {
       text: 'Inbox',
@@ -23,8 +23,8 @@ export const RecruiterNavItems = {
   ],
   workspace: [
     {
-      text: 'Dashboard',
-      Icon: <Dashboard />
+      text: 'Home',
+      Icon: <Home />
     },
     {
       text: 'Jobs',
