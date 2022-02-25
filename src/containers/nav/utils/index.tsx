@@ -19,13 +19,13 @@ export const RecruiterNavItems = {
     {
       text: 'Inbox',
       Icon: <Inbox />
-    }
-  ],
-  workspace: [
+    },
     {
-      text: 'Home',
+      text: 'News',
       Icon: <Home />
     },
+  ],
+  workspace: [
     {
       text: 'Jobs',
       Icon: <Jobs />

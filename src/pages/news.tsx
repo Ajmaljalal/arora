@@ -6,7 +6,7 @@ import BodyLayout from '../containers/layouts/body-layout'
 
 type Props = {}
 
-const Jobs = (props: Props) => {
+const Dashboard = (props: Props) => {
   return (
     <Box>
       <Head>
@@ -22,4 +22,4 @@ const Jobs = (props: Props) => {
   )
 }
 
-export default Jobs
+export default Dashboard

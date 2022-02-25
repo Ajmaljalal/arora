@@ -11,8 +11,7 @@ type LeftIconButtonProps = {
 }
 
 export const LeftIconButton = ({ onSelect, text, Icon, isSelected }: LeftIconButtonProps) => {
-  const route = text === 'Home' ? '' : text.toLowerCase()
-  console.log(route)
+  const route = text === 'Dashboard' ? '' : text.toLowerCase()
   const handleSelect = () => {
     onSelect(text)
   }

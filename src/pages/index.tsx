@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react'
 import Head from 'next/head'
 import Body from '../containers/body'
 import BodyLayout from '../containers/layouts/body-layout'
@@ -5,7 +6,7 @@ import BodyLayout from '../containers/layouts/body-layout'
 
 export default function Home() {
   return (
-    <div>
+    <Box>
       <Head>
         <title>Arora</title>
         <meta name="description" content="Best videos of all kinds" />
@@ -15,6 +16,6 @@ export default function Home() {
           <h1>This is a text</h1>
         </Body>
       </BodyLayout>
-    </div>
+    </Box>
   )
 }
