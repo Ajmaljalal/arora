@@ -4,6 +4,7 @@ import { Button } from '@chakra-ui/react'
 export type BaseButtonProps = {
   text: string
   color: string
+  borderColor?: string
   outlined?: boolean
   bg?: string
   icon?: JSX.Element
@@ -18,6 +19,7 @@ export const BaseButton = ({
   icon,
   iconPosition = 'left',
   bg,
+  borderColor,
   onClick
 }: BaseButtonProps) => {
   return (
@@ -25,13 +27,13 @@ export const BaseButton = ({
       background={!outlined ? bg : 'transparent'}
       variant={outlined ? 'outline' : 'solid'}
       color={color}
-      px='20px'
-      height='2.2rem'
+      height='44px'
+      minWidth='fit-content'
       leftIcon={iconPosition === 'left' ? icon : null}
       rightIcon={iconPosition === 'right' ? icon : null}
       iconSpacing='5px'
       onClick={onClick}
-      borderColor={outlined ? color : bg}
+      borderColor={outlined ? borderColor : bg}
       borderRadius='3px'
       _focus={{ boxShadow: "none !important" }}
       _hover={{ background: outlined ? 'transparent' : bg }}

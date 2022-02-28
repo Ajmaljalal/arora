@@ -1,9 +1,9 @@
-import { IconButton } from '@chakra-ui/react';
+import { background, IconButton } from '@chakra-ui/react';
 import React from 'react';
 
 export interface CenteredIconButtonProps {
-  bg?: string
   Icon: JSX.Element
+  bg?: string
   isRound?: boolean
   onClick: () => void
 }
@@ -11,15 +11,16 @@ export interface CenteredIconButtonProps {
 export const CenteredIconButton = ({ bg = 'brand.white', Icon, isRound = false, onClick }: CenteredIconButtonProps) => {
   return (
     <IconButton
-      color='green'
+      color='black'
       aria-label='icon-button'
       bg={bg}
       icon={Icon}
-      size='sm'
+      height='40px'
+      width='40px'
       isRound={isRound}
       borderRadius={!isRound ? '3px' : '50%'}
-      _focus={{ boxShadow: "none !important" }}
-      _hover={{ background: 'transparent' }}
+      _focus={{ boxShadow: "none !important", background: bg }}
+      _hover={{ background: bg }}
     />
   );
 }
