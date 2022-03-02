@@ -1,9 +1,10 @@
-import { Box, Divider, HStack, Input, InputGroup, InputLeftAddon, useColorMode, useColorModeValue } from '@chakra-ui/react'
+import { Avatar, Box, Divider, HStack, Input, InputGroup, InputLeftAddon, useColorMode, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 import { BaseButton } from '../../components/buttons/button'
 import ChevronDown from '../../../public/assets/icons/chevron-down.svg'
 import SearchIcon from '../../../public/assets/icons/search.svg'
 import AddIcon from '../../../public/assets/icons/add-white.svg'
+import NotificationIcon from '../../../public/assets/icons/notification.svg'
 import { CenteredIconButton } from '../../components/buttons/centered-icon-button'
 
 function Header() {
@@ -30,19 +31,39 @@ function Header() {
 				iconPosition='right'
 			/>
 			<Divider orientation='vertical' borderColor='brand.grey200' mx='30px' />
-			<InputGroup>
-				<InputLeftAddon children={<SearchIcon />} p='0' mr='10px' />
+			<InputGroup mr='50px'>
+				<InputLeftAddon children={<SearchIcon />} p='0 10px' bg='brand.grey100' />
 				<Input
 					type='search'
 					placeholder='Search Jobs, Candidates...'
 					variant='unstyled'
+					p='0 10px'
+					boxSizing='border-box'
 					colorScheme='brand.black'
 					_placeholder={{ color: 'brand.grey300' }}
+					_focus={{ border: `0.2px solid lightgrey` }}
 				/>
 			</InputGroup>
 			<HStack>
-				<CenteredIconButton Icon={<AddIcon />} onClick={() => console.log('clicked')} bg='brand.secondary' isRound />
-
+				<CenteredIconButton
+					Icon={<AddIcon />}
+					onClick={() => console.log('clicked')}
+					bg='brand.secondary'
+					isRound
+				/>
+				<CenteredIconButton
+					Icon={<NotificationIcon />}
+					onClick={() => console.log('clicked')}
+					borderColor='lightgrey'
+					isRound
+					isOutlined
+				/>
+				<Avatar
+					w='40px'
+					h='40px'
+					name='Ajmal Jalal'
+					src='https://bit.ly/tioluwani-kolawole'
+				/>
 			</HStack>
 
 		</Box>
