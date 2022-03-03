@@ -10,12 +10,11 @@ const Inbox = (props: Props) => {
   return (
     <Box>
       <Head>
-        <title>Arora</title>
+        <title>Inbox</title>
         <meta name="description" content="Best videos of all kinds" />
       </Head>
       <BodyLayout>
         <Body>
-          <h1>This is a text</h1>
         </Body>
       </BodyLayout>
     </Box>

@@ -1,5 +1,5 @@
-import { Avatar, Box, Divider, HStack, Input, InputGroup, InputLeftAddon, useColorMode, useColorModeValue } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
+import { Avatar, Box, Button, Divider, HStack, Input, InputGroup, InputLeftAddon, Menu, MenuButton, MenuItem, MenuList, useColorMode, useColorModeValue } from '@chakra-ui/react'
 import { BaseButton } from '../../components/buttons/button'
 import ChevronDown from '../../../public/assets/icons/chevron-down.svg'
 import SearchIcon from '../../../public/assets/icons/search.svg'
@@ -10,6 +10,22 @@ import { CenteredIconButton } from '../../components/buttons/centered-icon-butto
 function Header() {
 	const { colorMode, toggleColorMode } = useColorMode()
 	const borderBottomColor = useColorModeValue('grey', 'lightGray')
+	const [searchOnFocus, setSearchOnFocus] = useState(false)
+
+	const menu = (
+		<Menu>
+			<MenuButton as={Button} rightIcon={<ChevronDown />}>
+				Actions
+			</MenuButton>
+			<MenuList>
+				<MenuItem>Download</MenuItem>
+				<MenuItem>Create a Copy</MenuItem>
+				<MenuItem>Mark as Draft</MenuItem>
+				<MenuItem>Delete</MenuItem>
+				<MenuItem>Attend a Workshop</MenuItem>
+			</MenuList>
+		</Menu>
+	)
 	return (
 		<Box
 			height='72px'
@@ -31,8 +47,16 @@ function Header() {
 				iconPosition='right'
 			/>
 			<Divider orientation='vertical' borderColor='brand.grey200' mx='30px' />
-			<InputGroup mr='50px'>
-				<InputLeftAddon children={<SearchIcon />} p='0 10px' bg='brand.grey100' />
+			<InputGroup
+				mr='50px'
+				border='1px solid transparent'
+				borderRadius='3px'
+				_hover={{ border: '1px solid lightgrey', background: 'brand.grey100' }}
+			>
+				<InputLeftAddon
+					children={searchOnFocus ? menu : <SearchIcon />}
+					p='0 10px'
+				/>
 				<Input
 					type='search'
 					placeholder='Search Jobs, Candidates...'
@@ -41,7 +65,7 @@ function Header() {
 					boxSizing='border-box'
 					colorScheme='brand.black'
 					_placeholder={{ color: 'brand.grey300' }}
-					_focus={{ border: `0.2px solid lightgrey` }}
+					onFocus={() => setSearchOnFocus(true)}
 				/>
 			</InputGroup>
 			<HStack>

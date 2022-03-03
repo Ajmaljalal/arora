@@ -15,7 +15,6 @@ const Candidates = (props: Props) => {
       </Head>
       <BodyLayout>
         <Body>
-          <h1>This is a text</h1>
         </Body>
       </BodyLayout>
     </Box>
