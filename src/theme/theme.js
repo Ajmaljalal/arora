@@ -10,14 +10,16 @@ const theme = extendTheme({
   colors: {
     brand: {
       primary: '#4169E0',
-      primaryLight: 'rgba(229, 236, 255, 1)',
+      primaryLight: '#ECF0FC',
       secondary: '#49C496',
       containerBackground: '#F3F6F9',
       white: '#FFFFFF',
       black: '#060A16',
       red: '#EA4335',
       yellow: '#FFD831',
-      orang: '#FF7B31',
+      lightYellow: ' #FFF7D6',
+      orange: '#FF7B31',
+      lightOrange: '#FFF4ED',
       grey500: '#77849E',
       grey400: '#60728F',
       grey300: '#ACBAD1',
