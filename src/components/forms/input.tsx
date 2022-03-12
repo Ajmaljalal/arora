@@ -33,8 +33,7 @@ const InputField = ({
             pointerEvents='none'
             color='gray.300'
             fontSize='1.2em'
-            children={leftAddOn}
-          /> : null
+          >{leftAddOn}</InputLeftElement> : null
         }
 
         <Input
