@@ -46,7 +46,6 @@ const JobStatusCardItem = ({ type, number }: JobsStatusCardProps) => {
 
   return (
     <Box
-      width='266px'
       minWidth='210px'
       height='78px'
       bg={cardItems[type].background}
@@ -56,6 +55,7 @@ const JobStatusCardItem = ({ type, number }: JobsStatusCardProps) => {
       border={cardItems[type].border}
       borderColor={cardItems[type].borderColor}
       borderRadius='4px'
+      flex={1}
     >
       <Box mr='16px'>{cardItems[type].Icon}</Box>
       <Stack spacing={-1}>
