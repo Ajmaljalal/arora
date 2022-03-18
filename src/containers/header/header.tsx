@@ -40,7 +40,7 @@ const Header = () => {
 	// Component return
 	return (
 		<Box
-			height='72px'
+			height='65px'
 			width='100%'
 			bg='brand.white'
 			borderBottom={`1px solid ${borderBottomColor}`}

@@ -7,6 +7,7 @@ const Body = ({ children }) => {
       width='full'
       bg='brand.containerBackground'
       color='brand.black'
+      p='20px 32px'
     >
       {children}
     </Box>
