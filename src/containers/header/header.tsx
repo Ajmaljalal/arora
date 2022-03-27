@@ -41,6 +41,7 @@ const Header = () => {
 	return (
 		<Box
 			height='65px'
+			minHeight='65px'
 			width='100%'
 			bg='brand.white'
 			borderBottom={`1px solid ${borderBottomColor}`}
