@@ -8,7 +8,7 @@ const Body = ({ children }) => {
       maxWidth='1236px'
       bg='brand.containerBackground'
       color='brand.black'
-      p='20px 32px'
+      p='32px 32px 20px 32px'
       margin='0 auto'
     >
       {children}
