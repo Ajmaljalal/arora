@@ -9,10 +9,12 @@ const BodyLayout = ({ children }) => {
       alignItems='center'
       width='full'
       bg='brand.containerBackground'
+      maxHeight='100vh'
       height='100vh'
+      overflow='hidden'
     >
       <Header />
-      <Box width='100%'>{children}</Box>
+      <Box width='100%' overflow='scroll'>{children}</Box>
     </Box>
   )
 }
