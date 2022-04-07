@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Heading, useColorModeValue, VStack, Text, Link } from '@chakra-ui/react'
+import { Box, Heading, useColorModeValue, VStack, Text, Hide } from '@chakra-ui/react'
 import { LeftIconButton } from '../../components/buttons/left-nav-icon-button'
 import { NavItem, RecruiterNavItems } from './utils'
 import { useDispatch, useSelector } from '../../store/store'
@@ -13,23 +13,25 @@ const LeftNavBar = () => {
   const textColor = useColorModeValue('brand.white', 'brand.white')
   const currentPage = useSelector(selectNav);
   return (
-    <Box
-      maxWidth='260px'
-      minWidth='260px'
-      width='260px'
-      height='100vh'
-      bg='brand.black'
-      color={textColor}
-    >
-      {renderLogo()}
-      <VStack marginTop='20px'>
-        {renderNavItems(RecruiterNavItems.quick, currentPage)}
-        {renderSectionTitle('Workspace')}
-        {renderNavItems(RecruiterNavItems.workspace, currentPage)}
-        {renderSectionTitle('More')}
-        {renderNavItems(RecruiterNavItems.more, currentPage)}
-      </VStack>
-    </Box>
+    <Hide breakpoint='(max-width: 1100px)'>
+      <Box
+        maxWidth='260px'
+        minWidth='260px'
+        width='260px'
+        height='100vh'
+        bg='brand.black'
+        color={textColor}
+      >
+        {renderLogo()}
+        <VStack marginTop='20px'>
+          {renderNavItems(RecruiterNavItems.quick, currentPage)}
+          {renderSectionTitle('Workspace')}
+          {renderNavItems(RecruiterNavItems.workspace, currentPage)}
+          {renderSectionTitle('More')}
+          {renderNavItems(RecruiterNavItems.more, currentPage)}
+        </VStack>
+      </Box>
+    </Hide>
   )
 }
 
