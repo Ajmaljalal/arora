@@ -24,21 +24,6 @@ export default function Home() {
               <GridItem>
                 <ProfileStatus />
               </GridItem>
-              <GridItem>
-                <ProfileStatus />
-              </GridItem>
-              <GridItem>
-                <ProfileStatus />
-              </GridItem>
-              <GridItem>
-                <ProfileStatus />
-              </GridItem>
-              <GridItem>
-                <ProfileStatus />
-              </GridItem>
-              <GridItem>
-                <ProfileStatus />
-              </GridItem>
             </Grid>
           </PageContentWrapper>
         </Body>

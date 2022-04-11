@@ -1,6 +1,8 @@
 import React from 'react'
-import { Box, CircularProgress, CircularProgressLabel, Text } from '@chakra-ui/react'
+import { Box, CircularProgress, CircularProgressLabel, List, ListIcon, ListItem, Text } from '@chakra-ui/react'
 import TileWithHeader from '../../components/tiles/tile-with-header'
+import GreenCheckIcon from '../../../public/assets/icons/dashboard/check-circle-green.svg'
+import GreyCheckIcon from '../../../public/assets/icons/dashboard/check-circle-grey.svg'
 
 type Props = {}
 
@@ -8,15 +10,42 @@ const ProfileStatus = () => {
 
   const renderContent = () => {
     return (
-      <Box p='15px 24px' display='flex' justifyContent='space-between'>
+      <Box
+        p='15px 24px'
+        display='flex'
+        justifyContent='space-between'
+        alignItems='center'
+        maxHeight='200px'
+        height='200px'
+        overflow='scroll'
+      >
         <Box>
-          <Text fontSize='14px' fontWeight='500'>
-            Completed (1/3)
-          </Text>
+          <List spacing={3}>
+            <ListItem fontSize='16px' fontWeight='400'>
+              <ListIcon as={GreenCheckIcon} width='18px' height='18px' />
+              Fill basic information
+            </ListItem>
+            <ListItem fontSize='16px' fontWeight='400'>
+              <ListIcon as={GreenCheckIcon} width='18px' height='18px' />
+              Set your timezone
+            </ListItem>
+            <ListItem fontSize='16px' fontWeight='400'>
+              <ListIcon as={GreyCheckIcon} width='18px' height='18px' />
+              Fill your contact infromation
+            </ListItem>
+            <ListItem fontSize='16px' fontWeight='400'>
+              <ListIcon as={GreyCheckIcon} width='18px' height='18px' />
+              Fill your contact infromation
+            </ListItem>
+            <ListItem fontSize='16px' fontWeight='400'>
+              <ListIcon as={GreyCheckIcon} width='18px' height='18px' />
+              Fill your contact infromation
+            </ListItem>
+          </List>
         </Box>
         <Box>
-          <CircularProgress value={40} color='brand.red' thickness='10px' size='100px'>
-            <CircularProgressLabel>40%</CircularProgressLabel>
+          <CircularProgress value={20} color='brand.red' thickness='10px' size='150px' trackColor='brand.grey200' animation='ease-in'>
+            <CircularProgressLabel>20%</CircularProgressLabel>
           </CircularProgress>
         </Box>
       </Box>
@@ -26,7 +55,7 @@ const ProfileStatus = () => {
 
   return (
     <TileWithHeader
-      title='Complete your profile'
+      title='Complete your profile (2/5)'
       body={renderContent()}
     />
   )
