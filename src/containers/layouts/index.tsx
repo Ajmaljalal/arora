@@ -3,14 +3,9 @@ import React from 'react'
 import LeftNavBar from '../nav/index'
 const Layout = ({ children }) => {
   return (
-    <Box minHeight='100vh'
-      display='flex'>
+    <Box minHeight='100vh' display='flex'>
       <LeftNavBar />
-      <Box
-        width='100%'
-      >
-        {children}
-      </Box>
+      <Box width='100%'>{children}</Box>
     </Box>
   )
 }

@@ -33,7 +33,7 @@ const SearchBar = () => {
         </MenuButton>
         <MenuList bg='brand.white'>
           {searchDropDownMenutItems.map(item => {
-            return <DropDownMenuItem btnText={item} onSelect={handleSearchDropdownOptionChange} />
+            return <DropDownMenuItem key={item} btnText={item} onSelect={handleSearchDropdownOptionChange} />
           })}
         </MenuList>
       </Menu>
@@ -52,6 +52,7 @@ const SearchBar = () => {
     >
       <InputLeftAddon
         p='0'
+        bg='transparent'
         children={searchOnFocus ? renderSearchDropdownMenu() : <Box ml='10px'><SearchIcon /></Box>}
       />
       <Input

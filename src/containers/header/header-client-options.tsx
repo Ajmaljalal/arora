@@ -37,7 +37,7 @@ const ClientsDropDown = () => {
       </Box>
       <MenuList bg='brand.white'>
         {clientsList.map(item => {
-          return <DropDownMenuItem btnText={item} onSelect={handleClientDropDownOptionChange} />
+          return <DropDownMenuItem key={item} btnText={item} onSelect={handleClientDropDownOptionChange} />
         })}
       </MenuList>
     </Menu>

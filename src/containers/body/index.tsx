@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from '@chakra-ui/react'
 
-const Body = ({ children }) => {
+const BodyContent = ({ children }) => {
   return (
     <Box
       width='full'
@@ -16,4 +16,4 @@ const Body = ({ children }) => {
   )
 }
 
-export default Body
+export default BodyContent
