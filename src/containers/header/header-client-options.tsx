@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Box, Button, Menu, MenuButton, MenuList } from "@chakra-ui/react"
 import ChevronDown from '../../../public/assets/icons/chevron-down.svg'
-import { DropDownMenuItem } from "./components"
+import { DropDownMenuItem } from "../../components/dropdown/dropdown-menu-item"
 
 
 const clientsList = [
