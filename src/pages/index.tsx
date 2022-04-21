@@ -5,6 +5,7 @@ import PageContentWrapper from '../components/layouts/page-content-wrapper'
 import BodyContent from '../containers/body'
 import JobStatusCardsList from '../containers/dashboard/jobs-status-cards-list'
 import ProfileStatus from '../containers/dashboard/profile-status'
+import TodaysInterviews from '../containers/dashboard/today-interviews'
 import Body from '../containers/layouts/body-layout'
 
 
@@ -23,6 +24,9 @@ export default function Home() {
             <Grid templateColumns='repeat(2, 1fr)' gap={8} mt='16px' autoFlow='row'>
               <GridItem>
                 <ProfileStatus />
+              </GridItem>
+              <GridItem>
+                <TodaysInterviews />
               </GridItem>
             </Grid>
           </PageContentWrapper>

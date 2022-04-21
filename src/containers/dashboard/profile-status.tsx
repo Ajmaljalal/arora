@@ -15,6 +15,7 @@ const ProfileStatus = () => {
         justifyContent='space-between'
         maxHeight='200px'
         height='200px'
+        minWidth='300px'
         overflowY='auto'
       >
         <List spacing={3}>
@@ -39,11 +40,11 @@ const ProfileStatus = () => {
             Fill your contact infromation
           </ListItem>
         </List>
-        <Box>
+        {/* <Box>
           <CircularProgress value={20} color='brand.red' thickness='10px' size='120px' trackColor='brand.grey200' animation='ease-in'>
             <CircularProgressLabel>20%</CircularProgressLabel>
           </CircularProgress>
-        </Box>
+        </Box> */}
       </Box>
     )
   }
