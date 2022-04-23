@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react'
 import Head from 'next/head'
 import React from 'react'
-import Body from '../containers/body'
-import BodyLayout from '../containers/layouts/body-layout'
+import BodyContent from '../containers/layouts/body/body-content'
+import BodyLayout from '../containers/layouts/body/body-layout'
 
 type Props = {}
 
@@ -14,8 +14,8 @@ const Candidates = (props: Props) => {
         <meta name="description" content="Best videos of all kinds" />
       </Head>
       <BodyLayout>
-        <Body>
-        </Body>
+        <BodyContent>
+        </BodyContent>
       </BodyLayout>
     </Box>
   )
