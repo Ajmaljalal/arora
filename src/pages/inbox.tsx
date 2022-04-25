@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react'
 import Head from 'next/head'
 import React from 'react'
-import BodyContent from '../containers/layouts/body/body-content'
-import BodyLayout from '../containers/layouts/body/body-layout'
+import BodyContent from '../components/layouts/body/body-content'
+import BodyLayout from '../components/layouts/body/body-layout'
 
 type Props = {}
 

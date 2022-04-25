@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
-import LeftNavBar from '../nav/index'
+import LeftNavBar from '../../containers/nav/index'
 const Layout = ({ children }) => {
   return (
     <Box minHeight='100vh' display='flex'>

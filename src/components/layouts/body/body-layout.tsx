@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
-import Header from '../../header/header'
+import Header from '../../../containers/header/header'
+import BodyContent from './body-content'
 const BodyLayout = ({ children }) => {
   return (
     <Box
@@ -14,7 +15,11 @@ const BodyLayout = ({ children }) => {
       overflow='hidden'
     >
       <Header />
-      <Box width='100%' overflowY='auto' height='100%'>{children}</Box>
+      <Box width='100%' overflowY='auto' height='100%'>
+        <BodyContent>
+          {children}
+        </BodyContent>
+      </Box>
     </Box>
   )
 }
