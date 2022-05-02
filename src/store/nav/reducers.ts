@@ -8,7 +8,7 @@ type NavbarState = {
 };
 
 const initialState: NavbarState = {
-  currentPage: 'Home',
+  currentPage: 'Dashboard',
 };
 
 export const navbarReducer = createReducer(initialState, builder => {
