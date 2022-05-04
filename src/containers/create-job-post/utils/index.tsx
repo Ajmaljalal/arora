@@ -23,22 +23,22 @@ export const JobPostStepItems = [
   {
     text: 'Summary',
     name: 'jobSummary',
-    desc: 'Create a summary of your job!'
+    desc: 'Create a summary of your job.'
   },
   {
     text: 'Responsibilities',
     name: 'jobResponsibilities',
-    desc: 'List all the responsibilities of the job one by one!'
+    desc: 'List all the responsibilities of the job one by one.'
   },
   {
     text: 'Skills',
     name: 'jobSkills',
-    desc: 'List all the skills and requirments!'
+    desc: 'List all the skills and requirments.'
   },
   {
     text: 'Requirements',
     name: 'jobRequirements',
-    desc: 'List all the skills and requirments!'
+    desc: 'List all the skills and requirments.'
   },
   {
     text: 'Candidate Impacts',
@@ -48,16 +48,16 @@ export const JobPostStepItems = [
   {
     text: 'Job Description',
     name: 'jobDescription',
-    desc: 'Describe the job in details, DO NOT include responsiblities, skills, and requirements once again!'
+    desc: 'Describe the job in details, DO NOT include responsiblities, skills, and requirements once again.'
   },
   {
     text: 'Hiring Pipeline',
     name: 'jobPipeline',
-    desc: 'Choose a hiring pipeline that showcases your hirigin process and flow!'
+    desc: 'Choose a hiring pipeline that showcases your hiring process and flow.'
   },
   {
     text: 'Score Card',
     name: 'jobScoreCard',
-    desc: 'Select a score card for this role!'
+    desc: 'Select a score card for this role.'
   }
 ]

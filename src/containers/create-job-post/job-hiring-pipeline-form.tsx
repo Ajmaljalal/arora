@@ -1,4 +1,5 @@
 import * as React from 'react';
+import FormWrapper from '../../components/form/form-wrapper';
 import { FormDataTypes } from './utils/objects';
 
 export interface HiringPipelineProps {
@@ -8,9 +9,10 @@ export interface HiringPipelineProps {
 
 const HiringPipelineForm = (props: HiringPipelineProps) => {
   return (
-    <div>
-      hiring pipline
-    </div>
+    <FormWrapper>
+
+    </FormWrapper>
+
   );
 }
 
