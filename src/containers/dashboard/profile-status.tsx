@@ -1,11 +1,23 @@
 import React from 'react'
-import { Box, CircularProgress, CircularProgressLabel, List, ListIcon, ListItem } from '@chakra-ui/react'
+import { Box, List, ListIcon, ListItem } from '@chakra-ui/react'
 import TileWithHeader from '../../components/tiles/tile-with-header'
 import GreenCheckIcon from '../../../public/assets/icons/dashboard/check-circle-green.svg'
 import GreyCheckIcon from '../../../public/assets/icons/dashboard/check-circle-grey.svg'
+import ChevronRightcon from '../../../public/assets/icons/chevron-right-blue.svg'
+import Link from 'next/link'
 
 
 const ProfileStatus = () => {
+
+  const renderHeaderRight = () => {
+    return (
+      <Link href='/company-profile' passHref>
+        <a>
+          <ChevronRightcon />
+        </a>
+      </Link>
+    )
+  }
 
   const renderContent = () => {
     return (
@@ -40,11 +52,6 @@ const ProfileStatus = () => {
             Fill your contact infromation
           </ListItem>
         </List>
-        {/* <Box>
-          <CircularProgress value={20} color='brand.red' thickness='10px' size='120px' trackColor='brand.grey200' animation='ease-in'>
-            <CircularProgressLabel>20%</CircularProgressLabel>
-          </CircularProgress>
-        </Box> */}
       </Box>
     )
   }
@@ -54,6 +61,7 @@ const ProfileStatus = () => {
     <TileWithHeader
       title='Complete your profile (2/5)'
       body={renderContent()}
+      headerRight={renderHeaderRight()}
     />
   )
 }
