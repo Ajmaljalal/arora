@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, Table, TableContainer, Tbody, Td, Th, Thead, Tr, TypographyProps, Text, VStack, Tag, TagLabel } from '@chakra-ui/react'
+import { Box, Table, TableContainer, Tbody, Td, Th, Thead, Tr, TypographyProps, Text, VStack, Tag } from '@chakra-ui/react'
 import TileWithHeader from '../../components/tiles/tile-with-header'
 
 const todaysInterviews = [
@@ -33,7 +33,7 @@ const TodaysInterviews = () => {
 
   const TableRow = ({ children }) => {
     return (
-      <Tr borderBottom='1px solid' borderColor='brand.grey200'>
+      <Tr borderBottom='1px solid' borderColor='brand.grey200' _hover={{ cursor: 'pointer', textDecoration: 'underline' }}>
         {children}
       </Tr>
     )
@@ -55,7 +55,7 @@ const TodaysInterviews = () => {
             <Td>
               <VStack align='start'>
                 <Text fontSize='16px' fontWeight='600'>{interview.candidate}</Text>
-                <Tag fontSize='12px' fontWeight='500' colorScheme='red' borderRadius='full'>
+                <Tag fontSize='10px' fontWeight='500' colorScheme='black' borderRadius='full'>
                   {`For ${interview.for}`}
                 </Tag>
               </VStack>
@@ -79,11 +79,11 @@ const TodaysInterviews = () => {
         <TableContainer width='100%'>
           <Table variant='unstyled'>
             <Thead>
-              <TableRow>
+              <Tr borderBottom='1px solid' borderColor='brand.grey200'>
                 {renderTableTh('Candidate')}
                 {renderTableTh('Time')}
                 {renderTableTh('Type', 'end')}
-              </TableRow>
+              </Tr>
             </Thead>
             <Tbody>
               {renderInterviews()}
