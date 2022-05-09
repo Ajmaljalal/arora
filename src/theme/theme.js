@@ -12,6 +12,7 @@ const theme = extendTheme({
       primary: '#4169E0',
       primaryLight: '#ECF0FC',
       secondary: '#49C496',
+      secondaryLight: '#A6E7CE',
       containerBackground: '#F3F6F9',
       white: '#FFFFFF',
       black: '#060A16',
