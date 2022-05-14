@@ -7,6 +7,7 @@ import JobStatusCardsList from '../containers/dashboard/jobs-status-cards-list'
 import ProfileStatus from '../containers/dashboard/profile-status'
 import TodaysInterviews from '../containers/dashboard/today-interviews'
 import BodyLayout from '../components/layouts/body/body-layout'
+import NewApplications from '../containers/dashboard/new-applications'
 
 
 export default function Home() {
@@ -28,6 +29,9 @@ export default function Home() {
             </GridItem>
             <GridItem>
               <ProfileStatus />
+            </GridItem>
+            <GridItem>
+              <NewApplications />
             </GridItem>
           </Grid>
         </PageContentWrapper>
