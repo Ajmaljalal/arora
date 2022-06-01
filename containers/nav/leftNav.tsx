@@ -1,8 +1,8 @@
 import { Box, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
+import { LeftIconButton } from '../../components/buttons/left-icon-button'
 
 function LeftNav() {
-  const borderBottomColor = useColorModeValue('lightgray', 'grey')
   const textColor = useColorModeValue('brand.white', 'brand.white')
   return (
     <Box
@@ -11,6 +11,7 @@ function LeftNav() {
       bg='brand.primary'
       color={textColor}
     >
+      <LeftIconButton text='Home' color='brand.yellow' width='170px' />
     </Box>
   )
 }

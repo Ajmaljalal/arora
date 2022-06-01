@@ -11,7 +11,8 @@ const theme = extendTheme({
     brand: {
       primary: 'rgb(26, 30, 39)',
       secondary: '#ECF5F5',
-      white: '#FFFFFF'
+      white: '#FFFFFF',
+      yellow: 'rgb(249, 218, 88)',
     }
   }
 })
