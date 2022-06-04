@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box, useColorModeValue } from '@chakra-ui/react'
 import { CenteredIconButton } from '../../components/buttons/centered-icon-button'
-import { Bell } from '../../public/assets/icons/bell'
+import { Bell } from '../../../public/assets/icons/bell'
 
 function LeftNav() {
   const textColor = useColorModeValue('brand.white', 'brand.white')

@@ -5,7 +5,7 @@ export const Bell = ({
   color = "#ECF5F5",
   ...props
 }: React.SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 512 512" viewBox="0 0 512 512" width={width} height={height}>
+  <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 512 512" viewBox="0 0 512 512" width={width} height={height}>
     <path fill={color} d="M455.973,357.336C443.559,350.167,436,336.835,436,322.5V230c0-82.238-55.152-151.593-130.485-173.101
 	C305.826,54.643,306,52.342,306,50c0-27.614-22.386-50-50-50s-50,22.386-50,50c0,2.342,0.174,4.643,0.485,6.899
 	C131.151,78.407,76,147.762,76,230v92.5c0,14.335-7.559,27.667-19.973,34.836c-11.76,6.791-19.742,19.394-20.019,33.884

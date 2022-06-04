@@ -8,7 +8,7 @@ export interface CenteredIconButtonProps {
   onClick: () => void
 }
 
-export const CenteredIconButton = ({ bg = 'brand.white', Icon, isRound = false }: CenteredIconButtonProps) => {
+export const CenteredIconButton = ({ bg = 'brand.white', Icon, isRound = false, onClick }: CenteredIconButtonProps) => {
   return (
     <IconButton
       color='green'
@@ -18,6 +18,8 @@ export const CenteredIconButton = ({ bg = 'brand.white', Icon, isRound = false }
       size='sm'
       isRound={isRound}
       borderRadius={!isRound ? '3px' : '50%'}
+      _focus={{ boxShadow: "none !important" }}
+      _hover={{ background: 'transparent' }}
     />
   );
 }
