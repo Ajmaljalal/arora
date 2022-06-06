@@ -50,8 +50,17 @@ const JobPostStepItems = [
 const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
   const [currentStep, setCurrentStep] = useState({ name: 'Job Summary', index: 0 })
 
-  const hanleCurrentStepChange = (step: { name: string, index: number }) => {
-    setCurrentStep(step)
+  const handleCurrentStepChange = (step: { name: string, index: number }) => {
+    if (step.name) {
+      setCurrentStep(step)
+    } else {
+      const nextStepIndex = currentStep.index + 1
+      console.log(currentStep.index, nextStepIndex)
+      if (nextStepIndex < JobPostStepItems.length) {
+        const nextStep = JobPostStepItems[nextStepIndex]
+        setCurrentStep({ name: nextStep.name, index: nextStepIndex })
+      }
+    }
   }
 
 
@@ -70,7 +79,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
         <ModalCloseButton />
         <ModalBody bg='brand.white' pt='20px'>
           <HStack align='flex-start' spacing={20}>
-            <JobPostSteps onStepChange={hanleCurrentStepChange} jobPostStepItems={JobPostStepItems} currentStep={currentStep.name} />
+            <JobPostSteps onStepChange={handleCurrentStepChange} jobPostStepItems={JobPostStepItems} currentStep={currentStep.name} />
             <Box width='100%' maxWidth='636px'>
               <Box mb='32px' pb='24px' borderBottom='1px solid' borderColor='brand.grey200'>
                 <PageTitle text='Job summary' />
@@ -80,7 +89,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
               </Box>
               <HStack spacing={4} mt='50px' justifyContent='flex-end'>
                 <BaseButton text='Cancel' outlined={true} onClick={onClose} borderColor='brand.primary' color='brand.primary' />
-                <BaseButton text='Next' onClick={onClose} color='brand.white' bg='brand.primary' />
+                <BaseButton text='Next' onClick={handleCurrentStepChange} color='brand.white' bg='brand.primary' />
               </HStack>
             </Box>
           </HStack>
