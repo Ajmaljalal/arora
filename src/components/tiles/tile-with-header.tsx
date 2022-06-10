@@ -1,10 +1,21 @@
 import React from 'react'
+import { Box, Heading } from '@chakra-ui/react'
 
-type Props = {}
+type TileWithHeaderProps = {
+  title: string
+}
 
-const TileWithHeader = (props: Props) => {
+const TileWithHeader = ({ title }: TileWithHeaderProps) => {
   return (
-    <div>TileWithHeader</div>
+    <Box
+      bg='brand.white'
+      borderRadius='4px'
+      maxWidth='548px'
+    >
+      <Box>
+        <Heading>{title}</Heading>
+      </Box>
+    </Box>
   )
 }
 export default TileWithHeader
