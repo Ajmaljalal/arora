@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Flex, Grid, GridItem, Wrap, WrapItem } from '@chakra-ui/react'
 import Head from 'next/head'
 import PageTitle from '../components/headings/page-title'
 import PageContentWrapper from '../components/layouts/page-content-wrapper'
@@ -20,7 +20,26 @@ export default function Home() {
           <PageTitle text='Dashboard' />
           <PageContentWrapper>
             <JobStatusCardsList />
-            <ProfileStatus />
+            <Grid templateColumns='repeat(2, 1fr)' gap={8} mt='16px' autoFlow='row'>
+              <GridItem>
+                <ProfileStatus />
+              </GridItem>
+              <GridItem>
+                <ProfileStatus />
+              </GridItem>
+              <GridItem>
+                <ProfileStatus />
+              </GridItem>
+              <GridItem>
+                <ProfileStatus />
+              </GridItem>
+              <GridItem>
+                <ProfileStatus />
+              </GridItem>
+              <GridItem>
+                <ProfileStatus />
+              </GridItem>
+            </Grid>
           </PageContentWrapper>
         </Body>
       </BodyLayout>

@@ -6,12 +6,13 @@ const BodyLayout = ({ children }) => {
     <Box
       display='flex'
       flexDirection='column'
+      alignItems='center'
       width='full'
       bg='brand.containerBackground'
       height='100vh'
     >
       <Header />
-      <main>{children}</main>
+      <Box width='100%'>{children}</Box>
     </Box>
   )
 }
