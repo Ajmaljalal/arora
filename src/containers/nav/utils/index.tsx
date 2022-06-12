@@ -21,7 +21,7 @@ export const RecruiterNavItems = {
       Icon: <Inbox />
     },
     {
-      text: 'News',
+      text: 'Feed',
       Icon: <Home />
     },
   ],
