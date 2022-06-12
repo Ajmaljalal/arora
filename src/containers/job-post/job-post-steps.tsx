@@ -1,45 +1,17 @@
-import React, { useState } from 'react'
-import { Badge, Box, List, ListIcon, ListItem, Text } from '@chakra-ui/react'
+import React from 'react'
+import { Badge, List, ListIcon, ListItem } from '@chakra-ui/react'
 import GreenCheckIcon from '../../../public/assets/icons/check-circle-green-fill.svg'
 
-type JobPostStepsProps = {}
+type JobPostStepsProps = {
+  onStepChange: ({ name: string, index: number }) => void
+  jobPostStepItems: any[]
+  currentStep: string
+}
 
-const JobPostStepItems = [
-  {
-    name: 'Job Summary',
-    isComplete: true
-  },
-  {
-    name: 'Job Description',
-    isComplete: true
-  },
-  {
-    name: 'Responsibilities',
-    isComplete: false
-  },
-  {
-    name: 'Skills & Requirements',
-    isComplete: false
-  },
-  {
-    name: 'Candidate Impacts',
-    isComplete: false
-  },
-  {
-    name: 'Hiring Pipeline',
-    isComplete: false
-  },
-  {
-    name: 'Score Card',
-    isComplete: false
-  }
-]
+const JobPostSteps = ({ onStepChange, jobPostStepItems, currentStep }: JobPostStepsProps) => {
 
-const JobPostSteps = ({ }: JobPostStepsProps) => {
-  const [currentStep, setCurrentStep] = useState(0)
-
-  const handleCurrentStep = (step: number) => {
-    setCurrentStep(step)
+  const handleCurrentStepChange = (step: { name: string, index: number }) => {
+    onStepChange(step)
   }
 
   const renderCurrentStepNumberBadge = (num: number) => {
@@ -86,8 +58,8 @@ const JobPostSteps = ({ }: JobPostStepsProps) => {
   }
 
   const renderJobPostStepItems = () => {
-    return JobPostStepItems.map((item: any, index: number) => {
-      const isCurrent = item.name === JobPostStepItems[currentStep].name
+    return jobPostStepItems.map((item: { name: string, isComplete: boolean }, index: number) => {
+      const isCurrent = item.name === currentStep
       const isComplete = item.isComplete
       return (
         <ListItem
@@ -101,7 +73,8 @@ const JobPostSteps = ({ }: JobPostStepsProps) => {
           fontSize='16px'
           fontWeight={isCurrent ? '600' : '400'}
           color={isCurrent ? 'brand.black' : 'brand.grey500'}
-          onClick={() => handleCurrentStep(index)}
+          cursor='pointer'
+          onClick={() => handleCurrentStepChange({ name: item.name, index })}
         >
           {
             isCurrent ? renderCurrentStepNumberBadge(index) : isComplete ?
