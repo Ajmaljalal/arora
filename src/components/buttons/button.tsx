@@ -28,7 +28,7 @@ export const BaseButton = ({
       variant={outlined ? 'outline' : 'solid'}
       color={color}
       height='44px'
-      minWidth='fit-content'
+      minWidth='132px'
       leftIcon={iconPosition === 'left' ? icon : null}
       rightIcon={iconPosition === 'right' ? icon : null}
       iconSpacing='5px'
