@@ -2,7 +2,8 @@ import { FormControl, FormErrorMessage, FormHelperText, FormLabel, Input, InputG
 import React from 'react'
 
 type InputFieldProps = {
-  onChange: () => void
+  onChange: (e) => void
+  value: string | number
   isRequired?: boolean
   label?: string
   isInvalid?: boolean
@@ -22,7 +23,8 @@ const InputField = ({
   helperText,
   width,
   type,
-  leftAddOn = null
+  leftAddOn = null,
+  value
 }: InputFieldProps) => {
   return (
     <FormControl mt='15px' width={width} isRequired={isRequired} isInvalid={isInvalid}>
@@ -39,9 +41,10 @@ const InputField = ({
         <Input
           type={type}
           id={label.toLowerCase()}
+          value={value}
           onChange={onChange}
           placeholder={`Enter ${label.toLowerCase()}`}
-
+          name={label}
           border='1px solid'
           borderColor='brand.grey300'
           borderRadius='4px'
@@ -55,6 +58,7 @@ const InputField = ({
             color: 'brand.black'
           }}
           _placeholder={{ color: 'brand.grey400' }}
+          _invalid={{ boxShadow: 'none', borderColor: 'brand.red' }}
         />
       </InputGroup>
       <FormErrorMessage >{errorMessage}</FormErrorMessage>

@@ -2,7 +2,8 @@ import { FormControl, Select, FormHelperText, FormLabel, FormErrorMessage } from
 import React from 'react'
 
 type SelectFieldProps = {
-  onChange: () => void
+  onChange: (e) => void
+  value: string | number
   options: string[]
   isRequired?: boolean
   label?: string
@@ -20,6 +21,7 @@ const SelectField = ({
   errorMessage,
   helperText,
   width,
+  value,
   options
 }: SelectFieldProps) => {
   return (
@@ -27,7 +29,9 @@ const SelectField = ({
       <FormLabel htmlFor={label.toLowerCase()} fontSize='16px' fontWeight='600'>{label}</FormLabel>
       <Select
         id={label.toLowerCase()}
+        name={label}
         onChange={onChange}
+        value={value}
         placeholder={`Enter ${label.toLowerCase()}`}
         border='1px solid'
         borderColor='brand.grey300'
@@ -43,6 +47,7 @@ const SelectField = ({
           color: 'brand.black'
         }}
         _placeholder={{ color: 'brand.grey300' }}
+        _invalid={{ boxShadow: 'none', borderColor: 'brand.red' }}
       >
         {
           options.map(option => {
