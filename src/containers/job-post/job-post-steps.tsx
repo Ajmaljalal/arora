@@ -86,7 +86,7 @@ const JobPostSteps = ({ onStepChange, jobPostStepItems, currentStep }: JobPostSt
     })
   }
   return (
-    <List width='260px'>
+    <List width='260px' minWidth='234px'>
       {renderJobPostStepItems()}
     </List>
   )

@@ -45,7 +45,7 @@ const InputField = ({
           border='1px solid'
           borderColor='brand.grey300'
           borderRadius='4px'
-          color='brand.black'
+          color='brand.grey400'
           _hover={{
             borderColor: 'brand.grey300',
             color: 'brand.grey400'

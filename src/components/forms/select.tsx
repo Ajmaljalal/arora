@@ -32,7 +32,7 @@ const SelectField = ({
         border='1px solid'
         borderColor='brand.grey300'
         borderRadius='4px'
-        color='brand.grey500'
+        color='brand.grey400'
         colorScheme='green'
         _hover={{
           borderColor: 'brand.grey300',

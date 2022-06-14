@@ -9,7 +9,7 @@ export type BaseButtonProps = {
   bg?: string
   icon?: JSX.Element
   iconPosition?: 'left' | 'right'
-  onClick: () => void
+  onClick: (arg?: any) => void
 }
 
 export const BaseButton = ({
