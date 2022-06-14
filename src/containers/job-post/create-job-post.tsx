@@ -62,6 +62,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
       isOpen={isOpen}
       onClose={onClose}
       size='full'
+      closeOnOverlayClick={false}
     >
       <ModalOverlay />
       <ModalContent h='100%' color='brand.black' bg='bran.white'>
@@ -77,7 +78,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
               <Box maxHeight='600px' overflowY='auto'>
                 {<CurrenStep />}
               </Box>
-              <HStack spacing={4} mt='32px' justifyContent='flex-end'>
+              <HStack spacing={4} mt='50px' justifyContent='flex-end'>
                 <BaseButton text='Cancel' outlined={true} onClick={onClose} borderColor='brand.primary' color='brand.primary' />
                 <BaseButton text='Next' onClick={onClose} color='brand.white' bg='brand.primary' />
               </HStack>
