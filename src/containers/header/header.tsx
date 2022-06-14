@@ -5,7 +5,7 @@ import NotificationIcon from '../../../public/assets/icons/notification.svg'
 import { CenteredIconButton } from '../../components/buttons/centered-icon-button'
 import SearchBar from './header-searchbar'
 import ClientsDropDown from './header-client-options'
-import CreateJobPost from '../job-post/create-job-post'
+import CreateJobPost from '../create-job-post'
 
 
 const Header = () => {
