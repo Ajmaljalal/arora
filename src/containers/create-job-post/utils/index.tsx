@@ -6,51 +6,6 @@ import JobScoreCard from "../job-score-card-form"
 import JobSkillsRequiremnets from "../job-skills-requirements-form"
 import JobSummaryForm from "../job-summary-form"
 
-export type JobSummaryObject = {
-  JobTitle: string
-  JobType: string
-  JobMethod: string
-  JobLocation: string
-  ApplicationDeadline: string
-  Minsalary: number
-  MaxSalary: number
-  MinYearsofExperience: number
-  isComplete: boolean
-}
-export type JobSummaryFormErrorsObject = {
-  titleErr: string
-  typeErr: string
-  methodErr: string
-  locationErr: string
-  deadlineErr: string
-  minSalaryErr: string
-  maxSalaryErr: string
-  experienceErr: string
-}
-
-export const jobSummaryInitialState: JobSummaryObject = {
-  JobTitle: '',
-  JobType: '',
-  JobMethod: '',
-  JobLocation: '',
-  ApplicationDeadline: '',
-  Minsalary: 0,
-  MaxSalary: 0,
-  MinYearsofExperience: 0,
-  isComplete: false
-}
-
-export const jobSummaryFormErrorsInitialState: JobSummaryFormErrorsObject = {
-  titleErr: '',
-  typeErr: '',
-  methodErr: '',
-  locationErr: '',
-  deadlineErr: '',
-  minSalaryErr: '',
-  maxSalaryErr: '',
-  experienceErr: ''
-}
-
 
 export const jobPostStepComponents = [
   JobSummaryForm,
@@ -97,16 +52,3 @@ export const jobPostStepItems = [
     isComplete: false
   }
 ]
-
-export const getCurrentFormData = (jobSummaryFormData: JobSummaryObject, currentStep: { name: string; index: number }) => {
-  let currentFormData: JobSummaryObject = jobSummaryFormData
-  switch (currentStep.name) {
-    case 'Job Description':
-    case 'Responsibilities':
-    case 'Skills & Requirements':
-    case 'Candidate Impacts':
-    case 'Hiring Pipeline':
-    default:
-      return currentFormData
-  }
-}

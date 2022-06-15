@@ -1,9 +1,8 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
-import DatePicker from '../../components/forms/date-picker'
 import InputField from '../../components/forms/input'
 import SelectField from '../../components/forms/select'
-import { JobSummaryObject } from './utils'
+import { JobSummaryObject } from './utils/objects'
 
 type JobSummaryFormProps = {
   data: JobSummaryObject

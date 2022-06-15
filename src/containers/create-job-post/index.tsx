@@ -4,14 +4,10 @@ import { BaseButton } from '../../components/buttons/button'
 import JobPostStepsMenu from './job-post-steps-menu'
 import PageTitle from '../../components/headings/page-title'
 import {
-  getCurrentFormData,
   jobPostStepComponents,
-  jobPostStepItems,
-  jobSummaryFormErrorsInitialState,
-  JobSummaryFormErrorsObject,
-  jobSummaryInitialState,
-  JobSummaryObject
+  jobPostStepItems
 } from './utils'
+import { FormDataTypes, jobSummaryFormErrorsInitialState, JobSummaryFormErrorsObject, jobSummaryInitialState, JobSummaryObject } from './utils/objects'
 
 type CreateJobPostProps = {
 } & Omit<ModalProps, 'children'>
@@ -99,7 +95,16 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
 
   const renderCurrentStepForm = () => {
     const CurrenStep = jobPostStepComponents[currentStep.index]
-    const currentFormData = getCurrentFormData(jobSummaryFormData, currentStep)
+    let currentFormData: FormDataTypes
+    switch (currentStep.name) {
+      case 'Job Description':
+      case 'Responsibilities':
+      case 'Skills & Requirements':
+      case 'Candidate Impacts':
+      case 'Hiring Pipeline':
+      default:
+        currentFormData = jobSummaryFormData
+    }
     return (
       <Box maxHeight='600px' overflowY='auto'>
         {<CurrenStep onChange={handleChagne} errors={jobSummaryFormErrors} data={currentFormData} />}
