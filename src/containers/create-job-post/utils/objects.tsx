@@ -6,7 +6,7 @@ export type JobSummaryObject = {
   JobMethod: string
   JobLocation: string
   ApplicationDeadline: string
-  Minsalary: number
+  MinSalary: number
   MaxSalary: number
   MinYearsofExperience: number
   isComplete: boolean
@@ -63,7 +63,7 @@ export const jobSummaryInitialState: JobSummaryObject = {
   JobMethod: '',
   JobLocation: '',
   ApplicationDeadline: '',
-  Minsalary: 0,
+  MinSalary: 0,
   MaxSalary: 0,
   MinYearsofExperience: 0,
   isComplete: false
