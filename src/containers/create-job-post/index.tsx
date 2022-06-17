@@ -8,6 +8,7 @@ import {
   jobPostStepItems
 } from './utils'
 import { FormDataTypes, jobSummaryInitialState, JobSummaryObject } from './utils/objects'
+import InlineAlert from '../../components/alerts/inline-alert'
 
 type CreateJobPostProps = {
 } & Omit<ModalProps, 'children'>
@@ -84,11 +85,7 @@ const CreateJobPost = ({ isOpen, onClose }: CreateJobPostProps) => {
               <PageTitle text={currentStep.name} />
             </Box>
             {formErr &&
-              <Alert status='error' bg='brand.lightOrange' color='brand.orange' border='1px solid' borderColor='brand.orange' borderRadius='4px'>
-                <AlertIcon color='brand.orange' />
-                <AlertTitle>Required fields missing:</AlertTitle>
-                <AlertDescription>{formErr}</AlertDescription>
-              </Alert>
+              <InlineAlert status='success' title='Missing required fields' message='field marked with * cannot be empty or 0!' />
             }
             {renderCurrentStepForm()}
             {renderBottomButons()}
