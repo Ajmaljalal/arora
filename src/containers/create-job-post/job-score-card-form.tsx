@@ -6,10 +6,10 @@ type JobScoreCardFormProps = {
   onChange: (e) => void
 }
 
-const JobScoreCard = (props: JobScoreCardFormProps) => {
+const JobScoreCardForm = (props: JobScoreCardFormProps) => {
   return (
     <div>JobScoreCard</div>
   )
 }
 
-export default JobScoreCard
+export default JobScoreCardForm

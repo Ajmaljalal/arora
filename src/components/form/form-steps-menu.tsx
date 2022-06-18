@@ -1,16 +1,18 @@
 import React from 'react'
 import { Badge, List, ListIcon, ListItem } from '@chakra-ui/react'
 import GreenCheckIcon from '../../../public/assets/icons/check-circle-green-fill.svg'
+import { CurrentStepObject, FormDataTypes } from '../../containers/create-job-post/utils/objects'
 
-type JobPostStepsProps = {
-  onStepChange: ({ name: string, index: number }) => void
-  jobPostStepItems: any[]
+type FormStepsProps = {
+  onStepChange: (step: CurrentStepObject) => void
+  stepItems: any[]
+  formsCompletionStatus: any
   currentStep: string
 }
 
-const JobPostStepsMenu = ({ onStepChange, jobPostStepItems, currentStep }: JobPostStepsProps) => {
+const FormStepsMenu = ({ onStepChange, stepItems, formsCompletionStatus, currentStep }: FormStepsProps) => {
 
-  const handleCurrentStepChange = (step: { name: string, index: number }) => {
+  const handleCurrentStepChange = (step: CurrentStepObject) => {
     onStepChange(step)
   }
 
@@ -58,9 +60,9 @@ const JobPostStepsMenu = ({ onStepChange, jobPostStepItems, currentStep }: JobPo
   }
 
   const renderJobPostStepItems = () => {
-    return jobPostStepItems.map((item: { name: string, isComplete: boolean }, index: number) => {
+    return stepItems.map((item: { name: string, text: string }, index: number) => {
       const isCurrent = item.name === currentStep
-      const isComplete = item.isComplete
+      const isComplete = formsCompletionStatus[item.name]
       return (
         <ListItem
           key={item.name}
@@ -74,13 +76,13 @@ const JobPostStepsMenu = ({ onStepChange, jobPostStepItems, currentStep }: JobPo
           fontWeight={isCurrent ? '600' : '400'}
           color={isCurrent ? 'brand.black' : 'brand.grey500'}
           cursor='pointer'
-          onClick={() => handleCurrentStepChange({ name: item.name, index })}
+          onClick={() => handleCurrentStepChange({ name: item.name, text: item.text, index })}
         >
           {
             isCurrent ? renderCurrentStepNumberBadge(index) : isComplete ?
               <ListIcon as={GreenCheckIcon} width='25px' height='24px' /> : renderNotCompleteStepNumberBadge(index)
           }
-          {item.name}
+          {item.text}
         </ListItem>
       )
     })
@@ -92,5 +94,5 @@ const JobPostStepsMenu = ({ onStepChange, jobPostStepItems, currentStep }: JobPo
   )
 }
 
-export default JobPostStepsMenu
+export default FormStepsMenu
 

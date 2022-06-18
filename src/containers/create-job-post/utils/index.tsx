@@ -1,54 +1,49 @@
-import JobDescription from "../job-description-form"
-import HiringPipeline from "../job-hiring-pipeline-form"
-import JobImpacts from "../job-impacts-form"
-import JobResponsibilities from "../job-responsibilities-form"
-import JobScoreCard from "../job-score-card-form"
-import JobSkillsRequiremnets from "../job-skills-requirements-form"
+import JobDescriptionFrom from "../job-description-form"
+import HiringPipelineForm from "../job-hiring-pipeline-form"
+import JobImpactsForm from "../job-impacts-form"
+import JobResponsibilitiesForm from "../job-responsibilities-form"
+import JobScoreCardForm from "../job-score-card-form"
+import JobSkillsRequiremnetsForm from "../job-skills-requirements-form"
 import JobSummaryForm from "../job-summary-form"
 
 
-export const jobPostStepComponents = [
-  JobSummaryForm,
-  JobDescription,
-  JobResponsibilities,
-  JobSkillsRequiremnets,
-  JobImpacts,
-  HiringPipeline,
-  JobScoreCard
-]
-
-// objects to store and keep track of form data temporarily when the value of an input changes
-export let formDataForJobSummaryTemp = {
-  isComplete: false
+export const JobPostForms = {
+  jobSummary: JobSummaryForm,
+  jobResponsibilities: JobResponsibilitiesForm,
+  jobSkillsRequirements: JobSkillsRequiremnetsForm,
+  jobImpacts: JobImpactsForm,
+  jobDescription: JobDescriptionFrom,
+  jobPipeline: HiringPipelineForm,
+  jobScoreCard: JobScoreCardForm,
 }
 
-export const jobPostStepItems = [
+export const JobPostStepItems = [
   {
-    name: 'Job Summary',
-    isComplete: false
+    text: 'Job Summary',
+    name: 'jobSummary',
   },
   {
-    name: 'Job Description',
-    isComplete: false
+    text: 'Responsibilities',
+    name: 'jobResponsibilities',
   },
   {
-    name: 'Responsibilities',
-    isComplete: false
+    text: 'Skills & Requirements',
+    name: 'jobSkillsRequirements',
   },
   {
-    name: 'Skills & Requirements',
-    isComplete: false
+    text: 'Candidate Impacts',
+    name: 'jobImpacts',
   },
   {
-    name: 'Candidate Impacts',
-    isComplete: false
+    text: 'Job Description',
+    name: 'jobDescription',
   },
   {
-    name: 'Hiring Pipeline',
-    isComplete: false
+    text: 'Hiring Pipeline',
+    name: 'jobPipeline',
   },
   {
-    name: 'Score Card',
-    isComplete: false
+    text: 'Score Card',
+    name: 'jobScoreCard',
   }
 ]

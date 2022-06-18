@@ -7,10 +7,10 @@ type JobImpactsFormProps = {
   onChange: (e) => void
 }
 
-const JobImpacts = (props: JobImpactsFormProps) => {
+const JobImpactsForm = (props: JobImpactsFormProps) => {
   return (
     <div>JobImpacts</div>
   )
 }
 
-export default JobImpacts
+export default JobImpactsForm
