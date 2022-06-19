@@ -31,7 +31,7 @@ const Header = () => {
 				<Avatar
 					w='40px'
 					h='40px'
-					name='Ajmal Jalal'
+					name='Meena Jalal'
 					src=''
 				/>
 			</HStack>

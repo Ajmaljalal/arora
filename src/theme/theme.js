@@ -29,7 +29,7 @@ const theme = extendTheme({
       grey100: '#F3F6F9',
       grey50: '#CDCED0',
     }
-  }
+  },
 })
 
 export default theme

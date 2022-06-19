@@ -22,7 +22,7 @@ const InputField = ({
 }: InputFieldProps) => {
   return (
     <FormControl mb='10px' width={width} isRequired={isRequired}>
-      <FormLabel htmlFor={label.toLowerCase()} fontSize='16px' fontWeight='600'>{label}</FormLabel>
+      <FormLabel htmlFor={label?.toLowerCase()} fontSize='16px' fontWeight='600'>{label}</FormLabel>
       <InputGroup>
         {
           leftAddOn ? <InputLeftElement
@@ -34,10 +34,10 @@ const InputField = ({
 
         <Input
           type={type}
-          id={label.toLowerCase()}
+          id={label?.toLowerCase()}
           value={value}
           onChange={onChange}
-          placeholder={`Enter ${label.toLowerCase()}`}
+          placeholder={`Enter ${label?.toLowerCase()}`}
           name={label}
           border='1px solid'
           borderColor='brand.grey200'

@@ -4,6 +4,7 @@ import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 import theme from '../theme/theme'
 import Layout from '../components/layouts'
 import Head from 'next/head'
+import '../../src/styles/global.css'
 
 function MyApp({ Component, pageProps }) {
   return (
