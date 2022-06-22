@@ -114,7 +114,7 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
   }
 
 
-  const handleJobSkillsChange = (data: FormDataTypes) => {
+  const handleArryTypeDataChange = (data: FormDataTypes) => {
     const formDataTemp = {
       ...formData,
       [currentStep.name]: data
@@ -197,7 +197,8 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
       case 'jobResponsibilities':
         return <CurrentStepForm onChange={handleJobResponsibilitiesChange} onDelete={handleDeleteJobResponsibility} data={currentFormData} />
       case 'jobSkills':
-        return <CurrentStepForm onChange={handleJobSkillsChange} data={currentFormData} />
+      case 'jobRequirements':
+        return <CurrentStepForm onChange={handleArryTypeDataChange} data={currentFormData} />
       default:
         return <CurrentStepForm onChange={handleChange} data={currentFormData} />
     }

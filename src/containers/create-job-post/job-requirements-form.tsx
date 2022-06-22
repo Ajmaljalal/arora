@@ -1,21 +1,37 @@
-import React, { ChangeEvent, useState } from 'react'
-import { Box, HStack, Tag, TagCloseButton, TagLabel, Text, Wrap } from '@chakra-ui/react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { Box, HStack, Text } from '@chakra-ui/react'
 import { JobRequirementsObject } from './utils/objects'
 import TrashIcon from '../../../public/assets/icons/trash-empty.svg'
+import EditIcon from '../../../public/assets/icons/edit.svg'
 import CustomTextArea from '../../components/form/text-area'
-import CustomTag from '../../components/tag'
 
 type JobRequirementsFormProps = {
   data: JobRequirementsObject
-  onDelete: (item: string) => void
-  onChange: (e) => void
+  onChange: (data: JobRequirementsObject) => void
 }
 
-const JobRequirementsForm = ({ onChange, onDelete, data }: JobRequirementsFormProps) => {
-
+const JobRequirementsForm = ({ onChange, data }: JobRequirementsFormProps) => {
   const [fieldValue, setFieldValue] = useState('')
+  const [jobRequirements, setjobRequirements] = useState({ requirements: [], isComplete: false })
 
-  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+  useEffect(() => {
+    setjobRequirements(data)
+  }, [data])
+
+  const handlejobRequirementsChange = (e: ChangeEvent<HTMLInputElement>) => {
+    let value: string = e.target.value
+    let isComplete: boolean = false
+    const requirements: string[] = jobRequirements.requirements
+    if (requirements.includes(value)) return
+    requirements.push(value)
+    if (requirements.length) {
+      isComplete = true
+    }
+    const formDataTemp = { requirements: requirements, isComplete: isComplete }
+    onChange(formDataTemp)
+  }
+
+  const handleTextAreValueChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setFieldValue(e.target.value)
   }
 
@@ -23,34 +39,20 @@ const JobRequirementsForm = ({ onChange, onDelete, data }: JobRequirementsFormPr
     if (e.key === 'Enter' && !e.shiftKey && e.target.value.trim().length) {
       e.preventDefault()
       setFieldValue('')
-      onChange(e)
+      handlejobRequirementsChange(e)
     }
+  }
+
+  const handleDelete = (requirementToRemove: string) => {
+    const requirements: string[] = jobRequirements.requirements.filter((requirement) => requirement !== requirementToRemove)
+    const isComplete = requirements.length > 0
+    const formDataTemp = { requirements: requirements, isComplete: isComplete }
+    onChange(formDataTemp)
   }
 
   const handleEdit = (text: string) => {
     setFieldValue(text)
-    onDelete(text)
-  }
-
-  const handleDelete = (text: string) => {
-    onDelete(text)
-  }
-
-  const renderRequirements = () => {
-    return (
-      <Wrap
-        maxHeight='100px'
-        overflowY='auto'
-        borderRadius='4px'
-        color='brand.grey400'
-      >
-        {
-          data.requirements?.map(skill => {
-            return <CustomTag key={skill} text={skill} onClick={(text) => console.log(text)} color='brand.darkGreen' bg='brand.secondaryLight' />
-          })
-        }
-      </Wrap>
-    )
+    handleDelete(text)
   }
 
   return (
@@ -73,14 +75,14 @@ const JobRequirementsForm = ({ onChange, onDelete, data }: JobRequirementsFormPr
             >
               <Text flex={1} fontSize='14' fontWeight='400'>{responsibility}</Text>
               <HStack>
-                <TrashIcon onClick={() => handleEdit(responsibility)} />
+                <EditIcon onClick={() => handleEdit(responsibility)} />
                 <TrashIcon onClick={() => handleDelete(responsibility)} />
               </HStack>
             </HStack>
           )
         })}
       </Box>
-      <CustomTextArea value={fieldValue} handleChange={handleChange} handleSubmit={handleSubmit} />
+      <CustomTextArea value={fieldValue} handleChange={handleTextAreValueChange} handleSubmit={handleSubmit} />
     </>
   )
 }

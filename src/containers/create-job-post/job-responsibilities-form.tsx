@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react'
 import { Box, HStack, Text } from '@chakra-ui/react'
 import { JobResponsibilitiesObject } from './utils/objects'
 import TrashIcon from '../../../public/assets/icons/trash-empty.svg'
+import EditIcon from '../../../public/assets/icons/edit.svg'
 import CustomTextArea from '../../components/form/text-area'
 
 type JobResponsibilitiesFormProps = {
@@ -53,7 +54,7 @@ const JobResponsibilitiesForm = ({ data, onChange, onDelete }: JobResponsibiliti
               spacing={3}
             >
               <Text flex={1} fontSize='14' fontWeight='400'>{responsibility}</Text>
-              <TrashIcon onClick={() => handleEdit(responsibility)} />
+              <EditIcon onClick={() => handleEdit(responsibility)} />
               <TrashIcon onClick={() => handleDelete(responsibility)} />
             </HStack>
           )
