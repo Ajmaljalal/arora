@@ -1,13 +1,15 @@
-import { background, IconButton } from '@chakra-ui/react';
+import { IconButton } from '@chakra-ui/react';
+import Link from 'next/link';
 import React from 'react';
 
 export interface CenteredIconButtonProps {
   Icon: JSX.Element
+  href?: string
   bg?: string
   isRound?: boolean
   isOutlined?: boolean
   borderColor?: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 export const CenteredIconButton = ({
@@ -16,21 +18,26 @@ export const CenteredIconButton = ({
   isRound = false,
   isOutlined,
   borderColor,
-  onClick
+  onClick,
+  href = ''
 }: CenteredIconButtonProps) => {
   return (
-    <IconButton
-      aria-label='icon-button'
-      bg={bg}
-      icon={Icon}
-      height='40px'
-      width='40px'
-      isRound={isRound}
-      borderRadius={!isRound ? '3px' : '50%'}
-      border={isOutlined ? `1px solid ${borderColor}` : 'none'}
-      _focus={{ boxShadow: "none !important", background: bg }}
-      _hover={{ background: bg }}
-      onClick={onClick}
-    />
+    <Link href={href} passHref>
+      <a>
+        <IconButton
+          aria-label='icon-button'
+          bg={bg}
+          icon={Icon}
+          height='40px'
+          width='40px'
+          isRound={isRound}
+          borderRadius={!isRound ? '3px' : '50%'}
+          border={isOutlined ? `1px solid ${borderColor}` : 'none'}
+          _focus={{ boxShadow: "none !important", background: bg }}
+          _hover={{ background: bg }}
+          onClick={onClick}
+        />
+      </a>
+    </Link>
   );
 }

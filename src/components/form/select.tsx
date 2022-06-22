@@ -41,7 +41,7 @@ const SelectField = ({
           borderColor: 'brand.secondary',
           color: 'brand.black'
         }}
-        _placeholder={{ color: 'brand.grey300' }}
+        _placeholder={{ color: 'brand.grey300', fontSize: '14px' }}
         _invalid={{ boxShadow: 'none', borderColor: 'brand.red' }}
       >
         {

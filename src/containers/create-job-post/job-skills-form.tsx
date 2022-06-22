@@ -1,16 +1,18 @@
 import React, { ChangeEvent, useState } from 'react'
-import { Box, HStack, Text } from '@chakra-ui/react'
-import { JobResponsibilitiesObject } from './utils/objects'
+import { Box, HStack, Tag, TagCloseButton, TagLabel, Text, Wrap } from '@chakra-ui/react'
+import { JobSkillsReqObject } from './utils/objects'
 import TrashIcon from '../../../public/assets/icons/trash-empty.svg'
 import CustomTextArea from '../../components/form/text-area'
+import CustomTag from '../../components/tag'
 
-type JobResponsibilitiesFormProps = {
-  data: JobResponsibilitiesObject
+type JobSkillsFormProps = {
+  data: JobSkillsReqObject
+  onDelete: (item: string) => void
   onChange: (e) => void
-  onDelete: (res: string) => void
 }
 
-const JobResponsibilitiesForm = ({ data, onChange, onDelete }: JobResponsibilitiesFormProps) => {
+const JobSkillsForm = ({ onChange, onDelete, data }: JobSkillsFormProps) => {
+
   const [fieldValue, setFieldValue] = useState('')
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -34,10 +36,30 @@ const JobResponsibilitiesForm = ({ data, onChange, onDelete }: JobResponsibiliti
     onDelete(text)
   }
 
+  const renderSkills = () => {
+    return (
+      <Wrap
+        maxHeight='100px'
+        overflowY='auto'
+        borderRadius='4px'
+        mb='8px'
+        color='brand.grey400'
+      >
+        {
+          data.skills?.map(skill => {
+            return <CustomTag key={skill} text={skill} onClick={(text) => console.log(text)} color='brand.darkGreen' bg='brand.secondaryLight' />
+          })
+        }
+      </Wrap>
+    )
+  }
+
   return (
     <>
       <Box maxHeight='500px' overflowY='auto'>
-        {data.responsibilities?.map(responsibility => {
+        {renderSkills()}
+        <CustomTextArea value={fieldValue} handleChange={handleChange} handleSubmit={handleSubmit} />
+        {/* {data.requirements?.map(responsibility => {
           return (
             <HStack
               key={responsibility}
@@ -53,17 +75,17 @@ const JobResponsibilitiesForm = ({ data, onChange, onDelete }: JobResponsibiliti
               spacing={3}
             >
               <Text flex={1} fontSize='14' fontWeight='400'>{responsibility}</Text>
-              <TrashIcon onClick={() => handleEdit(responsibility)} />
-              <TrashIcon onClick={() => handleDelete(responsibility)} />
+              <HStack>
+                <TrashIcon onClick={() => handleEdit(responsibility)} />
+                <TrashIcon onClick={() => handleDelete(responsibility)} />
+              </HStack>
             </HStack>
           )
         })}
+      <CustomTextArea value={fieldValue} handleChange={handleChange} handleSubmit={handleSubmit} /> */}
       </Box>
-      <CustomTextArea value={fieldValue} handleChange={handleChange} handleSubmit={handleSubmit} />
     </>
   )
 }
 
-export default JobResponsibilitiesForm
-
-
+export default JobSkillsForm
