@@ -1,20 +1,36 @@
-import React, { ChangeEvent, useState } from 'react'
-import { Box, HStack, Tag, TagCloseButton, TagLabel, Text, Wrap } from '@chakra-ui/react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { Wrap } from '@chakra-ui/react'
 import { JobSkillsObject } from './utils/objects'
 import CustomTextArea from '../../components/form/text-area'
 import CustomTag from '../../components/tag'
 
 type JobSkillsFormProps = {
   data: JobSkillsObject
-  onDelete: (item: string) => void
-  onChange: (e) => void
+  onChange: (data: JobSkillsObject) => void
 }
 
-const JobSkillsForm = ({ onChange, onDelete, data }: JobSkillsFormProps) => {
-
+const JobSkillsForm = ({ onChange, data }: JobSkillsFormProps) => {
   const [fieldValue, setFieldValue] = useState('')
+  const [jobSkills, setJobSkills] = useState({ skills: [], isComplete: false })
 
-  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+  useEffect(() => {
+    setJobSkills(data)
+  }, [data])
+
+  const handleJobSkillsChange = (e: ChangeEvent<HTMLInputElement>) => {
+    let value: string = e.target.value
+    let isComplete: boolean = false
+    const skills: string[] = jobSkills.skills
+    if (skills.includes(value)) return
+    skills.push(value)
+    if (skills.length) {
+      isComplete = true
+    }
+    const formDataTemp = { skills: skills, isComplete: isComplete }
+    onChange(formDataTemp)
+  }
+
+  const handleTextAreValueChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setFieldValue(e.target.value)
   }
 
@@ -22,17 +38,15 @@ const JobSkillsForm = ({ onChange, onDelete, data }: JobSkillsFormProps) => {
     if (e.key === 'Enter' && !e.shiftKey && e.target.value.trim().length) {
       e.preventDefault()
       setFieldValue('')
-      onChange(e)
+      handleJobSkillsChange(e)
     }
   }
 
-  const handleEdit = (text: string) => {
-    setFieldValue(text)
-    onDelete(text)
-  }
-
-  const handleDelete = (text: string) => {
-    onDelete(text)
+  const handleDelete = (skillToRemove: string) => {
+    const skills: string[] = jobSkills.skills.filter((skill) => skill !== skillToRemove)
+    const isComplete = skills.length > 0
+    const formDataTemp = { skills: skills, isComplete: isComplete }
+    onChange(formDataTemp)
   }
 
   const renderSkills = () => {
@@ -42,10 +56,18 @@ const JobSkillsForm = ({ onChange, onDelete, data }: JobSkillsFormProps) => {
         overflowY='auto'
         borderRadius='4px'
         color='brand.grey400'
+        mb='8px'
       >
         {
           data.skills?.map(skill => {
-            return <CustomTag key={skill} text={skill} onClick={(text) => console.log(text)} color='brand.darkGreen' bg='brand.secondaryLight' />
+            return (
+              <CustomTag
+                key={skill}
+                text={skill}
+                onClick={() => handleDelete(skill)}
+                color='brand.darkGreen'
+                bg='brand.secondaryLight' />
+            )
           })
         }
       </Wrap>
@@ -55,7 +77,11 @@ const JobSkillsForm = ({ onChange, onDelete, data }: JobSkillsFormProps) => {
   return (
     <>
       {renderSkills()}
-      <CustomTextArea value={fieldValue} handleChange={handleChange} handleSubmit={handleSubmit} />
+      <CustomTextArea
+        value={fieldValue}
+        handleChange={handleTextAreValueChange}
+        handleSubmit={handleSubmit}
+      />
     </>
   )
 }

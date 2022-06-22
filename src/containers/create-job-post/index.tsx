@@ -7,7 +7,7 @@ import {
   JobPostForms,
   JobPostStepItems
 } from './utils'
-import { CurrentStepInitialState, CurrentStepObject, formDataInitialValues, FormDataTypes } from './utils/objects'
+import { CurrentStepInitialState, formDataInitialValues, FormDataTypes } from './utils/objects'
 import InlineAlert from '../../components/alerts/inline-alert'
 import { convertToRaw, EditorState } from 'draft-js'
 import { checkEmptyFields } from '../../utils/form'
@@ -63,7 +63,7 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
   }
 
 
-  const handleChagne = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const fieldName = e.target.name.split(' ').join('')
     let value: string | number = e.target.value
     if (e.target.type === 'number' && value) {
@@ -112,6 +112,16 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
     }
     setFormData(formDataTemp)
   }
+
+
+  const handleJobSkillsChange = (data: FormDataTypes) => {
+    const formDataTemp = {
+      ...formData,
+      [currentStep.name]: data
+    }
+    setFormData(formDataTemp)
+  }
+
 
   const handleRichTextEditorChange = (editorState: EditorState) => {
     setTextEditorState(editorState)
@@ -186,8 +196,10 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
         return <CurrentStepForm onChange={handleRichTextEditorChange} data={textEditorState} />
       case 'jobResponsibilities':
         return <CurrentStepForm onChange={handleJobResponsibilitiesChange} onDelete={handleDeleteJobResponsibility} data={currentFormData} />
+      case 'jobSkills':
+        return <CurrentStepForm onChange={handleJobSkillsChange} data={currentFormData} />
       default:
-        return <CurrentStepForm onChange={handleChagne} data={currentFormData} />
+        return <CurrentStepForm onChange={handleChange} data={currentFormData} />
     }
   }
 
