@@ -1,9 +1,8 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Box, HStack, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { JobRequirementsObject } from './utils/objects'
-import TrashIcon from '../../../public/assets/icons/trash-empty.svg'
-import EditIcon from '../../../public/assets/icons/edit.svg'
 import CustomTextArea from '../../components/form/text-area'
+import BorderedListItem from '../../components/bordered-list-item'
 
 type JobRequirementsFormProps = {
   data: JobRequirementsObject
@@ -58,28 +57,8 @@ const JobRequirementsForm = ({ onChange, data }: JobRequirementsFormProps) => {
   return (
     <>
       <Box maxHeight='500px' overflowY='auto'>
-        {data.requirements?.map(responsibility => {
-          return (
-            <HStack
-              key={responsibility}
-              p='10px 16px'
-              border='1px solid'
-              borderColor='brand.grey300'
-              borderRadius='4px'
-              mb='8px'
-              cursor='pointer'
-              display='flex'
-              justifyContent='space-between'
-              alignItems='flex-start'
-              spacing={3}
-            >
-              <Text flex={1} fontSize='14' fontWeight='400'>{responsibility}</Text>
-              <HStack>
-                <EditIcon onClick={() => handleEdit(responsibility)} />
-                <TrashIcon onClick={() => handleDelete(responsibility)} />
-              </HStack>
-            </HStack>
-          )
+        {data.requirements?.map((requirement, index) => {
+          return <BorderedListItem text={requirement} onDelete={handleDelete} onEdit={handleEdit} number={index + 1} />
         })}
       </Box>
       <CustomTextArea value={fieldValue} handleChange={handleTextAreValueChange} handleSubmit={handleSubmit} />
