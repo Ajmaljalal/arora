@@ -39,8 +39,12 @@ export type JobResponsibilitiesObject = {
   isComplete: boolean
 }
 
-export type JobSkillsReqObject = {
+export type JobSkillsObject = {
   skills: string[]
+  isComplete: boolean
+}
+
+export type JobRequirementsObject = {
   requirements: string[]
   isComplete: boolean
 }
@@ -85,9 +89,13 @@ export const JobResponsibilitiesInitialState: JobResponsibilitiesObject = {
   isComplete: false
 }
 
-export const JobSkillsReqInitialState: JobSkillsReqObject = {
+export const JobSkillsInitialState: JobSkillsObject = {
   skills: [],
-  requirements: ['some thing here'],
+  isComplete: false
+}
+
+export const JobRequirementsInitialState: JobRequirementsObject = {
+  requirements: [],
   isComplete: false
 }
 
@@ -114,7 +122,8 @@ export type FormDataTypes =
   | JobSummaryObject
   | JobDescriptionObject
   | JobResponsibilitiesObject
-  | JobSkillsReqObject
+  | JobSkillsObject
+  | JobRequirementsObject
   | JobImpactsObject
   | JobHiringPipelineObject
   | JobScoreCardObject
@@ -122,7 +131,8 @@ export type FormDataTypes =
 export const formDataInitialValues = {
   jobSummary: JobSummaryInitialState,
   jobResponsibilities: JobResponsibilitiesInitialState,
-  jobSkillsRequirements: JobSkillsReqInitialState,
+  jobSkills: JobSkillsInitialState,
+  jobRequirements: JobRequirementsInitialState,
   jobImpacts: JobImpactsInitialState,
   jobPipeline: JobHiringPipelineInitialState,
   jobScoreCard: JobScoreCardInitialState

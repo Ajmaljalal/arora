@@ -1,16 +1,18 @@
 import JobDescriptionFrom from "../job-description-form"
 import HiringPipelineForm from "../job-hiring-pipeline-form"
 import JobImpactsForm from "../job-impacts-form"
+import JobRequirementsForm from "../job-requirements-form"
 import JobResponsibilitiesForm from "../job-responsibilities-form"
 import JobScoreCardForm from "../job-score-card-form"
-import JobSkillsRequiremnetsForm from "../job-skills-form"
+import JobSkillsForm from "../job-skills-form"
 import JobSummaryForm from "../job-summary-form"
 
 
 export const JobPostForms = {
   jobSummary: JobSummaryForm,
   jobResponsibilities: JobResponsibilitiesForm,
-  jobSkillsRequirements: JobSkillsRequiremnetsForm,
+  jobSkills: JobSkillsForm,
+  jobRequirements: JobRequirementsForm,
   jobImpacts: JobImpactsForm,
   jobDescription: JobDescriptionFrom,
   jobPipeline: HiringPipelineForm,
@@ -19,7 +21,7 @@ export const JobPostForms = {
 
 export const JobPostStepItems = [
   {
-    text: 'Job Summary',
+    text: 'Summary',
     name: 'jobSummary',
     desc: 'Create a summary of your job!'
   },
@@ -29,8 +31,13 @@ export const JobPostStepItems = [
     desc: 'List all the responsibilities of the job one by one!'
   },
   {
-    text: 'Skills & Requirements',
-    name: 'jobSkillsRequirements',
+    text: 'Skills',
+    name: 'jobSkills',
+    desc: 'List all the skills and requirments!'
+  },
+  {
+    text: 'Requirements',
+    name: 'jobRequirements',
     desc: 'List all the skills and requirments!'
   },
   {

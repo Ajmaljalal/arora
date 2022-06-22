@@ -34,8 +34,8 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
 
   const clearForm = () => {
     formDataInitialValues.jobResponsibilities.responsibilities = []
-    formDataInitialValues.jobSkillsRequirements.requirements = []
-    formDataInitialValues.jobSkillsRequirements.skills = []
+    formDataInitialValues.jobSkills.skills = []
+    formDataInitialValues.jobRequirements.requirements = []
     return formDataInitialValues
   }
 
@@ -143,7 +143,8 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
     return {
       jobSummary: formData.jobSummary.isComplete,
       jobResponsibilities: formData.jobResponsibilities.isComplete,
-      jobSkillsRequirements: formData.jobSkillsRequirements.isComplete,
+      jobSkills: formData.jobSkills.isComplete,
+      jobRequirements: formData.jobRequirements.isComplete,
       jobImpacts: formData.jobImpacts.isComplete,
       jobPipeline: formData.jobPipeline.isComplete,
       jobScoreCard: formData.jobScoreCard.isComplete,
