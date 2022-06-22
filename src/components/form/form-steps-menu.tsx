@@ -12,7 +12,7 @@ type FormStepsProps = {
 
 const FormStepsMenu = ({ onStepChange, stepItems, formsCompletionStatus, currentStep }: FormStepsProps) => {
 
-  const handleCurrentStepChange = (step: CurrentStepObject) => {
+  const handleCurrentStepChange = (step) => {
     onStepChange(step)
   }
 
@@ -60,9 +60,9 @@ const FormStepsMenu = ({ onStepChange, stepItems, formsCompletionStatus, current
   }
 
   const renderJobPostStepItems = () => {
-    return stepItems.map((item: { name: string, text: string }, index: number) => {
+    return stepItems.map((item: { name: string, text: string, desc: string }, index: number) => {
       const isCurrent = item.name === currentStep
-      const isComplete = formsCompletionStatus[item.name]
+      const isComplete = formsCompletionStatus && formsCompletionStatus[item.name]
       return (
         <ListItem
           key={item.name}
@@ -76,7 +76,7 @@ const FormStepsMenu = ({ onStepChange, stepItems, formsCompletionStatus, current
           fontWeight={isCurrent ? '600' : '400'}
           color={isCurrent ? 'brand.black' : 'brand.grey500'}
           cursor='pointer'
-          onClick={() => handleCurrentStepChange({ name: item.name, text: item.text, index })}
+          onClick={() => handleCurrentStepChange({ name: item.name, desc: item.desc, text: item.text, index })}
         >
           {
             isCurrent ? renderCurrentStepNumberBadge(index) : isComplete ?
