@@ -56,12 +56,17 @@ const JobRequirementsForm = ({ onChange, data }: JobRequirementsFormProps) => {
 
   return (
     <>
-      <Box maxHeight='500px' overflowY='auto'>
+      <Box maxHeight='400px' overflowY='auto' mb='10px'>
         {data.requirements?.map((requirement, index) => {
           return <BorderedListItem text={requirement} onDelete={handleDelete} onEdit={handleEdit} number={index + 1} />
         })}
       </Box>
-      <CustomTextArea value={fieldValue} handleChange={handleTextAreValueChange} handleSubmit={handleSubmit} />
+      <CustomTextArea
+        value={fieldValue}
+        handleChange={handleTextAreValueChange}
+        handleSubmit={handleSubmit}
+        placeholderText='requirement'
+      />
     </>
   )
 }

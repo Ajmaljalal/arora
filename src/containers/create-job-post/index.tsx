@@ -83,37 +83,6 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
     setFormData(formDataTemp)
   }
 
-  const handleJobResponsibilitiesChange = (e: ChangeEvent<HTMLInputElement>) => {
-    let value: string = e.target.value
-    let isComplete: boolean = false
-    const responsibilities: string[] = formData.jobResponsibilities.responsibilities
-    if (responsibilities.includes(value)) return
-    responsibilities.push(value)
-    if (responsibilities.length) {
-      isComplete = true
-    }
-    const formDataTemp = {
-      ...formData,
-      jobResponsibilities: { responsibilities: responsibilities, isComplete: isComplete }
-    }
-    setFormData(formDataTemp)
-  }
-
-  const handleDeleteJobResponsibility = (responsibilityToDelete: string) => {
-    const responsibilities: string[] = formData.jobResponsibilities.responsibilities
-    const newResponsibilities = responsibilities.filter(responsibility => responsibility !== responsibilityToDelete)
-    let isComplete: boolean = true
-    if (!newResponsibilities.length) {
-      isComplete = false
-    }
-    const formDataTemp = {
-      ...formData,
-      jobResponsibilities: { responsibilities: newResponsibilities, isComplete: isComplete }
-    }
-    setFormData(formDataTemp)
-  }
-
-
   const handleArryTypeDataChange = (data: FormDataTypes) => {
     const formDataTemp = {
       ...formData,
@@ -177,7 +146,7 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
             {formErr &&
               <InlineAlert status='error' title='Missing required fields' message={formErr} />
             }
-            <Box height='500px' overflowY='auto'>
+            <Box height='500px' py='10px' overflow='hidden'>
               {renderCurrentForm()}
             </Box>
             {renderBottomBtns()}
@@ -195,7 +164,6 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
       case 'jobDescription':
         return <CurrentStepForm onChange={handleRichTextEditorChange} data={textEditorState} />
       case 'jobResponsibilities':
-        return <CurrentStepForm onChange={handleJobResponsibilitiesChange} onDelete={handleDeleteJobResponsibility} data={currentFormData} />
       case 'jobSkills':
       case 'jobRequirements':
         return <CurrentStepForm onChange={handleArryTypeDataChange} data={currentFormData} />

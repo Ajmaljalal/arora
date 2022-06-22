@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Wrap } from '@chakra-ui/react'
+import { Box, Wrap } from '@chakra-ui/react'
 import { JobSkillsObject } from './utils/objects'
 import CustomTextArea from '../../components/form/text-area'
 import CustomTag from '../../components/tag'
@@ -52,11 +52,12 @@ const JobSkillsForm = ({ onChange, data }: JobSkillsFormProps) => {
   const renderSkills = () => {
     return (
       <Wrap
-        maxHeight='500px'
-        overflowY='auto'
+        maxHeight='400px'
+        overflowY='hidden'
+        overflowX='hidden'
         borderRadius='4px'
         color='brand.grey400'
-        mb='8px'
+        mb='10px'
       >
         {
           data.skills?.map(skill => {
@@ -75,14 +76,15 @@ const JobSkillsForm = ({ onChange, data }: JobSkillsFormProps) => {
   }
 
   return (
-    <>
+    <Box maxHeight='400px' overflowY='auto' mb='10px'>
       {renderSkills()}
       <CustomTextArea
         value={fieldValue}
         handleChange={handleTextAreValueChange}
         handleSubmit={handleSubmit}
+        placeholderText='skill'
       />
-    </>
+    </Box>
   )
 }
 
