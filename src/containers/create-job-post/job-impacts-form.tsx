@@ -3,6 +3,7 @@ import { Box, Text } from '@chakra-ui/react'
 import BorderedListItem from '../../components/bordered-list-item'
 import CustomTextArea from '../../components/form/text-area'
 import { JobImpactsObject } from './utils/objects'
+import FormWrapper from '../../components/form/form-wrapper'
 
 
 type JobImpactsFormProps = {
@@ -67,52 +68,50 @@ const JobImpactsForm = ({ data, onChange }: JobImpactsFormProps) => {
   }
 
   return (
-    <>
-      <Box maxHeight='400px' overflowY='auto' mb='10px'>
-        <Box mb='15px'>
-          <Text mb='5px' color='brand.grey500' fontWeight='700'>In the first month</Text>
-          {data.firstMonth &&
-            <BorderedListItem text={data.firstMonth} onDelete={(_) => handleDelete('firstMonth')} onEdit={(text) => handleEdit(text, 'firstMonth')} />}
-          {!data.firstMonth &&
-            <CustomTextArea
-              value={firstMonthValue}
-              name='firstMonth'
-              handleChange={handleTextAreValueChange}
-              handleSubmit={handleSubmit}
-              placeholderText='first month impact'
-            />
-          }
-        </Box>
-        <Box mb='15px'>
-          <Text mb='5px' color='brand.grey500' fontWeight='700'>In three months</Text>
-          {data.threeMonths &&
-            <BorderedListItem text={data.threeMonths} onDelete={(_) => handleDelete('threeMonths')} onEdit={(text) => handleEdit(text, 'threeMonths')} />}
-          {!data.threeMonths &&
-            <CustomTextArea
-              value={threeMonthsValue}
-              name='threeMonths'
-              handleChange={handleTextAreValueChange}
-              handleSubmit={handleSubmit}
-              placeholderText='three months impact'
-            />
-          }
-        </Box>
-        <Box mb='15px'>
-          <Text mb='5px' color='brand.grey500' fontWeight='700'>In a year</Text>
-          {data.oneYear &&
-            <BorderedListItem text={data.oneYear} onDelete={(_) => handleDelete('oneYear')} onEdit={(text) => handleEdit(text, 'oneYear')} />}
-          {!data.oneYear &&
-            <CustomTextArea
-              value={oneYearValue}
-              name='oneYear'
-              handleChange={handleTextAreValueChange}
-              handleSubmit={handleSubmit}
-              placeholderText='one year impact'
-            />
-          }
-        </Box>
+    <FormWrapper>
+      <Box mb='15px'>
+        <Text mb='5px' color='brand.grey500' fontWeight='700'>In the first month</Text>
+        {data.firstMonth &&
+          <BorderedListItem text={data.firstMonth} onDelete={(_) => handleDelete('firstMonth')} onEdit={(text) => handleEdit(text, 'firstMonth')} />}
+        {!data.firstMonth &&
+          <CustomTextArea
+            value={firstMonthValue}
+            name='firstMonth'
+            handleChange={handleTextAreValueChange}
+            handleSubmit={handleSubmit}
+            placeholderText='first month impact'
+          />
+        }
       </Box>
-    </>
+      <Box mb='15px'>
+        <Text mb='5px' color='brand.grey500' fontWeight='700'>In three months</Text>
+        {data.threeMonths &&
+          <BorderedListItem text={data.threeMonths} onDelete={(_) => handleDelete('threeMonths')} onEdit={(text) => handleEdit(text, 'threeMonths')} />}
+        {!data.threeMonths &&
+          <CustomTextArea
+            value={threeMonthsValue}
+            name='threeMonths'
+            handleChange={handleTextAreValueChange}
+            handleSubmit={handleSubmit}
+            placeholderText='three months impact'
+          />
+        }
+      </Box>
+      <Box mb='15px'>
+        <Text mb='5px' color='brand.grey500' fontWeight='700'>In a year</Text>
+        {data.oneYear &&
+          <BorderedListItem text={data.oneYear} onDelete={(_) => handleDelete('oneYear')} onEdit={(text) => handleEdit(text, 'oneYear')} />}
+        {!data.oneYear &&
+          <CustomTextArea
+            value={oneYearValue}
+            name='oneYear'
+            handleChange={handleTextAreValueChange}
+            handleSubmit={handleSubmit}
+            placeholderText='one year impact'
+          />
+        }
+      </Box>
+    </FormWrapper>
   )
 }
 

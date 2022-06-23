@@ -3,6 +3,7 @@ import { Box } from '@chakra-ui/react'
 import { JobResponsibilitiesObject } from './utils/objects'
 import CustomTextArea from '../../components/form/text-area'
 import BorderedListItem from '../../components/bordered-list-item'
+import FormWrapper from '../../components/form/form-wrapper'
 
 type JobResponsibilitiesFormProps = {
   data: JobResponsibilitiesObject
@@ -56,11 +57,11 @@ const JobResponsibilitiesForm = ({ data, onChange }: JobResponsibilitiesFormProp
 
   return (
     <>
-      <Box maxHeight='400px' overflowY='auto' mb='10px'>
+      <FormWrapper>
         {data.responsibilities?.map((responsibility, index) => {
           return <BorderedListItem text={responsibility} onDelete={handleDelete} onEdit={handleEdit} number={index + 1} />
         })}
-      </Box>
+      </FormWrapper>
       <CustomTextArea
         value={fieldValue}
         handleChange={handleTextAreValueChange}

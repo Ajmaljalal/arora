@@ -3,6 +3,7 @@ import { Box, Wrap } from '@chakra-ui/react'
 import { JobSkillsObject } from './utils/objects'
 import CustomTextArea from '../../components/form/text-area'
 import CustomTag from '../../components/tag'
+import FormWrapper from '../../components/form/form-wrapper'
 
 type JobSkillsFormProps = {
   data: JobSkillsObject
@@ -76,7 +77,7 @@ const JobSkillsForm = ({ onChange, data }: JobSkillsFormProps) => {
   }
 
   return (
-    <Box maxHeight='400px' overflowY='auto' mb='10px'>
+    <FormWrapper>
       {renderSkills()}
       <CustomTextArea
         value={fieldValue}
@@ -84,7 +85,7 @@ const JobSkillsForm = ({ onChange, data }: JobSkillsFormProps) => {
         handleSubmit={handleSubmit}
         placeholderText='skill'
       />
-    </Box>
+    </FormWrapper>
   )
 }
 
