@@ -5,7 +5,7 @@ import EditIcon from '../../../public/assets/icons/edit-green.svg'
 
 type BorderedListItemProps = {
   text: string
-  number: number
+  number?: number
   onDelete: (text: string) => void
   onEdit: (text: string) => void
 }
@@ -33,7 +33,7 @@ const BorderedListItem = ({ text, number, onDelete, onEdit }: BorderedListItemPr
       spacing={3}
       bg='brand.grey100'
     >
-      <Text flex={1} fontSize='14' fontWeight='400'>{number}. {text}</Text>
+      <Text flex={1} fontSize='14' fontWeight='400'>{number ? number + '.' : ''} {text}</Text>
       <HStack>
         <EditIcon onClick={editItem} />
         <TrashIcon onClick={deleteItem} />

@@ -166,6 +166,7 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
       case 'jobResponsibilities':
       case 'jobSkills':
       case 'jobRequirements':
+      case 'jobImpacts':
         return <CurrentStepForm onChange={handleArryTypeDataChange} data={currentFormData} />
       default:
         return <CurrentStepForm onChange={handleChange} data={currentFormData} />

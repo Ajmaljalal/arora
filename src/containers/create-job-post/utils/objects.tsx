@@ -51,8 +51,7 @@ export type JobRequirementsObject = {
 
 export type JobImpactsObject = {
   firstMonth: string
-  threeMonth: string
-  sixMonth: string
+  threeMonths: string
   oneYear: string
   isComplete: boolean
 }
@@ -101,8 +100,7 @@ export const JobRequirementsInitialState: JobRequirementsObject = {
 
 export const JobImpactsInitialState: JobImpactsObject = {
   firstMonth: '',
-  threeMonth: '',
-  sixMonth: '',
+  threeMonths: '',
   oneYear: '',
   isComplete: false
 }

@@ -1,18 +1,20 @@
 import React from 'react'
-import { Kbd, Textarea } from "@chakra-ui/react"
+import { Textarea } from "@chakra-ui/react"
 import { ChangeEvent } from "react"
 
 type CustomTextAreaProps = {
   value: string
+  name?: string
   placeholderText: string
   handleChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
   handleSubmit?: (e: any) => void
 }
 
-const CustomTextArea = ({ value, placeholderText, handleChange, handleSubmit }: CustomTextAreaProps) => {
+const CustomTextArea = ({ value, name, placeholderText, handleChange, handleSubmit }: CustomTextAreaProps) => {
   return (
     <Textarea
       value={value}
+      name={name}
       onChange={handleChange}
       onKeyDown={handleSubmit}
       placeholder={`Type a ${placeholderText} and hit ENTER ⏎ to save!`}
