@@ -57,11 +57,14 @@ const JobRequirementsForm = ({ onChange, data }: JobRequirementsFormProps) => {
 
   return (
     <>
-      <FormWrapper>
-        {data.requirements?.map((requirement, index) => {
-          return <BorderedListItem text={requirement} onDelete={handleDelete} onEdit={handleEdit} number={index + 1} />
-        })}
-      </FormWrapper>
+      {
+        data?.requirements.length > 0 &&
+        <FormWrapper>
+          {data.requirements?.map((requirement, index) => {
+            return <BorderedListItem text={requirement} onDelete={handleDelete} onEdit={handleEdit} number={index + 1} />
+          })}
+        </FormWrapper>
+      }
       <CustomTextArea
         value={fieldValue}
         handleChange={handleTextAreValueChange}

@@ -77,15 +77,19 @@ const JobSkillsForm = ({ onChange, data }: JobSkillsFormProps) => {
   }
 
   return (
-    <FormWrapper>
-      {renderSkills()}
+    <>
+      {data?.skills.length > 0 &&
+        <FormWrapper>
+          {renderSkills()}
+        </FormWrapper>
+      }
       <CustomTextArea
         value={fieldValue}
         handleChange={handleTextAreValueChange}
         handleSubmit={handleSubmit}
         placeholderText='skill'
       />
-    </FormWrapper>
+    </>
   )
 }
 

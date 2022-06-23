@@ -68,7 +68,7 @@ const JobImpactsForm = ({ data, onChange }: JobImpactsFormProps) => {
   }
 
   return (
-    <FormWrapper>
+    <FormWrapper height='500px'>
       <Box mb='15px'>
         <Text mb='5px' color='brand.grey500' fontWeight='700'>In the first month</Text>
         {data.firstMonth &&

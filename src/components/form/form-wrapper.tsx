@@ -2,9 +2,9 @@ import React from 'react'
 import { Box } from '@chakra-ui/react'
 
 
-const FormWrapper = ({ children }) => {
+const FormWrapper = ({ children, height = '400px' }) => {
   return (
-    <Box maxHeight='400px' overflowY='auto' mb='10px'>
+    <Box maxHeight={height} overflowY='auto' mb='10px' pt='10px'>
       {children}
     </Box>
   )

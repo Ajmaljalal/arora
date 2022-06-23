@@ -57,11 +57,14 @@ const JobResponsibilitiesForm = ({ data, onChange }: JobResponsibilitiesFormProp
 
   return (
     <>
-      <FormWrapper>
-        {data.responsibilities?.map((responsibility, index) => {
-          return <BorderedListItem text={responsibility} onDelete={handleDelete} onEdit={handleEdit} number={index + 1} />
-        })}
-      </FormWrapper>
+      {
+        data?.responsibilities.length > 0 &&
+        <FormWrapper>
+          {data.responsibilities?.map((responsibility, index) => {
+            return <BorderedListItem text={responsibility} onDelete={handleDelete} onEdit={handleEdit} number={index + 1} />
+          })}
+        </FormWrapper>
+      }
       <CustomTextArea
         value={fieldValue}
         handleChange={handleTextAreValueChange}
