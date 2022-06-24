@@ -42,9 +42,9 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
 
   const handleCurrentStepChange = (nextStep) => {
     const isEmpty = checkEmptyFields(formData[currentStep.name])
-    const isMovingBack = currentStep.index > nextStep.index
-    const isJumpingSteps = nextStep.index - currentStep.index > 1
-    if (isJumpingSteps) return
+    // const isMovingBack = currentStep.index > nextStep.index
+    // const isJumpingSteps = nextStep.index - currentStep.index > 1
+    // if (isJumpingSteps) return
     // if (isEmpty && !isMovingBack) {
     //   setFormErr('field marked with * cannot be empty or 0!')
     //   return
