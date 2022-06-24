@@ -167,6 +167,8 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
       case 'jobSkills':
       case 'jobRequirements':
       case 'jobImpacts':
+      case 'jobPipeline':
+      case 'jobScoreCard':
         return <CurrentStepForm onChange={handleArryTypeDataChange} data={currentFormData} />
       default:
         return <CurrentStepForm onChange={handleChange} data={currentFormData} />
@@ -175,7 +177,8 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
 
   const renderBottomBtns = () => {
     return (
-      <HStack spacing={4} mt='50px' justifyContent='flex-end'>
+      <HStack spacing={4} mt='
+      50px' justifyContent='flex-end'>
         <Link href='/'><a><BaseButton text='Cancel' outlined={true} onClick={closeModal} borderColor='brand.primary' color='brand.primary' /></a></Link>
         <BaseButton text='Next' onClick={handleCurrentStepChange} color='brand.white' bg='brand.primary' />
       </HStack>
