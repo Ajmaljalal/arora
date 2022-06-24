@@ -36,8 +36,8 @@ const JobSummaryForm = ({ onChange, data }: JobSummaryFormProps) => {
         <InputField value={data?.ApplicationDeadline} onChange={onChange} label='Application Deadline' type='date' width='48%' isRequired={true} />
       </Box>
       <Box display='flex' justifyContent='space-between'>
-        <InputField value={data?.MinSalary} onChange={onChange} label='Min Salary' width='48%' leftAddOn='$' type='number' isRequired={true} />
-        <InputField value={data?.MaxSalary} onChange={onChange} label='Max Salary' width='48%' leftAddOn='$' type='number' isRequired={true} />
+        <InputField value={data?.MinSalary} onChange={onChange} label='Min Annual Salary' width='48%' leftAddOn='$' type='number' isRequired={true} />
+        <InputField value={data?.MaxSalary} onChange={onChange} label='Max Annual Salary' width='48%' leftAddOn='$' type='number' isRequired={true} />
       </Box>
       <InputField value={data?.MinYearsofExperience} onChange={onChange} label='Min Years of Experience' type='number' isRequired={true} />
 
