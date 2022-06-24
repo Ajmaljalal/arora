@@ -7,6 +7,12 @@ const theme = extendTheme({
     initialColorMode: 'light',
     useSystemColorMode: false,
   },
+  fonts: {
+    heading: "'Roboto', sans-serif",
+    body: "'Roboto', sans-serif",
+    div: "'Roboto', sans-serif"
+
+  },
   colors: {
     brand: {
       primary: '#4169E0',

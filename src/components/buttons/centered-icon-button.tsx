@@ -19,25 +19,42 @@ export const CenteredIconButton = ({
   isOutlined,
   borderColor,
   onClick,
-  href = ''
+  href
 }: CenteredIconButtonProps) => {
-  return (
-    <Link href={href} passHref>
-      <a>
-        <IconButton
-          aria-label='icon-button'
-          bg={bg}
-          icon={Icon}
-          height='40px'
-          width='40px'
-          isRound={isRound}
-          borderRadius={!isRound ? '3px' : '50%'}
-          border={isOutlined ? `1px solid ${borderColor}` : 'none'}
-          _focus={{ boxShadow: "none !important", background: bg }}
-          _hover={{ background: bg }}
-          onClick={onClick}
-        />
-      </a>
-    </Link>
-  );
+  if (href) {
+    return (
+      <Link href={href} passHref>
+        <a>
+          <IconButton
+            aria-label='icon-button'
+            bg={bg}
+            icon={Icon}
+            height='40px'
+            width='40px'
+            isRound={isRound}
+            borderRadius={!isRound ? '3px' : '50%'}
+            border={isOutlined ? `1px solid ${borderColor}` : 'none'}
+            _focus={{ boxShadow: "none !important", background: bg }}
+            _hover={{ background: bg }}
+          />
+        </a>
+      </Link>
+    );
+  } else {
+    return (
+      <IconButton
+        aria-label='icon-button'
+        bg={bg}
+        icon={Icon}
+        height='40px'
+        width='40px'
+        isRound={isRound}
+        borderRadius={!isRound ? '3px' : '50%'}
+        border={isOutlined ? `1px solid ${borderColor}` : 'none'}
+        _focus={{ boxShadow: "none !important", background: bg }}
+        _hover={{ background: bg }}
+        onClick={onClick}
+      />
+    );
+  }
 }
