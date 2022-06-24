@@ -177,9 +177,12 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
 
   const renderBottomBtns = () => {
     return (
-      <HStack spacing={4} mt='
-      50px' justifyContent='flex-end'>
-        <Link href='/'><a><BaseButton text='Cancel' outlined={true} onClick={closeModal} borderColor='brand.primary' color='brand.primary' /></a></Link>
+      <HStack
+        spacing={4}
+        mt='50px'
+        justifyContent='flex-end'
+      >
+        <BaseButton text='Cancel' outlined={true} onClick={closeModal} borderColor='brand.primary' color='brand.primary' />
         <BaseButton text='Next' onClick={handleCurrentStepChange} color='brand.white' bg='brand.primary' />
       </HStack>
     )
