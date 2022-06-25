@@ -9,7 +9,7 @@ export type BaseButtonProps = {
   bg?: string
   icon?: JSX.Element
   iconPosition?: 'left' | 'right'
-  onClick: (arg?: any) => void
+  onClick?: (arg?: any) => void
 }
 
 export const BaseButton = ({
@@ -35,7 +35,7 @@ export const BaseButton = ({
       onClick={onClick}
       borderColor={outlined ? borderColor : bg}
       borderRadius='3px'
-      _focus={{ boxShadow: "none !important" }}
+      _focus={{ shadow: "none !important", color: color, bg: bg }}
       _hover={{ background: outlined ? 'transparent' : bg }}
     >
       {text}

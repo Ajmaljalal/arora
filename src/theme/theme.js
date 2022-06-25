@@ -36,6 +36,14 @@ const theme = extendTheme({
       grey50: '#CDCED0',
     }
   },
+  styles: {
+    global: {
+      // styles for the `body`
+      body: {
+        letterSpacing: '0.02em'
+      },
+    }
+  }
 })
 
 export default theme
