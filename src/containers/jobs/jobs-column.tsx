@@ -1,56 +1,14 @@
 import React from 'react'
 import { Box, HStack, VStack, Text } from '@chakra-ui/react'
 import JobCard from './job-card'
+import { jobs } from '../../data/index'
 
 type JobsColumnProps = {
   column: { name: string, color: string }
 }
 
-const jobsList = [
-  {
-    jobTitle: 'React Engineer',
-    jobType: 'Full time',
-    jobMethod: 'Remote',
-    location: 'Sacramento',
-    createdBy: 'Ajmal Jalal',
-    status: 'draft'
-  },
-  {
-    jobTitle: 'Full Stack Engineer',
-    jobType: 'Full time',
-    jobMethod: 'from office',
-    location: 'Sacramento',
-    createdBy: 'Ajmal Jalal',
-    status: 'draft'
-  },
-  {
-    jobTitle: 'UI/UX Engineer',
-    jobType: 'Full time',
-    jobMethod: 'hibred',
-    location: 'Sacramento',
-    createdBy: 'Ajmal Jalal',
-    status: 'in review'
-  },
-  {
-    jobTitle: 'Javascript Developer',
-    jobType: 'Full time',
-    jobMethod: 'Remote',
-    location: 'Sacramento',
-    createdBy: 'Ajmal Jalal',
-    status: 'reviewed'
-  },
-  {
-    jobTitle: 'Senior Javascript Engineer',
-    jobType: 'Full time',
-    jobMethod: 'Remote',
-    location: 'Sacramento',
-    createdBy: 'Ajmal Jalal',
-    status: 'published'
-  }
-]
-
 const JobsColumn = ({ column }: JobsColumnProps) => {
-  const currentColumnJobs = jobsList.filter(job => job.status.toLowerCase() === column.name.toLowerCase())
+  const currentColumnJobs = jobs.filter(job => job.status.toLowerCase() === column.name.toLowerCase())
 
   const renderColumnHeader = () => {
     return (
@@ -68,7 +26,7 @@ const JobsColumn = ({ column }: JobsColumnProps) => {
             justifyContent='center'
             alignItems='center'
           >
-            24
+            {currentColumnJobs.length}
           </Text>
         </HStack>
       </Box>
@@ -78,17 +36,18 @@ const JobsColumn = ({ column }: JobsColumnProps) => {
   const renderJobsList = () => {
     return (
       currentColumnJobs.map(job => {
-        return <JobCard job={job} />
+        return <JobCard key={job.id} job={{ id: job.id, company: job.company, status: job.status, ...job.jobSummary }} />
       })
     )
-
   }
 
 
   return (
-    <VStack flex={1}>
+    <VStack flex={1} >
       {renderColumnHeader()}
-      {renderJobsList()}
+      <VStack w='100%' maxHeight='65vh' overflowY='auto'>
+        {renderJobsList()}
+      </VStack>
     </VStack>
   )
 }

@@ -1,8 +1,14 @@
 export type JobCardObject = {
-  jobTitle: string,
-  jobType: string,
-  jobMethod: string,
-  location: string,
-  createdBy: string,
+  id: string
+  JobTitle: string
+  JobType: string
+  JobMethod: string
+  JobLocation: string
+  ApplicationDeadline: string
+  MinSalary: number
+  MaxSalary: number
+  MinYearsofExperience: number
+  company: string
   status: string
+  isComplete?: boolean
 }
