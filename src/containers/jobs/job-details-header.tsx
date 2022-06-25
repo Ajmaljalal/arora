@@ -88,7 +88,7 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
     )
   }
   return (
-    <Box
+    job ? <Box
       borderBottom='2px solid'
       borderColor='brand.grey200'
       pb='10px'
@@ -97,7 +97,7 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
     >
       {renderTitle()}
       {renderActionButtons()}
-    </Box>
+    </Box> : null
   )
 }
 
