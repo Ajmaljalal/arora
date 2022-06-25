@@ -15,8 +15,8 @@ export default function Home() {
   return (
     <Box>
       <Head>
-        <title>Arora</title>
-        <meta name="description" content="Best videos of all kinds" />
+        <title>Arora | Dashboard</title>
+        <meta name="description" content="A dashboard of all your activities recruitement activities in arora" />
       </Head>
       <BodyLayout>
         <PageTitle text='Dashboard' />

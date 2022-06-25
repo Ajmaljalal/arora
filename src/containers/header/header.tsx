@@ -8,9 +8,6 @@ import ClientsDropDown from './header-client-options'
 
 
 const Header = () => {
-	const borderBottomColor = useColorModeValue('grey', 'lightGray')
-
-
 	const rightSideQuickActions = () => {
 		return (
 			<HStack>
@@ -47,7 +44,8 @@ const Header = () => {
 			minHeight='65px'
 			width='100%'
 			bg='brand.white'
-			borderBottom={`1px solid ${borderBottomColor}`}
+			borderBottom='1px solid'
+			borderColor='brand.grey200'
 			display='flex'
 			alignItems='center'
 			p='0 32px'
