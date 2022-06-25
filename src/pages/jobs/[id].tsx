@@ -11,8 +11,8 @@ type Props = {}
 
 const JobDetails = (props: Props) => {
   const router = useRouter()
-  const jobId = router.query.id
-  const job = jobs.find(job => job.id === jobId)
+  const jobId = router.query?.id
+  const job = jobs.find(job => job?.id === jobId)
   return (
     <Box>
       <Head>
@@ -22,7 +22,7 @@ const JobDetails = (props: Props) => {
       <BodyLayout>
         <JobDetailsHeader job={job} />
         <PageContentWrapper>
-          {job.id}
+          {job?.id}
         </PageContentWrapper>
       </BodyLayout>
     </Box>

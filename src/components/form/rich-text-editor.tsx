@@ -22,7 +22,7 @@ const RichTextEditor = ({ data, onEditorStateChange }: RichTextEditorProps) => {
 
   useEffect(() => {
     setEditorState(data)
-  }, [])
+  }, [data])
 
   const onEditorChange = (editorState: EditorState) => {
     setEditorState(editorState);
