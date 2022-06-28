@@ -8,18 +8,27 @@ type JobCardProps = {
 }
 
 const JobCard = ({ job }: JobCardProps) => {
-  const isRemote = job.jobMethod.toLowerCase() === 'remote'
+  const isRemote = job.JobMethod.toLowerCase() === 'remote'
 
   const renderJobTitle = () => {
     return (
-      <Text
-        fontWeight='600'
-        fontSize='15px'
+      <Box
         minWidth='150px'
         mb='10px'
       >
-        {job.jobTitle}
-      </Text>
+        <Text
+          fontWeight='600'
+          fontSize='15px'
+        >
+          {job.JobTitle}
+        </Text>
+        <Text
+          fontSize='14px'
+          color='brand.black'
+        >
+          {job.company}
+        </Text>
+      </Box>
     )
   }
 
@@ -43,13 +52,13 @@ const JobCard = ({ job }: JobCardProps) => {
         bg='brand.grey100'
         border='1px solid'
         borderColor='brand.grey200'
-        justify='center'
+        justify='start'
         borderRadius='4px'
         py='10px'
       >
-        {renderJobDetailItem(job.jobType)}
-        {renderJobDetailItem(job.jobMethod)}
-        {!isRemote && renderJobDetailItem(job.location)}
+        {renderJobDetailItem(job.JobType)}
+        {renderJobDetailItem(job.JobMethod)}
+        {!isRemote && renderJobDetailItem(job.JobLocation)}
       </Wrap>
     )
   }
@@ -70,14 +79,14 @@ const JobCard = ({ job }: JobCardProps) => {
       </Box>
     )
   }
+
   return (
-    <Link href={`/jobs/${job.location}`}>
+    <Link href={`/jobs/${job.id}`}>
       <Box
         borderRadius='4px'
         bg='brand.white'
         minWidth='150px'
         w='100%'
-        minHeight='100px'
         maxHeight='255px'
         p='16px'
         cursor='pointer'

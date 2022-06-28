@@ -12,7 +12,7 @@ type JobScoreCardFormProps = {
 
 const scoreCards = [
   {
-    id: "randomepipelineid1",
+    id: "randomscorecardidone",
     name: 'Software engineer',
     criterias: [
       {
@@ -34,7 +34,7 @@ const scoreCards = [
     ]
   },
   {
-    id: "randomepipelineid2",
+    id: "randomscorecardidtwo",
     name: 'QA Engineer',
     criterias: [
       {

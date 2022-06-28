@@ -27,7 +27,7 @@ const JobsList = (props: JobsListProps) => {
   return (
     <HStack alignItems='flex-start'>
       {jobColumns.map(column => {
-        return <JobsColumn column={column} />
+        return <JobsColumn key={column.name} column={column} />
       })}
     </HStack>
   )
