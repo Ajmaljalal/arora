@@ -10,7 +10,7 @@ const CreateJobPost = ({ }: CreateJobPostProps) => {
 
   return (
     <Box>
-      <CreateJobPostModal />
+      <CreateJobPostModal key='create-new-job-post' />
     </Box>
   )
 }

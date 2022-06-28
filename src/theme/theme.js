@@ -42,6 +42,12 @@ const theme = extendTheme({
       body: {
         letterSpacing: '0.02em'
       },
+      div: {
+        letterSpacing: '0.02em'
+      },
+      button: {
+        letterSpacing: '0.02em'
+      }
     }
   }
 })
