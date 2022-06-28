@@ -47,6 +47,8 @@ const JobsColumn = ({ column }: JobsColumnProps) => {
       {renderColumnHeader()}
       <VStack w='100%' maxHeight='65vh' overflowY='auto'>
         {renderJobsList()}
+        {renderJobsList()}
+        {renderJobsList()}
       </VStack>
     </VStack>
   )

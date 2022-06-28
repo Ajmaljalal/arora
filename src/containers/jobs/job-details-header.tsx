@@ -11,6 +11,10 @@ type JobDetailsHeaderProps = {
 }
 
 const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
+  if (!job) {
+    return null
+  }
+
   const isRemote = job.jobSummary.JobMethod.toLowerCase() === 'remote'
   const router = useRouter()
 
@@ -26,13 +30,13 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
           w='32px'
           h='32px'
           borderRadius='50%'
-          bg='brand.secondaryLight'
-          mr='10px'
+          bg='brand.white'
+          mr='16px'
           display='flex'
           justifyContent='center'
           alignItems='center'
-          border='1px solid'
-          borderColor='brand.secondary'
+          border='.5px solid'
+          borderColor='brand.grey300'
           cursor='pointer'
           onClick={handleClickBack}
         >
@@ -88,7 +92,7 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
     )
   }
   return (
-    job ? <Box
+    <Box
       borderBottom='2px solid'
       borderColor='brand.grey200'
       pb='10px'
@@ -97,7 +101,7 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
     >
       {renderTitle()}
       {renderActionButtons()}
-    </Box> : null
+    </Box>
   )
 }
 
