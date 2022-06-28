@@ -19,7 +19,9 @@ export default function Home() {
         <meta name="description" content="A dashboard of all your activities recruitement activities in arora" />
       </Head>
       <BodyLayout>
-        <PageTitle text='Dashboard' />
+        <Box>
+          <PageTitle text='Dashboard' />
+        </Box>
         <PageContentWrapper>
           <JobStatusCardsList />
           <Grid templateColumns={`repeat(${gridColumn}, 1fr)`} gap={8} mt='16px' autoFlow='row'>

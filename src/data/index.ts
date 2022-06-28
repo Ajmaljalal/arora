@@ -277,10 +277,14 @@ export const jobs = [
       isComplete: true
     },
     jobImpacts: {
-      firstMonth: 'You will be learning the code base and learning some redux',
-      threeMonths: 'You should have pushed several prs and fixed several bugs',
-      oneYear: 'Now you are the owner of the product and should be able to fix bugs, create features, write tests, and push releases',
+      firstMonth: 'You will be learning the code base and learning some redux. This can be very easy or very hard based on your talent level.',
+      threeMonths: 'You should have pushed several prs and fixed several bugs. Fixing bugs can be very easy and can be very hard to maintaine. At the time',
+      oneYear: 'Now you are the owner of the product and should be able to fix bugs, create features, write tests, and push releases. We want to make sure you have all the tools.',
       isComplete: true
+    },
+    jobDescription: {
+      description: 'This is the job description for now. We need to change this to something that is very needed and can be done easilty.'
+
     },
     jobPipeline: {
       id: 'randomepipelineid1',

@@ -84,6 +84,8 @@ const JobCard = ({ job }: JobCardProps) => {
     <Link href={`/jobs/${job.id}`}>
       <Box
         borderRadius='4px'
+        border='1px solid'
+        borderColor='brand.grey200'
         bg='brand.white'
         minWidth='150px'
         w='100%'

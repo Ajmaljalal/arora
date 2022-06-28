@@ -12,14 +12,11 @@ const BodyLayout = ({ children }) => {
       bg='brand.containerBackground'
       maxHeight='100vh'
       height='100vh'
-      overflow='hidden'
     >
       <Header />
-      <Box width='100%' overflowY='auto' height='100%'>
-        <BodyContent>
-          {children}
-        </BodyContent>
-      </Box>
+      <BodyContent>
+        {children}
+      </BodyContent>
     </Box>
   )
 }

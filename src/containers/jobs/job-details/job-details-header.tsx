@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, Text, Wrap } from '@chakra-ui/react'
 import Link from 'next/link'
-import PageTitle from '../../components/headings/page-title'
-import { BaseButton } from '../../components/buttons/button'
-import ChevronLeftIcon from '../../../public/assets/icons/chevron-left.svg'
+import PageTitle from '../../../components/headings/page-title'
+import { BaseButton } from '../../../components/buttons/button'
+import ChevronLeftIcon from '../../../../public/assets/icons/chevron-left.svg'
 import { useRouter } from 'next/router'
 
 type JobDetailsHeaderProps = {
@@ -32,11 +32,12 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
           borderRadius='50%'
           bg='brand.white'
           mr='16px'
+          ml='-8px'
           display='flex'
           justifyContent='center'
           alignItems='center'
-          border='.5px solid'
-          borderColor='brand.grey300'
+          border='1px solid'
+          borderColor='brand.grey200'
           cursor='pointer'
           onClick={handleClickBack}
         >
@@ -67,10 +68,8 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
   const renderJobDetails = () => {
     return (
       <Wrap
-        // bg='brand.white'
         justify='start'
         borderRadius='4px'
-        // p='8px'
         mt='8px'
       >
         {renderJobDetailItem(job.jobSummary.JobType)}
@@ -83,9 +82,9 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
   const renderActionButtons = () => {
     return (
       <Box>
-        <Link href='/create-job-post' passHref>
+        <Link href={`/jobs/edit/${job.id}`} passHref>
           <a>
-            <BaseButton text='Post a job' color='brand.white' bg='brand.primary' />
+            <BaseButton text='Edit job' color='brand.white' bg='brand.primary' />
           </a>
         </Link>
       </Box>
@@ -93,9 +92,8 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
   }
   return (
     <Box
-      borderBottom='2px solid'
       borderColor='brand.grey200'
-      pb='10px'
+      mb='24px'
       display='flex'
       justifyContent='space-between'
     >
