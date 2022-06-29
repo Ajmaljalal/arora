@@ -1,10 +1,11 @@
 import React from 'react'
-import { Box, Text, Wrap } from '@chakra-ui/react'
+import { Box, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import PageTitle from '../../../components/headings/page-title'
 import { BaseButton } from '../../../components/buttons/button'
 import ChevronLeftIcon from '../../../../public/assets/icons/chevron-left.svg'
 import { useRouter } from 'next/router'
+import CustomTag from '../../../components/tag'
 
 type JobDetailsHeaderProps = {
   job: any
@@ -24,8 +25,10 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
 
 
   const renderTitle = () => {
+    const jobStatusText = job.isClosed ? 'Closed' : 'Hiring paused'
+    const showStatusText = job.isClosed || job.isPaused
     return (
-      <Box display='flex'>
+      <Box display='flex' alignItems='center'>
         <Box
           w='32px'
           h='32px'
@@ -43,10 +46,19 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
         >
           <ChevronLeftIcon />
         </Box>
-        <Box>
+        {/* <Box> */}
+        <HStack>
           <PageTitle text={job.jobSummary.JobTitle} />
-          {renderJobDetails()}
-        </Box>
+          {showStatusText &&
+            <CustomTag
+              text={jobStatusText}
+              color='brand.red'
+              bg='brand.lightOrange'
+            />
+          }
+        </HStack>
+        {/* {renderJobDetails()} */}
+        {/* </Box> */}
       </Box>
     )
   }
@@ -65,29 +77,33 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
     )
   }
 
-  const renderJobDetails = () => {
-    return (
-      <Wrap
-        justify='start'
-        borderRadius='4px'
-        mt='8px'
-      >
-        {renderJobDetailItem(job.jobSummary.JobType)}
-        {renderJobDetailItem(job.jobSummary.JobMethod)}
-        {!isRemote && renderJobDetailItem(job.jobSummary.JobLocation)}
-      </Wrap>
-    )
-  }
+  // const renderJobDetails = () => {
+  //   return (
+  //     <Wrap
+  //       justify='start'
+  //       borderRadius='4px'
+  //       mt='8px'
+  //     >
+  //       {renderJobDetailItem(job.jobSummary.JobType)}
+  //       {renderJobDetailItem(job.jobSummary.JobMethod)}
+  //       {!isRemote && renderJobDetailItem(job.jobSummary.JobLocation)}
+  //     </Wrap>
+  //   )
+  // }
 
   const renderActionButtons = () => {
+    const pauseBtnText = job?.isPaused ? 'Start hiring' : 'Pause hiring'
+    const closeBtnText = job?.isClosed ? 'Start job' : 'Close job'
     return (
-      <Box>
+      <HStack spacing={2}>
+        <BaseButton text={closeBtnText} color='brand.red' outlined borderColor='brand.grey300' />
+        {!job.isClosed && <BaseButton text={pauseBtnText} color='brand.primary' outlined borderColor='brand.grey300' />}
         <Link href={`/jobs/edit/${job.id}`} passHref>
           <a>
             <BaseButton text='Edit job' color='brand.white' bg='brand.primary' />
           </a>
         </Link>
-      </Box>
+      </HStack>
     )
   }
   return (
