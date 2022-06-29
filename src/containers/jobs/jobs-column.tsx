@@ -19,6 +19,8 @@ const JobsColumn = ({ column }: JobsColumnProps) => {
         width='100%'
         boxShadow='0px 3px 2px rgba(0, 0, 0, 0.02);'
         mb='12px'
+        position='sticky'
+        top='0px'
       >
         <Box height='7px' bg={column.color} borderTopEndRadius='4px' borderTopStartRadius='4px'></Box>
         <HStack p='14px' justify='space-between'>
@@ -50,9 +52,9 @@ const JobsColumn = ({ column }: JobsColumnProps) => {
 
 
   return (
-    <VStack flex={1} height='100%'>
+    <VStack flex={1} height='100%' position='relative'>
       {renderColumnHeader()}
-      <VStack w='100%' overflowY='auto' flex={1}>
+      <VStack w='100%' flex={1}>
         {renderJobsList()}
         {renderJobsList()}
         {renderJobsList()}
