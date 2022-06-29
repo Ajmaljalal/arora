@@ -31,7 +31,7 @@ const JobDetailTiles = ({ title, content }: JobDetailsTileProps) => {
   }
   return (
     <Box w='100%' bg='brand.white' borderRadius='4px' p='16px'>
-      <Heading as='h2' fontSize='18px' fontWeight='600' mb='16px'>
+      <Heading as='h2' fontSize='16px' fontWeight='600' mb='16px'>
         {title}
       </Heading>
       {renderContent()}

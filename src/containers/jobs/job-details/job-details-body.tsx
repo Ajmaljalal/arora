@@ -18,6 +18,7 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
         p='0'
         mr='40px'
         color='brand.grey400'
+        fontSize='16px'
         _focus={{ shadow: 'none' }}
         _selected={{ color: 'brand.black', fontWeight: '600', borderBottom: '2px solid', borderColor: 'brand.primary' }}
       >
@@ -28,7 +29,7 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
 
   const renderTabDetails = () => {
     return (
-      <TabPanel p='0' style={{ height: 'calc(100vh - 250px' }} overflowY='auto'>
+      <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} overflow='auto'>
         <HStack spacing='16px' align='flex-start'>
           <VStack flex={2}>
             <JobDetailsTile title='Description' content={job.jobDescription?.description} />
