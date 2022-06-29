@@ -56,7 +56,9 @@ export const jobs = [
     },
     createdAt: Date.now(),
     company: 'Uber',
-    status: 'Draft'
+    status: 'Draft',
+    isClosed: false,
+    isPaused: false
   },
   {
     id: 'randomejobwithidtwo',
@@ -115,7 +117,9 @@ export const jobs = [
     },
     createdAt: Date.now(),
     company: 'Zennify',
-    status: 'Draft'
+    status: 'Draft',
+    isClosed: true,
+    isPaused: false
   },
   {
     id: 'randomejobwithidthree',
@@ -174,7 +178,9 @@ export const jobs = [
     },
     createdAt: Date.now(),
     company: 'Google',
-    status: 'Published'
+    status: 'Published',
+    isClosed: false,
+    isPaused: false
   },
   {
     id: 'randomejobwithidfour',
@@ -233,7 +239,9 @@ export const jobs = [
     },
     createdAt: Date.now(),
     company: 'Uber',
-    status: 'In review'
+    status: 'In review',
+    isClosed: true,
+    isPaused: false
   },
   {
     id: 'randomejobwithidFive',
@@ -296,6 +304,8 @@ export const jobs = [
     },
     createdAt: Date.now(),
     company: 'Lark Health',
-    status: 'Reviewed'
+    status: 'Reviewed',
+    isClosed: false,
+    isPaused: true
   }
 ]

@@ -24,8 +24,15 @@ export default function Home() {
         </Box>
         <PageContentWrapper>
           <JobStatusCardsList />
-          <Grid templateColumns={`repeat(${gridColumn}, 1fr)`} gap={8} mt='16px' autoFlow='row'>
-            <GridItem rowSpan={2}>
+          <Grid
+            templateColumns={`repeat(${gridColumn}, 1fr)`}
+            gap={2}
+            mt='16px'
+            autoFlow='row'
+            maxHeight='85%'
+            overflowY='auto'
+          >
+            <GridItem>
               <TodaysInterviews />
             </GridItem>
             <GridItem>
