@@ -29,7 +29,7 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
 
   const renderTabDetails = () => {
     return (
-      <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} overflow='auto'>
+      <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} overflow='auto' position='relative'>
         <HStack spacing='16px' align='flex-start'>
           <VStack flex={2}>
             <JobDetailsTile title='Description' content={job.jobDescription?.description} />
@@ -38,9 +38,14 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
             <JobDetailsTile title='Responsibilities' content={job.jobResponsibilities.responsibilities} />
             <JobDetailsTile title='Impacts' content={job.jobImpacts} />
           </VStack>
-          <Box flex={1} bg='brand.white' borderRadius='4px'>
+          <VStack
+            flex={1}
+            position='sticky'
+            top='0'
+          >
             <JobDetailsTile title='Summary' content={job.jobSummary} />
-          </Box>
+            <JobDetailsTile title='Benefits' content={{ benefits: 'No benefits' }} />
+          </VStack>
         </HStack>
       </TabPanel>
     )

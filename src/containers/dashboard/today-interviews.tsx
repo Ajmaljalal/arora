@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box, Table, TableContainer, Tbody, Td, Th, Thead, Tr, TypographyProps, Text, VStack, Tag } from '@chakra-ui/react'
 import TileWithHeader from '../../components/tiles/tile-with-header'
+import TableRow from '../../components/table/table-row'
+import TableHeaderItem from '../../components/table/table-header-item'
 
 const todaysInterviews = [
   {
@@ -31,33 +33,17 @@ const todaysInterviews = [
 
 const TodaysInterviews = () => {
 
-  const TableRow = ({ children }) => {
-    return (
-      <Tr borderBottom='1px solid' borderColor='brand.grey200' _hover={{ cursor: 'pointer', textDecoration: 'underline' }}>
-        {children}
-      </Tr>
-    )
-  }
-
-  const renderTableTh = (text: string, textAlign?: TypographyProps['textAlign']) => {
-    return (
-      <Th color='brand.grey500' textAlign={textAlign}>
-        {text}
-      </Th>
-    )
-  }
-
   const renderInterviews = () => {
     return (
       todaysInterviews.map((interview) => {
         return (
           <TableRow key={interview.candidate}>
             <Td>
-              <VStack align='start'>
+              <VStack align='start' spacing={1}>
                 <Text fontSize='16px' fontWeight='600'>{interview.candidate}</Text>
-                <Tag fontSize='10px' fontWeight='500' colorScheme='black' borderRadius='full'>
+                <Text fontSize='10px' fontWeight='500' colorScheme='black' borderRadius='full'>
                   {`For ${interview.for}`}
-                </Tag>
+                </Text>
               </VStack>
             </Td>
             <Td fontSize='14px'>{interview.time}</Td>
@@ -79,11 +65,11 @@ const TodaysInterviews = () => {
         <TableContainer width='100%'>
           <Table variant='unstyled'>
             <Thead>
-              <Tr borderBottom='1px solid' borderColor='brand.grey200'>
-                {renderTableTh('Candidate')}
-                {renderTableTh('Time')}
-                {renderTableTh('Type', 'end')}
-              </Tr>
+              <TableRow>
+                <TableHeaderItem text='Candidate' />
+                <TableHeaderItem text='Time' />
+                <TableHeaderItem text='Type' textAlign='end' />
+              </TableRow>
             </Thead>
             <Tbody>
               {renderInterviews()}
