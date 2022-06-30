@@ -8,7 +8,7 @@ import Head from 'next/head'
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <ChakraProvider theme={theme}>
+      <ChakraProvider resetCSS theme={theme}>
         <CSSReset />
         <Layout>
           <Head>

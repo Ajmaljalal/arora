@@ -38,15 +38,20 @@ const theme = extendTheme({
   },
   styles: {
     global: {
-      // styles for the `body`
+      '*': {
+        boxSizing: 'border-box'
+      },
       body: {
-        letterSpacing: '0.02em'
+        letterSpacing: '0.02em',
+        boxSizing: 'border-box'
       },
       div: {
-        letterSpacing: '0.02em'
+        letterSpacing: '0.02em',
+        boxSizing: 'border-box'
       },
       button: {
-        letterSpacing: '0.02em'
+        letterSpacing: '0.02em',
+        boxSizing: 'border-box'
       }
     }
   }

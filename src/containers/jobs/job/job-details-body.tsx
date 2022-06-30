@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, HStack, Tab, TabList, TabPanel, TabPanels, Tabs, VStack } from '@chakra-ui/react'
 import JobDetailsTile from './details/job-details-tile'
+import Candidates from './candidates'
 
 type JobDetailsProps = {
   job: any
@@ -18,9 +19,9 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
         p='0'
         mr='40px'
         color='brand.grey400'
-        fontSize='16px'
+        fontSize='15px'
         _focus={{ shadow: 'none' }}
-        _selected={{ color: 'brand.black', fontWeight: '600', borderBottom: '2px solid', borderColor: 'brand.primary' }}
+        _selected={{ color: 'brand.black', borderBottom: '3px solid', borderColor: 'brand.primary' }}
       >
         {text.toUpperCase()}
       </Tab>
@@ -61,8 +62,8 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
       </TabList>
       <TabPanels mt='32px'>
         {renderDetailsTab()}
-        <TabPanel>
-          <p>two!</p>
+        <TabPanel p='0'>
+          <Candidates />
         </TabPanel>
         <TabPanel>
           <p>three!</p>
