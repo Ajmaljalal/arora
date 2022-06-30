@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, HStack, VStack, Text } from '@chakra-ui/react'
 import JobCard from './job-card'
-import { jobs } from '../../data/index'
+import { jobs } from '../../../data/index'
 
 type JobsColumnProps = {
   column: { name: string, color: string }

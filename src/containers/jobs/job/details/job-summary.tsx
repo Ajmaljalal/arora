@@ -1,10 +1,10 @@
 import React from 'react'
 import { Box, HStack, Text } from '@chakra-ui/react'
-import JobTypeIcon from '../../../../public/assets/icons/job-details/job-type.svg'
-import JobMethodIcon from '../../../../public/assets/icons/job-details/job-method.svg'
-import LocationIcon from '../../../../public/assets/icons/job-details/job-location.svg'
-import WorkExperienceIcon from '../../../../public/assets/icons/job-details/work-experience.svg'
-import DeadlineIcon from '../../../../public/assets/icons/job-details/deadline.svg'
+import JobTypeIcon from '../../../../../public/assets/icons/job-details/job-type.svg'
+import JobMethodIcon from '../../../../../public/assets/icons/job-details/job-method.svg'
+import LocationIcon from '../../../../../public/assets/icons/job-details/job-location.svg'
+import WorkExperienceIcon from '../../../../../public/assets/icons/job-details/work-experience.svg'
+import DeadlineIcon from '../../../../../public/assets/icons/job-details/deadline.svg'
 
 type JobSummaryProps = {
   summary: any

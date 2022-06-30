@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
-import BorderedListItem from '../../../components/bordered-list-item'
+import BorderedListItem from '../../../../components/bordered-list-item'
 
 type JobResponsibilitiesProps = {
   responsibilities: string[]

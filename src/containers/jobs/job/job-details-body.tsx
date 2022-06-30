@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, HStack, Tab, TabList, TabPanel, TabPanels, Tabs, VStack } from '@chakra-ui/react'
-import JobDetailsTile from './job-details-tile'
+import JobDetailsTile from './details/job-details-tile'
 
 type JobDetailsProps = {
   job: any
@@ -27,7 +27,7 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
     )
   }
 
-  const renderTabDetails = () => {
+  const renderDetailsTab = () => {
     return (
       <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} overflow='auto' position='relative'>
         <HStack spacing='16px' align='flex-start'>
@@ -60,7 +60,7 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
         {renderTab('recruiter')}
       </TabList>
       <TabPanels mt='32px'>
-        {renderTabDetails()}
+        {renderDetailsTab()}
         <TabPanel>
           <p>two!</p>
         </TabPanel>

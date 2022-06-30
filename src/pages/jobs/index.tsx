@@ -1,10 +1,10 @@
 import React from 'react'
-import { Box, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import Head from 'next/head'
 import BodyLayout from '../../components/layouts/body/body-layout'
 import PageContentWrapper from '../../components/layouts/page-content-wrapper'
 import JobsHeader from '../../containers/jobs/jobs-header'
-import JobsList from '../../containers/jobs/jobs-list'
+import JobsList from '../../containers/jobs/jobs-list/jobs-list'
 
 type Props = {}
 

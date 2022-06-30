@@ -1,6 +1,6 @@
 import { Wrap } from '@chakra-ui/react'
 import React from 'react'
-import CustomTag from '../../../components/tag'
+import CustomTag from '../../../../components/tag'
 
 type JobSkillsProps = {
   skills: string[]
