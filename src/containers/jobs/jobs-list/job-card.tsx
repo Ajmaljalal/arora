@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Text, Wrap } from '@chakra-ui/react'
-import { JobCardObject } from './objects'
+import { JobCardObject } from '../objects'
 import Link from 'next/link'
 
 type JobCardProps = {
