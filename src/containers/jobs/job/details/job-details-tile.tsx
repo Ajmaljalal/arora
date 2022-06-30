@@ -9,9 +9,10 @@ import JobSummary from './job-summary'
 type JobDetailsTileProps = {
   title: string
   content: any
+  bg?: string
 }
 
-const JobDetailTiles = ({ title, content }: JobDetailsTileProps) => {
+const JobDetailTiles = ({ title, content, bg = 'brand.white' }: JobDetailsTileProps) => {
 
   const renderContent = () => {
     switch (title.toLowerCase()) {
@@ -30,7 +31,7 @@ const JobDetailTiles = ({ title, content }: JobDetailsTileProps) => {
     }
   }
   return (
-    <Box w='100%' bg='brand.white' borderRadius='4px' p='16px'>
+    <Box w='100%' bg={bg} borderRadius='4px' p='16px'>
       <Heading as='h2' fontSize='16px' fontWeight='600' mb='16px'>
         {title}
       </Heading>

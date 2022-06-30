@@ -3,10 +3,10 @@ import { Box } from '@chakra-ui/react'
 import Head from 'next/head'
 import BodyLayout from '../../components/layouts/body/body-layout'
 import PageContentWrapper from '../../components/layouts/page-content-wrapper'
-import JobDetailsHeader from '../../containers/jobs/job-details/job-details-header'
+import JobDetailsHeader from '../../containers/jobs/job/job-details-header'
 import { useRouter } from 'next/router'
 import { jobs } from '../../data'
-import JobDetailsBody from '../../containers/jobs/job-details/job-details-body'
+import JobDetailsBody from '../../containers/jobs/job/job-details-body'
 
 type Props = {}
 

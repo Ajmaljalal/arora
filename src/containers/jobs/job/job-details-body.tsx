@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, HStack, Tab, TabList, TabPanel, TabPanels, Tabs, VStack } from '@chakra-ui/react'
-import JobDetailsTile from './job-details-tile'
+import JobDetailsTile from './details/job-details-tile'
+import Candidates from './candidates'
 
 type JobDetailsProps = {
   job: any
@@ -18,18 +19,18 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
         p='0'
         mr='40px'
         color='brand.grey400'
-        fontSize='16px'
+        fontSize='15px'
         _focus={{ shadow: 'none' }}
-        _selected={{ color: 'brand.black', fontWeight: '600', borderBottom: '2px solid', borderColor: 'brand.primary' }}
+        _selected={{ color: 'brand.black', borderBottom: '3px solid', borderColor: 'brand.primary' }}
       >
         {text.toUpperCase()}
       </Tab>
     )
   }
 
-  const renderTabDetails = () => {
+  const renderDetailsTab = () => {
     return (
-      <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} overflow='auto'>
+      <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} overflow='auto' position='relative'>
         <HStack spacing='16px' align='flex-start'>
           <VStack flex={2}>
             <JobDetailsTile title='Description' content={job.jobDescription?.description} />
@@ -38,9 +39,14 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
             <JobDetailsTile title='Responsibilities' content={job.jobResponsibilities.responsibilities} />
             <JobDetailsTile title='Impacts' content={job.jobImpacts} />
           </VStack>
-          <Box flex={1} bg='brand.white' borderRadius='4px'>
+          <VStack
+            flex={1}
+            position='sticky'
+            top='0'
+          >
             <JobDetailsTile title='Summary' content={job.jobSummary} />
-          </Box>
+            <JobDetailsTile title='Benefits' content={{ benefits: 'No benefits' }} />
+          </VStack>
         </HStack>
       </TabPanel>
     )
@@ -55,9 +61,9 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
         {renderTab('recruiter')}
       </TabList>
       <TabPanels mt='32px'>
-        {renderTabDetails()}
-        <TabPanel>
-          <p>two!</p>
+        {renderDetailsTab()}
+        <TabPanel p='0'>
+          <Candidates />
         </TabPanel>
         <TabPanel>
           <p>three!</p>
