@@ -13,12 +13,12 @@ const DropdownMenuButton = ({ text }: DropdownMenuButtonProps) => {
       rightIcon={<ChevronDown />}
       p='0 10px'
       height='44px'
+      minWidth='150px'
       borderRadius='3px'
       border='1px solid'
       borderColor='brand.grey200'
-      minWidth='250px'
       textAlign='start'
-      fontWeight='400'
+      fontWeight='600'
       _focus={{ boxShadow: "none !important" }}
     >
       {text}

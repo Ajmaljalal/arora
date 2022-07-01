@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, HStack, Tab, TabList, TabPanel, TabPanels, Tabs, VStack } from '@chakra-ui/react'
 import JobDetailsTile from './details/job-details-tile'
-import Candidates from './candidates'
+import Candidates from './candidates/candidates-list'
 
 type JobDetailsProps = {
   job: any
@@ -33,11 +33,11 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
       <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} overflow='auto' position='relative'>
         <HStack spacing='16px' align='flex-start'>
           <VStack flex={2}>
-            <JobDetailsTile title='Description' content={job.jobDescription?.description} />
             <JobDetailsTile title='Skills' content={job.jobSkills?.skills} />
             <JobDetailsTile title='Requirements' content={job.jobRequirements?.requirements} />
             <JobDetailsTile title='Responsibilities' content={job.jobResponsibilities.responsibilities} />
             <JobDetailsTile title='Impacts' content={job.jobImpacts} />
+            <JobDetailsTile title='Description' content={job.jobDescription?.description} />
           </VStack>
           <VStack
             flex={1}
@@ -57,16 +57,11 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
       <TabList borderBottom='2px solid' borderColor='brand.grey200'>
         {renderTab('job details')}
         {renderTab('candidates')}
-        {renderTab('company')}
-        {renderTab('recruiter')}
       </TabList>
       <TabPanels mt='32px'>
         {renderDetailsTab()}
-        <TabPanel p='0'>
+        <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} >
           <Candidates />
-        </TabPanel>
-        <TabPanel>
-          <p>three!</p>
         </TabPanel>
       </TabPanels>
     </Tabs>
