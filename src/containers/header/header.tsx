@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Box, Divider, HStack, useColorModeValue } from '@chakra-ui/react'
+import { Avatar, Box, Divider, HStack } from '@chakra-ui/react'
 import AddIcon from '../../../public/assets/icons/add-white.svg'
 import NotificationIcon from '../../../public/assets/icons/notification.svg'
 import { CenteredIconButton } from '../../components/buttons/centered-icon-button'
@@ -30,7 +30,6 @@ const Header = () => {
 					w='40px'
 					h='40px'
 					name='Meena Jalal'
-					src=''
 				/>
 			</HStack>
 		)

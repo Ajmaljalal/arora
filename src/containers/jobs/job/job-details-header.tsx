@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, HStack, Text } from '@chakra-ui/react'
+import { Avatar, Box, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import PageTitle from '../../../components/headings/page-title'
 import { BaseButton } from '../../../components/buttons/button'
@@ -46,50 +46,39 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
         >
           <ChevronLeftIcon />
         </Box>
-        {/* <Box> */}
-        <HStack>
-          <PageTitle text={job.jobSummary.JobTitle} />
-          {showStatusText &&
-            <CustomTag
-              text={jobStatusText}
-              color='brand.red'
-              bg='brand.lightOrange'
-            />
-          }
-        </HStack>
-        {/* {renderJobDetails()} */}
-        {/* </Box> */}
+        <Box>
+          <HStack>
+            <PageTitle text={job.jobSummary.JobTitle} />
+            {showStatusText &&
+              <CustomTag
+                text={jobStatusText}
+                color='brand.red'
+                bg='brand.lightOrange'
+              />
+            }
+          </HStack>
+          {renderCompanyName()}
+        </Box>
       </Box>
     )
   }
 
-  const renderJobDetailItem = (detail: string) => {
+  const renderCompanyName = () => {
     return (
-      <Box display='flex' alignItems='center' pr='4px'>
-        <Box w='4px' h='4px' bg='brand.grey400' borderRadius='50%' mr='4px' />
-        <Text
-          fontSize='12px'
-          color='brand.black'
-        >
-          {detail}
-        </Text>
-      </Box>
+      <HStack
+        justify='start'
+        borderRadius='4px'
+        mt='8px'
+      >
+        <Avatar
+          name='Comany name'
+          size='sm'
+          src=''
+        />
+        <Text>Company name here</Text>
+      </HStack>
     )
   }
-
-  // const renderJobDetails = () => {
-  //   return (
-  //     <Wrap
-  //       justify='start'
-  //       borderRadius='4px'
-  //       mt='8px'
-  //     >
-  //       {renderJobDetailItem(job.jobSummary.JobType)}
-  //       {renderJobDetailItem(job.jobSummary.JobMethod)}
-  //       {!isRemote && renderJobDetailItem(job.jobSummary.JobLocation)}
-  //     </Wrap>
-  //   )
-  // }
 
   const renderActionButtons = () => {
     const pauseBtnText = job?.isPaused ? 'Start hiring' : 'Pause hiring'

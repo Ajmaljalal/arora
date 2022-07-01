@@ -16,7 +16,7 @@ const DropdownList = ({ selectedItem, items, onSelectItem }: Props) => {
       <MenuList
         bg='brand.white'
         boxShadow='none'
-        minWidth='250px'
+        minWidth='150px'
         border='1px solid'
         borderColor='brand.grey300'
         p='0'

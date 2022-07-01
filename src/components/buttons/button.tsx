@@ -27,14 +27,14 @@ export const BaseButton = ({
       background={!outlined ? bg : 'transparent'}
       variant={outlined ? 'outline' : 'solid'}
       color={color}
-      height='44px'
-      minWidth='132px'
+      height='38px'
+      minWidth='80px'
       leftIcon={iconPosition === 'left' ? icon : null}
       rightIcon={iconPosition === 'right' ? icon : null}
       iconSpacing='5px'
       onClick={onClick}
       borderColor={outlined ? borderColor : bg}
-      borderRadius='3px'
+      borderRadius='4px'
       _focus={{ shadow: "none !important", color: color, bg: bg }}
       _hover={{ background: outlined ? 'transparent' : bg }}
     >
