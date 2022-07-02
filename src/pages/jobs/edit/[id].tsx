@@ -1,15 +1,29 @@
-import { useRouter } from 'next/router'
 import React from 'react'
-import CreateJobPostModal from '../../../containers/create-job-post'
+import { GetServerSideProps } from 'next'
+import CreateJobPostForm from '../../../containers/create-job-post'
+import { jobs } from '../../../data'
 
-type Props = {}
+type EditJobPostProps = {
+  job: any
+}
 
-const EditJobPost = (props: Props) => {
-  const router = useRouter()
-
+const EditJobPost = ({ job }: EditJobPostProps) => {
   return (
-    <CreateJobPostModal key='create-new-job-post' />
+    <CreateJobPostForm key='create-new-job-post' job={job} />
   )
 }
+
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const params = context.params
+  const jobId = params.id
+  const job = jobs.find(job => job.id === jobId)
+  return {
+    props: {
+      job: job
+    }
+  }
+}
+
 
 export default EditJobPost

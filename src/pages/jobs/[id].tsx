@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Box } from '@chakra-ui/react'
 import Head from 'next/head'
 import BodyLayout from '../../components/layouts/body/body-layout'
@@ -7,6 +7,7 @@ import JobDetailsHeader from '../../containers/jobs/job/job-details-header'
 import { useRouter } from 'next/router'
 import { jobs } from '../../data'
 import JobDetailsBody from '../../containers/jobs/job/job-details-body'
+import Layout from '../../components/layouts'
 
 type Props = {}
 
@@ -27,6 +28,14 @@ const JobDetails = (props: Props) => {
         </PageContentWrapper>
       </BodyLayout>
     </Box>
+  )
+}
+
+JobDetails.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
   )
 }
 export default JobDetails
