@@ -7,9 +7,11 @@ import ProfileStatus from '../containers/dashboard/profile-status'
 import TodaysInterviews from '../containers/dashboard/today-interviews'
 import BodyLayout from '../components/layouts/body/body-layout'
 import NewApplications from '../containers/dashboard/new-applications'
+import { ReactElement } from 'react'
+import Layout from '../components/layouts'
 
 
-export default function Home() {
+const Home = () => {
   const [isSmallScreen] = useMediaQuery('(max-width: 1100px)')
   const gridColumn = isSmallScreen ? '1' : '2'
   return (
@@ -47,3 +49,13 @@ export default function Home() {
     </Box>
   )
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
+}
+
+export default Home

@@ -5,17 +5,28 @@ import theme from '../theme/theme'
 import Layout from '../components/layouts'
 import Head from 'next/head'
 
-function MyApp({ Component, pageProps }) {
+import type { ReactElement, ReactNode } from 'react'
+import type { NextPage } from 'next'
+import type { AppProps } from 'next/app'
+
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page)
   return (
     <Provider store={store}>
       <ChakraProvider resetCSS theme={theme}>
         <CSSReset />
-        <Layout>
-          <Head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          </Head>
-          <Component {...pageProps} />
-        </Layout>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </Head>
+        {getLayout(<Component {...pageProps} />)}
       </ChakraProvider>
     </Provider>
   )

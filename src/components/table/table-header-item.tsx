@@ -8,7 +8,7 @@ type TableHeaderItemProps = {
 
 const TableHeaderItem = ({ text, textAlign }: TableHeaderItemProps) => {
   return (
-    <Th color='brand.grey500' textAlign={textAlign} fontSize='14px'>
+    <Th color='brand.black' textAlign={textAlign} fontSize='14px'>
       {text}
     </Th>
   )

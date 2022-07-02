@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useState } from 'react'
-import { Box, HStack, Modal, Text, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from '@chakra-ui/react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { Box, HStack, Text } from '@chakra-ui/react'
 import { BaseButton } from '../../components/buttons/button'
 import FormStepsMenu from '../../components/form/form-steps-menu'
 import PageTitle from '../../components/headings/page-title'
@@ -15,14 +15,21 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 type CreateJobPostProps = {
+  job?: any
 }
 
-const CreateJobPostModal = ({ }: CreateJobPostProps) => {
+const CreateJobPost = ({ job }: CreateJobPostProps) => {
   const [currentStep, setCurrentStep] = useState(CurrentStepInitialState)
   const [formData, setFormData] = useState(formDataInitialValues)
   const [textEditorState, setTextEditorState] = useState<EditorState>(EditorState.createEmpty())
   const [formErr, setFormErr] = useState('')
   const router = useRouter()
+
+  useEffect(() => {
+    if (job) {
+      setFormData(job)
+    }
+  }, [])
 
   const closeModal = () => {
     setFormData(clearForm())
@@ -132,10 +139,10 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
   }
 
 
-  const renderModalBody = () => {
+  const renderForm = () => {
     const formsCompletionStatus = getFormcompletionStatus()
     return (
-      <ModalBody bg='brand.white' pt='20px'>
+      <Box p='20px' h='calc(100vh - 72px)'>
         <HStack align='flex-start' spacing='8em'>
           <FormStepsMenu onStepChange={handleCurrentStepChange} stepItems={JobPostStepItems} currentStep={currentStep.name} formsCompletionStatus={formsCompletionStatus} />
           <Box width='636px' minWidth='410px'>
@@ -152,7 +159,7 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
             {renderBottomBtns()}
           </Box>
         </HStack>
-      </ModalBody>
+      </Box>
     )
   }
 
@@ -189,22 +196,25 @@ const CreateJobPostModal = ({ }: CreateJobPostProps) => {
   }
 
   return (
-    <Modal
-      isOpen={true}
-      onClose={closeModal}
-      size='full'
-      closeOnOverlayClick={false}
+    <Box
       key='create-job-post'
+      height='100vh'
     >
-      <ModalOverlay />
-      <ModalContent h='100%' color='brand.black' bg='bran.white'>
-        <ModalHeader bg='brand.white' borderBottom='1px solid' borderColor='brand.grey200'>Post a job</ModalHeader>
-        <ModalCloseButton />
-        {renderModalBody()}
-      </ModalContent>
-    </Modal>
+      <Box
+        px='40px'
+        bg='bran.white'
+        minHeight='50px'
+        borderBottom='1px solid'
+        borderColor='brand.grey200'
+        display='flex'
+        alignItems='center'
+      >
+        <Box bg='brand.white' fontSize='18px' fontWeight='600' >Post a job</Box>
+      </Box>
+      {renderForm()}
+    </Box>
   )
 }
 
-export default CreateJobPostModal
+export default CreateJobPost
 

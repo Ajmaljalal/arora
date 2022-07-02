@@ -1,7 +1,8 @@
 import { Box, Input } from '@chakra-ui/react'
 import Head from 'next/head'
-import React, { useState } from 'react'
-import BodyLayout from '../components/layouts/body/body-layout'
+import React, { ReactElement, useState } from 'react'
+import Layout from '../../components/layouts'
+import BodyLayout from '../../components/layouts/body/body-layout'
 
 type NewsFeedProps = {}
 
@@ -37,6 +38,14 @@ const Feed = ({ }: NewsFeedProps) => {
         </Box>
       </BodyLayout>
     </Box>
+  )
+}
+
+Feed.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
   )
 }
 

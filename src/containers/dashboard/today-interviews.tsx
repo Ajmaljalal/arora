@@ -64,7 +64,7 @@ const TodaysInterviews = () => {
       >
         <TableContainer width='100%'>
           <Table variant='unstyled'>
-            <Thead>
+            <Thead bg='brand.primaryLight'>
               <TableRow>
                 <TableHeaderItem text='Candidate' />
                 <TableHeaderItem text='Time' />
