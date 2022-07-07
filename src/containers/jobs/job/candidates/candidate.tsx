@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Avatar, Box, HStack, Td, Text } from '@chakra-ui/react'
+import { Avatar, HStack, Td, Text, useDisclosure } from '@chakra-ui/react'
 import TableRow from '../../../../components/table/table-row'
 import DropdownList from '../../../../components/dropdown/dropdown'
+import CandidateProfile from '../../../profiles/candidate-profile'
 
 type CandidateProps = {
   candidate: any
@@ -9,6 +10,7 @@ type CandidateProps = {
 
 const Candidate = ({ candidate }: CandidateProps) => {
   const [selectedStage, setSelectedStage] = useState(candidate.stage)
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const matchingBgColor = candidate.matching >= 90 ? 'brand.secondaryLight' : candidate.matching <= 90 && candidate.matching >= 75 ? 'brand.primaryLight' : 'brand.grey200'
   const matchingBorderColor = candidate.matching >= 90 ? 'brand.darkGreen' : candidate.matching <= 90 && candidate.matching >= 75 ? 'brand.primary' : 'brand.grey500'
 
@@ -28,37 +30,39 @@ const Candidate = ({ candidate }: CandidateProps) => {
   }
 
   return (
-    <TableRow key={candidate.name}>
-      <Td width='350px'>
-        <HStack>
-          <Avatar
-            name={candidate.name}
-            size='sm'
-          />
-          <Text>{candidate.name}</Text>
-        </HStack>
-      </Td>
-      <Td width='100px' display='flex' justifyContent='center'>
-        <Text
-          bg={matchingBgColor}
-          color={matchingBorderColor}
-          fontWeight='500'
-          width='50px'
-          height='28px'
-          border='1px solid'
-          borderColor={matchingBorderColor}
-          borderRadius='4px'
-          display='flex'
-          justifyContent='center'
-          alignItems='center'
-        >
-          {`${candidate.matching.toString()}%`}
-        </Text>
-      </Td>
-      <Td textAlign='center' width='200px'>{candidate.rating}</Td>
-      <Td textAlign='end'>{renderStages({})}</Td>
-    </TableRow>
-
+    <>
+      <TableRow key={candidate.name}>
+        <Td width='350px' onClick={onOpen}>
+          <HStack>
+            <Avatar
+              name={candidate.name}
+              size='sm'
+            />
+            <Text>{candidate.name}</Text>
+          </HStack>
+        </Td>
+        <Td width='100px' display='flex' justifyContent='center' onClick={onOpen}>
+          <Text
+            bg={matchingBgColor}
+            color={matchingBorderColor}
+            fontWeight='500'
+            width='50px'
+            height='28px'
+            border='1px solid'
+            borderColor={matchingBorderColor}
+            borderRadius='4px'
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
+          >
+            {`${candidate.matching.toString()}%`}
+          </Text>
+        </Td>
+        <Td textAlign='center' width='200px' onClick={onOpen}>{candidate.rating}</Td>
+        <Td textAlign='end'>{renderStages({})}</Td>
+      </TableRow>
+      <CandidateProfile onClose={onClose} isOpen={isOpen} candidateId={candidate.id} />
+    </>
   )
 }
 

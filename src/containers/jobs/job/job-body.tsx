@@ -23,7 +23,7 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
         _focus={{ shadow: 'none' }}
         _selected={{ color: 'brand.black', borderBottom: '3px solid', borderColor: 'brand.primary' }}
       >
-        {text.toUpperCase()}
+        {text}
       </Tab>
     )
   }
@@ -55,8 +55,8 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
   return (
     <Tabs>
       <TabList borderBottom='2px solid' borderColor='brand.grey200'>
-        {renderTab('job details')}
-        {renderTab('candidates')}
+        {renderTab('Job details')}
+        {renderTab('Candidates')}
       </TabList>
       <TabPanels mt='32px'>
         {renderDetailsTab()}
