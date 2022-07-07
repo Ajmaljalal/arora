@@ -309,3 +309,55 @@ export const jobs = [
     isPaused: true
   }
 ]
+
+
+export const candidates = [
+  {
+    id: 'idonehere',
+    name: 'Leslie Alexander',
+    appliedFor: 'React Developer',
+    matching: 98,
+    stage: 'Final round',
+    rating: 5,
+    education: 'Social science degree',
+    minSalary: 90000,
+    maxSalary: 120000,
+    experience: 5
+  },
+  {
+    id: 'idtwohere',
+    name: 'Jane Cooper',
+    appliedFor: 'UI/UX Designer',
+    matching: 95,
+    stage: 'Initial interview',
+    rating: 4,
+    education: 'Computer science degree',
+    minSalary: 90000,
+    maxSalary: 120000,
+    experience: 4
+  },
+  {
+    id: 'idthreehere',
+    name: 'Kristiin Watson',
+    appliedFor: 'Front End Developer',
+    matching: 85,
+    stage: 'Offer negotiation',
+    rating: 5,
+    education: 'Codding bootcamp',
+    minSalary: 90000,
+    maxSalary: 120000,
+    experience: 3
+  },
+  {
+    id: 'idfourhere',
+    name: 'Cody Fisher',
+    appliedFor: 'Full Stack Developer',
+    matching: 74,
+    stage: 'Phone Call',
+    rating: 4.5,
+    education: 'Associate degree',
+    minSalary: 90000,
+    maxSalary: 120000,
+    experience: 6
+  }
+]

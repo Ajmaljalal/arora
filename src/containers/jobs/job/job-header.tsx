@@ -65,18 +65,11 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
 
   const renderCompanyName = () => {
     return (
-      <HStack
-        justify='start'
-        borderRadius='4px'
-        mt='8px'
-      >
-        <Avatar
-          name='Comany name'
-          size='sm'
-          src=''
-        />
-        <Text>Company name here</Text>
-      </HStack>
+      <Link href='/company-profile'>
+        <a>
+          <Text color='brand.grey500'>Goolge LLC</Text>
+        </a>
+      </Link>
     )
   }
 

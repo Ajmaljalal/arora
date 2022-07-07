@@ -3,38 +3,7 @@ import { Table, TableContainer, Tbody, Tfoot, Thead } from '@chakra-ui/react'
 import TableRow from '../../../../components/table/table-row'
 import TableHeaderItem from '../../../../components/table/table-header-item'
 import Candidate from './candidate'
-
-const candidates = [
-  {
-    name: 'Leslie Alexander',
-    appliedFor: 'React Developer',
-    matching: 98,
-    stage: 'Final round',
-    rating: 5
-  },
-  {
-    name: 'Jane Cooper',
-    appliedFor: 'UI/UX Designer',
-    matching: 95,
-    stage: 'Initial interview',
-    rating: 4
-  },
-  {
-    name: 'Kristiin Watson',
-    appliedFor: 'Front End Developer',
-    matching: 85,
-    stage: 'Offer negotiation',
-    rating: 5
-  },
-  {
-    name: 'Cody Fisher',
-    appliedFor: 'Full Stack Developer',
-    matching: 74,
-    stage: 'Phone Call',
-    rating: 4.5
-  }
-
-]
+import { candidates } from '../../../../data'
 
 const Candidates = () => {
 
