@@ -4,9 +4,10 @@ import { Box } from '@chakra-ui/react'
 type BorderedTitledBoxProps = {
   children: ReactNode
   title: string
+  bg?: string
 }
 
-const BorderedTitledBox = ({ title, children }: BorderedTitledBoxProps) => {
+const BorderedTitledBox = ({ title, children, bg = '' }: BorderedTitledBoxProps) => {
   return (
     <Box
       p='10px'
@@ -16,13 +17,16 @@ const BorderedTitledBox = ({ title, children }: BorderedTitledBoxProps) => {
       borderColor='brand.grey200'
       borderRadius='4px'
       position='relative'
+      bg={bg.length ? bg : 'none'}
       flex={1}
       _after={{
         content: `'${title}'`,
-        background: 'brand.grey200',
+        background: 'brand.white',
+        border: '1px solid',
+        borderColor: 'brand.grey200',
         position: 'absolute',
         top: '-10px',
-        left: '10px',
+        left: '20px',
         width: '60px',
         textAlign: 'center',
         fontSize: '14px',

@@ -1,10 +1,11 @@
 import React from 'react'
-import { Box, Icon, List, VStack, Wrap } from '@chakra-ui/react'
+import { Box, Icon, List, Wrap } from '@chakra-ui/react'
 import GreenCheckIcon from '../../../../public/assets/icons/check-circle-green-fill.svg'
 import ExperiencBadge from '../../../../public/assets/icons/experience-badge.svg'
 import WorkAuthBadge from '../../../../public/assets/icons/work-auth-badge.svg'
 import WorkStatusBadge from '../../../../public/assets/icons/work-status-badge.svg'
 import DollarBadge from '../../../../public/assets/icons/dollar-badge.svg'
+import EducationBadge from '../../../../public/assets/icons/education-badge.svg'
 import BorderedTitledBox from '../../../components/layouts/bordered-titled-box'
 import CustomTag from '../../../components/tag'
 
@@ -18,7 +19,7 @@ const Icons = {
   workAuth: WorkAuthBadge,
   workStatus: WorkStatusBadge,
   checkIcon: GreenCheckIcon,
-  education: GreenCheckIcon
+  education: EducationBadge
 }
 
 const skills = ['React', 'Javascript', 'CSS', 'HTML', 'NextJS', 'Redux', 'MongoDB']
@@ -41,7 +42,7 @@ const ProfileSummary = ({ candidate }: ProfileSummaryProps) => {
 
   const renderPerks = () => {
     return (
-      <BorderedTitledBox title='Perks'>
+      <BorderedTitledBox title='Perks' bg='brand.grey100'>
         <List>
           {renderListItem(candidate.education, 'education', '')}
           {renderListItem(candidate.experience, 'experience', 'Years of Experience')}
@@ -56,7 +57,7 @@ const ProfileSummary = ({ candidate }: ProfileSummaryProps) => {
 
   const renderSkills = () => {
     return (
-      <BorderedTitledBox title='Skills'>
+      <BorderedTitledBox title='Skills' bg='brand.grey100'>
         <Wrap mt='4px' height='100%'>
           {
             skills?.map(skill => {
@@ -65,8 +66,8 @@ const ProfileSummary = ({ candidate }: ProfileSummaryProps) => {
                   key={skill}
                   text={skill}
                   size='sm'
-                  color='brand.orange'
-                  bg='brand.lightOrange'
+                  color='brand.primary'
+                  bg='brand.white'
                 />
               )
             })

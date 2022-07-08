@@ -23,7 +23,7 @@ const Candidates = () => {
           <TableRow>
             <TableHeaderItem text='Name' />
             <TableHeaderItem text='Matching' />
-            <TableHeaderItem text='Rating' textAlign='center' />
+            <TableHeaderItem text='Rating' />
             <TableHeaderItem text='Hiring Stage' textAlign='end' />
           </TableRow>
         </Thead>
