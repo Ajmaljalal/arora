@@ -3,6 +3,7 @@ import { Avatar, HStack, Td, Text, useDisclosure } from '@chakra-ui/react'
 import TableRow from '../../../../components/table/table-row'
 import DropdownList from '../../../../components/dropdown/dropdown'
 import CandidateProfile from '../../../profiles/candidate-profile'
+import RatingView from '../../../../components/rating/rating-view'
 
 type CandidateProps = {
   candidate: any
@@ -25,6 +26,7 @@ const Candidate = ({ candidate }: CandidateProps) => {
         selectedItem={selectedStage}
         items={['Interview', 'Screening', 'Hired', 'Rejected']}
         onSelectItem={handleDropdownItemChange}
+        width='200px'
       />
     )
   }
@@ -58,8 +60,8 @@ const Candidate = ({ candidate }: CandidateProps) => {
             {`${candidate.matching.toString()}%`}
           </Text>
         </Td>
-        <Td textAlign='center' width='200px' onClick={onOpen}>{candidate.rating}</Td>
-        <Td textAlign='end'>{renderStages({})}</Td>
+        <Td textAlign='center' onClick={onOpen}><RatingView rating={candidate.rating} /></Td>
+        <Td textAlign='end' width='fit-content'>{renderStages({})}</Td>
       </TableRow>
       <CandidateProfile onClose={onClose} isOpen={isOpen} candidateId={candidate.id} />
     </>

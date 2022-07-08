@@ -7,16 +7,17 @@ type Props = {
   selectedItem: string
   items: string[]
   onSelectItem: (option: string) => void
+  width?: string
 }
 
-const DropdownList = ({ selectedItem, items, onSelectItem }: Props) => {
+const DropdownList = ({ selectedItem, items, onSelectItem, width = '150px' }: Props) => {
   return (
     <Menu isLazy>
-      <DropdownMenuButton text={selectedItem} />
+      <DropdownMenuButton text={selectedItem} width={width} />
       <MenuList
         bg='brand.white'
         boxShadow='none'
-        minWidth='150px'
+        minWidth={width}
         border='1px solid'
         borderColor='brand.grey300'
         p='0'

@@ -36,7 +36,7 @@ const CandidateProfile = ({ candidateId, onClose, isOpen }: CandidateProps) => {
         <DrawerHeader>
           <ProfileHeader candidate={candidate} />
         </DrawerHeader>
-        <DrawerBody>
+        <DrawerBody style={{ height: 'calc(100vh - 160px' }} overflowY='hidden'>
           <ProfileBody candidate={candidate} />
         </DrawerBody>
       </DrawerContent>
