@@ -12,7 +12,7 @@ const BorderedTitledBox = ({ title, children, bg = '' }: BorderedTitledBoxProps)
     <Box
       p='10px'
       pt='20px'
-      mt='10px'
+      mt='12px'
       border='1px solid'
       borderColor='brand.grey200'
       borderRadius='4px'
@@ -25,14 +25,15 @@ const BorderedTitledBox = ({ title, children, bg = '' }: BorderedTitledBoxProps)
         border: '1px solid',
         borderColor: 'brand.grey200',
         position: 'absolute',
-        top: '-10px',
+        top: '-13px',
         left: '20px',
-        width: '60px',
+        p: '2px 8px',
+        width: 'fit-content',
         textAlign: 'center',
         fontSize: '14px',
         fontWeight: '500',
-        color: 'brand.grey400',
-        borderRadius: '10px'
+        color: 'brand.red',
+        borderRadius: '15px'
       }}
     >
       {children}

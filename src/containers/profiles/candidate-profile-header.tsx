@@ -45,7 +45,7 @@ const ProfileHeader = ({ candidate }: ProfileHeaderProps) => {
             fontSize='14px'
             width='fit-content'
           >
-            98% Matching
+            98% Match
           </Box>
 
         </HStack>
@@ -65,7 +65,7 @@ const ProfileHeader = ({ candidate }: ProfileHeaderProps) => {
 
         </HStack>
         <HStack mt='5px' alignItems='flex-start' width='100%'>
-          <Box fontSize='16px' bg='brand.grey100' borderRadius='4px' pl='8px'>Hiring stage: {renderStages({})}</Box>
+          <Box fontSize='16px' bg='brand.grey100' borderRadius='4px' pl='8px'>Move to next stage: {renderStages({})}</Box>
         </HStack>
       </Box>
     </HStack>

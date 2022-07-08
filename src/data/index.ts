@@ -322,7 +322,42 @@ export const candidates = [
     education: 'Social science degree',
     minSalary: 90000,
     maxSalary: 120000,
-    experience: 5
+    experience: 5,
+    workHistory: [
+      {
+        employer: 'Trendiyol.com',
+        type: 'Fulltime',
+        jobTitle: 'Frontend Developer',
+        from: '01/01/2021',
+        to: '01/01/2022'
+      },
+      {
+        employer: 'Uber',
+        type: 'Fulltime',
+        jobTitle: 'Fullstack Developer',
+        from: '12/31/2020',
+        to: '12/31/2021'
+      },
+      {
+        employer: 'Google',
+        type: 'Fulltime',
+        jobTitle: 'Software Developer',
+        from: '01/02/2019',
+        to: '12/31/2020'
+      }
+    ],
+    educations: [
+      {
+        degree: 'MS in computer science',
+        school: 'Universit of California, Davis',
+        graduationDate: '01/01/2022'
+      },
+      {
+        degree: 'BS in Information Tech',
+        school: 'Kabul University, Davis',
+        graduationDate: '01/01/2020'
+      }
+    ]
   },
   {
     id: 'idtwohere',
@@ -334,7 +369,42 @@ export const candidates = [
     education: 'Computer science degree',
     minSalary: 90000,
     maxSalary: 120000,
-    experience: 4
+    experience: 4,
+    workHistory: [
+      {
+        employer: 'Trendiyol.com',
+        type: 'Fulltime',
+        jobTitle: 'Frontend Developer',
+        from: '01/01/2021',
+        to: '01/01/2022'
+      },
+      {
+        employer: 'Uber',
+        type: 'Fulltime',
+        jobTitle: 'Fullstack Developer',
+        from: '12/31/2020',
+        to: '12/31/2021'
+      },
+      {
+        employer: 'Google',
+        type: 'Fulltime',
+        jobTitle: 'Software Developer',
+        from: '01/02/2019',
+        to: '12/31/2020'
+      }
+    ],
+    educations: [
+      {
+        degree: 'MS in computer science',
+        school: 'Universit of California, Davis',
+        graduationDate: '01/01/2022'
+      },
+      {
+        degree: 'BS in Information Tech',
+        school: 'Kabul University, Davis',
+        graduationDate: '01/01/2020'
+      }
+    ]
   },
   {
     id: 'idthreehere',
@@ -346,7 +416,42 @@ export const candidates = [
     education: 'Codding bootcamp',
     minSalary: 90000,
     maxSalary: 120000,
-    experience: 3
+    experience: 3,
+    workHistory: [
+      {
+        employer: 'Trendiyol.com',
+        type: 'Fulltime',
+        jobTitle: 'Frontend Developer',
+        from: '01/01/2021',
+        to: '01/01/2022'
+      },
+      {
+        employer: 'Uber',
+        type: 'Fulltime',
+        jobTitle: 'Fullstack Developer',
+        from: '12/31/2020',
+        to: '12/31/2021'
+      },
+      {
+        employer: 'Google',
+        type: 'Fulltime',
+        jobTitle: 'Software Developer',
+        from: '01/02/2019',
+        to: '12/31/2020'
+      }
+    ],
+    educations: [
+      {
+        degree: 'MS in computer science',
+        school: 'Universit of California, Davis',
+        graduationDate: '01/01/2022'
+      },
+      {
+        degree: 'BS in Information Tech',
+        school: 'Kabul University, Davis',
+        graduationDate: '01/01/2020'
+      }
+    ]
   },
   {
     id: 'idfourhere',
@@ -358,6 +463,41 @@ export const candidates = [
     education: 'Associate degree',
     minSalary: 90000,
     maxSalary: 120000,
-    experience: 6
+    experience: 6,
+    workHistory: [
+      {
+        employer: 'Trendiyol.com',
+        type: 'Fulltime',
+        jobTitle: 'Frontend Developer',
+        from: '01/01/2021',
+        to: '01/01/2022'
+      },
+      {
+        employer: 'Uber',
+        type: 'Fulltime',
+        jobTitle: 'Fullstack Developer',
+        from: '12/31/2020',
+        to: '12/31/2021'
+      },
+      {
+        employer: 'Google',
+        type: 'Fulltime',
+        jobTitle: 'Software Developer',
+        from: '01/02/2019',
+        to: '12/31/2020'
+      }
+    ],
+    educations: [
+      {
+        degree: 'MS in computer science',
+        school: 'Universit of California, Davis',
+        graduationDate: '01/01/2022'
+      },
+      {
+        degree: 'BS in Information Tech',
+        school: 'Kabul University, Davis',
+        graduationDate: '01/01/2020'
+      }
+    ]
   }
 ]
