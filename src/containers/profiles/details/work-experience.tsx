@@ -45,7 +45,7 @@ const WorkExperience = ({ workExperience }: WorkExperience) => {
 
   return (
     <Box mt='32px'>
-      <BorderedTitledBox title='WORK EXPERIENCE (90% Match)' bg='brand.grey100'>
+      <BorderedTitledBox title='Work Experience (90% Match)' bg='brand.grey100'>
         {renderWorkExperience()}
       </BorderedTitledBox>
     </Box>

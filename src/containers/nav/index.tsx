@@ -8,7 +8,6 @@ import {
   selectNav
 } from '../../store/nav';
 
-
 const LeftNavBar = () => {
   const textColor = useColorModeValue('brand.white', 'brand.white')
   const currentPage = useSelector(selectNav);

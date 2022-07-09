@@ -24,9 +24,9 @@ const Settings = (props: Props) => {
 
 Settings.getLayout = function getLayout(page: ReactElement) {
   return (
-    <Layout>
-      {page}
-    </Layout>
+    // <Layout>
+    page
+    // {/* </Layout> */}
   )
 }
 

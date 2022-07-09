@@ -39,7 +39,7 @@ const Education = ({ educations }: EducationProps) => {
 
   return (
     <Box mt='32px'>
-      <BorderedTitledBox title='EDUCATION' bg='brand.grey100'>
+      <BorderedTitledBox title='Education' bg='brand.grey100'>
         {renderEducation()}
       </BorderedTitledBox>
     </Box>

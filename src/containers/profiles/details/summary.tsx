@@ -42,7 +42,7 @@ const ProfileSummary = ({ candidate }: ProfileSummaryProps) => {
 
   const renderPerks = () => {
     return (
-      <BorderedTitledBox title='PERKS (80% Match)' bg='brand.grey100'>
+      <BorderedTitledBox title='Qualifications (80% Match)' bg='brand.grey100'>
         <List>
           {renderListItem(candidate.education, 'education', '')}
           {renderListItem(candidate.experience, 'experience', 'Years of Experience')}
@@ -57,7 +57,7 @@ const ProfileSummary = ({ candidate }: ProfileSummaryProps) => {
 
   const renderSkills = () => {
     return (
-      <BorderedTitledBox title='SKILLS (95% Match)' bg='brand.grey100'>
+      <BorderedTitledBox title='Skills (95% Match)' bg='brand.grey100'>
         <Wrap mt='4px' height='100%'>
           {
             skills?.map(skill => {

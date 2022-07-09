@@ -24,9 +24,9 @@ const Inbox = (props: Props) => {
 
 Inbox.getLayout = function getLayout(page: ReactElement) {
   return (
-    <Layout>
-      {page}
-    </Layout>
+    // <Layout>
+    page
+    // </Layout>
   )
 }
 

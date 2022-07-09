@@ -29,9 +29,9 @@ const Jobs = (props: Props) => {
 
 Jobs.getLayout = function getLayout(page: ReactElement) {
   return (
-    <Layout>
-      {page}
-    </Layout>
+    // <Layout>
+    page
+    // </Layout>
   )
 }
 export default Jobs
