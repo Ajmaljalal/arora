@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, VStack, Text, HStack } from '@chakra-ui/react'
-import BorderedTitledBox from '../../../components/layouts/bordered-titled-box'
-import CustomTag from '../../../components/tag'
+import BorderedTitledBox from '../../../../components/layouts/bordered-titled-box'
+import CustomTag from '../../../../components/tag'
 
 type WorkExperience = {
   workExperience: any

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Avatar, HStack, Td, Text, useDisclosure } from '@chakra-ui/react'
 import TableRow from '../../../../components/table/table-row'
 import DropdownList from '../../../../components/dropdown/dropdown'
-import CandidateProfile from '../../../profiles/candidate-profile'
+import CandidateProfile from '../../../candidate-profile/drawer-veview/candidate-profile'
 import RatingView from '../../../../components/rating/rating-view'
 
 type CandidateProps = {

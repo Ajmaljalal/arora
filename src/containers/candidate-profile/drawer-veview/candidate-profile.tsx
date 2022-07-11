@@ -1,18 +1,13 @@
 import React from 'react'
 import {
-  Avatar,
-  Box,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
-  HStack,
-  Text
 } from '@chakra-ui/react'
-import { candidates } from '../../data'
-import RatingView from '../../components/rating/rating-view'
+import { candidates } from '../../../data'
 import ProfileHeader from './candidate-profile-header'
 import ProfileBody from './candidate-profile-body'
 

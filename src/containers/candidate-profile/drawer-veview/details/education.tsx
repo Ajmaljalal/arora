@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, VStack, Text, HStack } from '@chakra-ui/react'
-import BorderedTitledBox from '../../../components/layouts/bordered-titled-box'
+import BorderedTitledBox from '../../../../components/layouts/bordered-titled-box'
 type EducationProps = {
   educations: any
 }

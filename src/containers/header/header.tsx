@@ -100,7 +100,7 @@ const Header = () => {
 				cursor='pointer'
 				flexDirection='column'
 				onClick={() => handleNavChange(text)}
-				fontWeight={currentTab === text ? '600' : '500'}
+				fontWeight={currentTab === text ? '600' : '400'}
 				color={currentTab === text ? 'brand.black' : ''}
 				borderBottom='2px solid'
 				borderColor={currentTab === text ? 'brand.primary' : 'transparent'}
