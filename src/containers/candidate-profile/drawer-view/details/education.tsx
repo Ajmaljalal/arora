@@ -14,6 +14,7 @@ const Education = ({ educations }: EducationProps) => {
       <Box p='4px'>
         {
           educations?.map((education, index) => {
+            const graduationDate = new Date(education.graduationDate).toLocaleDateString('en-us', { year: "numeric", month: "short" })
             return (
               <VStack
                 key={education.graduationDate + index}
@@ -27,7 +28,7 @@ const Education = ({ educations }: EducationProps) => {
                 <Text fontWeight='600'>{education.degree}</Text>
                 <HStack margin='0' spacing={3}>
                   <Text>{education.school}</Text>
-                  <Text color='brand.grey400'>{education.graduationDate}</Text>
+                  <Text color='brand.grey400'>-  {graduationDate}</Text>
                 </HStack>
               </VStack>
             )
@@ -39,7 +40,7 @@ const Education = ({ educations }: EducationProps) => {
 
   return (
     <Box mt='32px'>
-      <BorderedTitledBox title='Education' bg='brand.grey100'>
+      <BorderedTitledBox title='Education' bg='brand.grey100' titleColor='brand.orange'>
         {renderEducation()}
       </BorderedTitledBox>
     </Box>

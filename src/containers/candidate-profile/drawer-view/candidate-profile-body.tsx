@@ -2,6 +2,7 @@ import React from 'react'
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import ProfileSummary from './details/summary'
 import WorkExperience from './details/work-experience'
+import DetailedWorkExperience from './work-experience'
 import Education from './details/education'
 
 type ProfileBodyProps = {
@@ -37,17 +38,27 @@ const ProfileBody = ({ candidate }: ProfileBodyProps) => {
     )
   }
 
+  const renderWorkExperienceTab = () => {
+    return (
+      <TabPanel p='0'>
+        <DetailedWorkExperience workExperience={candidate.workHistory} />
+      </TabPanel>
+    )
+  }
+
   return (
     <Tabs>
       <TabList borderBottom='1px solid' borderColor='brand.grey200'>
         {renderTab('Overview')}
-        {renderTab('Resume')}
+        {renderTab('Work experience')}
+        {/* {renderTab('Reviews')} */}
+        {/* {renderTab('References')} */}
+        {renderTab('Score card - Notes')}
+        {/* {renderTab('Resume')} */}
       </TabList>
-      <TabPanels mt='20px' pb='30px' style={{ height: 'calc(100vh - 160px' }} overflow='auto'>
+      <TabPanels mt='20px' pb='50px' style={{ height: 'calc(100vh - 160px' }} overflow='auto'>
         {renderDetailsTab()}
-        <TabPanel p='0'>
-          Resume
-        </TabPanel>
+        {renderWorkExperienceTab()}
       </TabPanels>
     </Tabs>
   )

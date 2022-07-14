@@ -54,7 +54,7 @@ const ProfileHeader = ({ candidate }: ProfileHeaderProps) => {
         fontSize='16px'
         bg='brand.grey100'
         border='0.5px solid'
-        borderColor='brand.secondary'
+        borderColor='brand.grey50'
         borderRadius='4px'
         width='fit-content'
         mt='8px'

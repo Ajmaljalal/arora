@@ -25,7 +25,7 @@ const Icons = {
 const skills = ['React', 'Javascript', 'CSS', 'HTML', 'NextJS', 'Redux', 'MongoDB']
 
 const ProfileSummary = ({ candidate }: ProfileSummaryProps) => {
-  const salaryExpectation = `$${candidate.minSalary} - ${candidate.maxSalary} annual salary expectation`
+  const salaryExpectation = `$${candidate.minSalary} Annual Salary Expectation`
   const renderListItem = (text: string, icon: string, hint?: string) => {
     return (
       <Box
@@ -42,7 +42,7 @@ const ProfileSummary = ({ candidate }: ProfileSummaryProps) => {
 
   const renderPerks = () => {
     return (
-      <BorderedTitledBox title='Qualifications (80% Match)' bg='brand.grey100'>
+      <BorderedTitledBox title='Qualifications (80% Match)' titleColor='brand.orange' bg='brand.grey100'>
         <List>
           {renderListItem(candidate.education, 'education', '')}
           {renderListItem(candidate.experience, 'experience', 'Years of Experience')}
@@ -57,7 +57,7 @@ const ProfileSummary = ({ candidate }: ProfileSummaryProps) => {
 
   const renderSkills = () => {
     return (
-      <BorderedTitledBox title='Skills (95% Match)' bg='brand.grey100'>
+      <BorderedTitledBox title='Skills (95% Match)' bg='brand.grey100' titleColor='brand.orange'>
         <Wrap mt='4px' height='100%'>
           {
             skills?.map(skill => {
@@ -80,7 +80,7 @@ const ProfileSummary = ({ candidate }: ProfileSummaryProps) => {
       display='flex'
       alignItems='stretch'
       justifyContent='space-between'
-      height='240px'
+      height='250px'
     >
       {renderPerks()}
       <Box w='8px' />

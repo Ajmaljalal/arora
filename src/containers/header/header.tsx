@@ -134,8 +134,8 @@ const Header = () => {
 		>
 			<ClientsDropDown />
 			{/* <Divider orientation='vertical' borderColor='brand.grey200' mx='30px' /> */}
-			{renderNavigation()}
 			<SearchBar />
+			{renderNavigation()}
 			{rightSideQuickActions()}
 		</HStack>
 	)
