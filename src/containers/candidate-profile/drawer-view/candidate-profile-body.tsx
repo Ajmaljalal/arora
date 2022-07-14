@@ -53,7 +53,7 @@ const ProfileBody = ({ candidate }: ProfileBodyProps) => {
         {renderTab('Work experience')}
         {/* {renderTab('Reviews')} */}
         {/* {renderTab('References')} */}
-        {renderTab('Score card - Notes')}
+        {renderTab('Score card & Notes')}
         {/* {renderTab('Resume')} */}
       </TabList>
       <TabPanels mt='20px' pb='50px' style={{ height: 'calc(100vh - 160px' }} overflow='auto'>

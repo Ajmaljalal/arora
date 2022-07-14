@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { Avatar, Box, HStack, Text } from '@chakra-ui/react'
+import { Box, HStack, Text } from '@chakra-ui/react'
 import RatingView from '../../../components/rating/rating-view'
 import DropdownList from '../../../components/dropdown/dropdown'
+import ChatIcon from '../../../../public/assets/icons/chat.svg'
+import TrashIcon from '../../../../public/assets/icons/trash-empty.svg'
 
 type ProfileHeaderProps = {
   candidate: any
@@ -38,6 +40,7 @@ const ProfileHeader = ({ candidate }: ProfileHeaderProps) => {
         fontSize='14px'
         fontWeight='400'
         alignItems='center'
+        mt='4px'
       >
         <Text>Full Stack Developer</Text>
         <HStack bg='brand.grey100' px='8px' borderRadius='10px' spacing={2}>
@@ -57,7 +60,6 @@ const ProfileHeader = ({ candidate }: ProfileHeaderProps) => {
         borderColor='brand.grey50'
         borderRadius='4px'
         width='fit-content'
-        mt='8px'
       >
         <DropdownList
           key={pipeline.id}
@@ -70,19 +72,48 @@ const ProfileHeader = ({ candidate }: ProfileHeaderProps) => {
     )
   }
 
+  const renderActionBtnsList = () => {
+    return (
+      <HStack alignItems='center'>
+        {renderActionBtn('Drop candidate', 'brand.red', <TrashIcon />)}
+        {renderActionBtn('Send a message', 'brand.primary', <ChatIcon />)}
+      </HStack>
+    )
+  }
+
+  const renderActionBtn = (text: string, color, icon: any) => {
+    return (
+      <HStack
+        fontSize='16px'
+        fontWeight='400'
+        color={color}
+        cursor='pointer'
+        spacing={1}
+        mr='8px'
+      >
+        <Text>{text}</Text>
+        {icon}
+      </HStack>
+    )
+  }
+
   return (
-    <HStack spacing={4} alignItems='center'>
-      <Avatar
-        size='lg'
-        name={candidate.name}
-      />
+    <HStack alignItems='center' justifyContent='center' pl='16px'>
       <Box width='100%'>
         <HStack>
           <Text>{candidate.name} </Text>
           {renderMatching()}
         </HStack>
         {renderRoleAndReviews()}
-        {renderStages({})}
+        <HStack
+          alignItems='center'
+          justifyContent='space-between'
+          mt='8px'
+          spacing={6}
+        >
+          {renderStages({})}
+          {renderActionBtnsList()}
+        </HStack>
       </Box>
     </HStack >
 
