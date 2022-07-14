@@ -321,7 +321,6 @@ export const candidates = [
     rating: 5,
     education: 'Social science degree',
     minSalary: 90000,
-    maxSalary: 120000,
     experience: 5,
     workHistory: [
       {
@@ -329,21 +328,39 @@ export const candidates = [
         type: 'Fulltime',
         jobTitle: 'Frontend Developer',
         from: '01/01/2021',
-        to: '01/01/2022'
+        to: '01/01/2022',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       },
       {
         employer: 'Uber',
         type: 'Fulltime',
         jobTitle: 'Fullstack Developer',
         from: '12/31/2020',
-        to: '12/31/2021'
+        to: '12/31/2021',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       },
       {
         employer: 'Google',
         type: 'Fulltime',
         jobTitle: 'Software Developer',
         from: '01/02/2019',
-        to: '12/31/2020'
+        to: '12/31/2020',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       }
     ],
     educations: [
@@ -368,7 +385,6 @@ export const candidates = [
     rating: 4,
     education: 'Computer science degree',
     minSalary: 90000,
-    maxSalary: 120000,
     experience: 4,
     workHistory: [
       {
@@ -376,21 +392,39 @@ export const candidates = [
         type: 'Fulltime',
         jobTitle: 'Frontend Developer',
         from: '01/01/2021',
-        to: '01/01/2022'
+        to: '01/01/2022',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       },
       {
         employer: 'Uber',
         type: 'Fulltime',
         jobTitle: 'Fullstack Developer',
         from: '12/31/2020',
-        to: '12/31/2021'
+        to: '12/31/2021',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       },
       {
         employer: 'Google',
         type: 'Fulltime',
         jobTitle: 'Software Developer',
         from: '01/02/2019',
-        to: '12/31/2020'
+        to: '12/31/2020',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       }
     ],
     educations: [
@@ -415,7 +449,6 @@ export const candidates = [
     rating: 5,
     education: 'Codding bootcamp',
     minSalary: 90000,
-    maxSalary: 120000,
     experience: 3,
     workHistory: [
       {
@@ -423,21 +456,39 @@ export const candidates = [
         type: 'Fulltime',
         jobTitle: 'Frontend Developer',
         from: '01/01/2021',
-        to: '01/01/2022'
+        to: '01/01/2022',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       },
       {
         employer: 'Uber',
         type: 'Fulltime',
         jobTitle: 'Fullstack Developer',
         from: '12/31/2020',
-        to: '12/31/2021'
+        to: '12/31/2021',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       },
       {
         employer: 'Google',
         type: 'Fulltime',
         jobTitle: 'Software Developer',
         from: '01/02/2019',
-        to: '12/31/2020'
+        to: '12/31/2020',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       }
     ],
     educations: [
@@ -462,7 +513,6 @@ export const candidates = [
     rating: 4.5,
     education: 'Associate degree',
     minSalary: 90000,
-    maxSalary: 120000,
     experience: 6,
     workHistory: [
       {
@@ -470,21 +520,39 @@ export const candidates = [
         type: 'Fulltime',
         jobTitle: 'Frontend Developer',
         from: '01/01/2021',
-        to: '01/01/2022'
+        to: '01/01/2022',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       },
       {
         employer: 'Uber',
         type: 'Fulltime',
         jobTitle: 'Fullstack Developer',
         from: '12/31/2020',
-        to: '12/31/2021'
+        to: '12/31/2021',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       },
       {
         employer: 'Google',
         type: 'Fulltime',
         jobTitle: 'Software Developer',
         from: '01/02/2019',
-        to: '12/31/2020'
+        to: '12/31/2020',
+        impacts: [
+          'One job description and res',
+          'This was my second work and I did nothing usefull',
+          'In my third role I was able to create lots of things. I wish I could do more and have fun ceating things that are more usefull than usual things and events',
+          'But in the last one I was able to create an app that later used by hundreds of people',
+        ]
       }
     ],
     educations: [

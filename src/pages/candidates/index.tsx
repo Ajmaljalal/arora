@@ -24,9 +24,9 @@ const Candidates = (props: Props) => {
 
 Candidates.getLayout = function getLayout(page: ReactElement) {
   return (
-    <Layout>
-      {page}
-    </Layout>
+    // <Layout>
+    page
+    // </Layout>
   )
 }
 

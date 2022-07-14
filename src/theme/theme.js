@@ -52,6 +52,14 @@ const theme = extendTheme({
       button: {
         letterSpacing: '0.02em',
         boxSizing: 'border-box'
+      },
+      h1: {
+        letterSpacing: '0.03em',
+        boxSizing: 'border-box'
+      },
+      h2: {
+        letterSpacing: '0.03em',
+        boxSizing: 'border-box'
       }
     }
   }

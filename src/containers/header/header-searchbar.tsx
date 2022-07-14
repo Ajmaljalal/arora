@@ -23,11 +23,11 @@ const SearchBar = () => {
           as={Button}
           rightIcon={<ChevronDown />}
           p='0 10px'
-          background='brand.grey200'
+          background='brand.grey100'
           borderRadius='0'
           _focus={{ boxShadow: "none !important" }}
-          _hover={{ background: 'brand.grey200' }}
-          _expanded={{ bg: 'brand.grey200' }}
+          _hover={{ background: 'brand.grey100' }}
+          _expanded={{ bg: 'brand.grey100' }}
         >
           {searchDropdownOption}
         </MenuButton>
@@ -43,12 +43,14 @@ const SearchBar = () => {
   return (
     <InputGroup
       p='0'
-      mr='50px'
+      // mr='32px'
+      maxWidth='400px'
       border={`1px solid ${searchOnFocus ? 'lightgrey' : 'transparent'}`}
       borderRadius='3px'
       _focus={{ border: '1px solid lightgrey', background: 'brand.grey100' }}
       _hover={{ border: '1px solid lightgrey', background: 'brand.grey100' }}
       onFocus={() => setSearchOnFocus(true)}
+      flex={1}
     >
       <InputLeftAddon
         p='0'

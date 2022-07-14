@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, VStack, Text, HStack } from '@chakra-ui/react'
-import BorderedTitledBox from '../../../components/layouts/bordered-titled-box'
-import CustomTag from '../../../components/tag'
+import BorderedTitledBox from '../../../../components/layouts/bordered-titled-box'
+import CustomTag from '../../../../components/tag'
 
 type WorkExperience = {
   workExperience: any
@@ -16,6 +16,8 @@ const WorkExperience = ({ workExperience }: WorkExperience) => {
       <Box p='4px'>
         {
           workExperience?.map((job, index) => {
+            const fromDate = new Date(job.from).toLocaleDateString('en-us', { year: "numeric", month: "short" })
+            const toDate = new Date(job.to).toLocaleDateString('en-us', { year: "numeric", month: "short" })
             return (
               <VStack
                 key={job.from + job.to}
@@ -32,7 +34,7 @@ const WorkExperience = ({ workExperience }: WorkExperience) => {
                   <CustomTag text={job.type} color='brand.grey400' bg='brand.white' size='sm' />
                 </HStack>
                 <HStack margin='0' spacing={3} fontSize='14px'>
-                  <Text color='brand.grey400'>{job.from} - {job.to}</Text>
+                  <Text color='brand.grey400'>{fromDate} - {toDate}</Text>
                   <Text color='brand.grey400'>4 years 2 months</Text>
                 </HStack>
               </VStack>
@@ -45,7 +47,7 @@ const WorkExperience = ({ workExperience }: WorkExperience) => {
 
   return (
     <Box mt='32px'>
-      <BorderedTitledBox title='WORK EXPERIENCE (90% Match)' bg='brand.grey100'>
+      <BorderedTitledBox title='Work Experience (90% Match)' bg='brand.grey100' titleColor='brand.orange'>
         {renderWorkExperience()}
       </BorderedTitledBox>
     </Box>

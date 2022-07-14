@@ -9,8 +9,8 @@ const StarIcon = ({ color, onClick }: StarIconProps) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg"
       fill={color}
-      width="14"
-      height="14"
+      width="12"
+      height="12"
       stroke='#fad42d'
       cursor='pointer'
       onClick={onClick}

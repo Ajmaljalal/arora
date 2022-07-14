@@ -13,7 +13,7 @@ const DropdownMenuButton = ({ text, width }: DropdownMenuButtonProps) => {
       as={Button}
       rightIcon={<ChevronDown />}
       p='0 10px'
-      height='31px'
+      height='35px'
       minWidth={width}
       borderRadius='3px'
       border='1px solid'

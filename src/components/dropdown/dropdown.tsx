@@ -21,7 +21,6 @@ const DropdownList = ({ selectedItem, items, onSelectItem, width = '150px' }: Pr
         border='1px solid'
         borderColor='brand.grey300'
         p='0'
-        maxHeight='300px'
         overflowY='auto'
       >
         {items.map(item => {
