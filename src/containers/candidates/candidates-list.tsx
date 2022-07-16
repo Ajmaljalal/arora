@@ -1,11 +1,11 @@
 import React from 'react'
 import { Table, TableContainer, Tbody, Thead } from '@chakra-ui/react'
-import TableRow from '../../../../components/table/table-row'
-import TableHeaderItem from '../../../../components/table/table-header-item'
+import TableRow from '../../components/table/table-row'
+import TableHeaderItem from '../../components/table/table-header-item'
 import Candidate from './candidate'
-import { candidates } from '../../../../data'
+import { candidates } from '../../data'
 
-const Candidates = () => {
+const CandidatesList = () => {
 
   const renderCandidatesList = () => {
     return (
@@ -17,7 +17,7 @@ const Candidates = () => {
     )
   }
   return (
-    <TableContainer width='100%' maxHeight='calc(100% - 10px)' overflowY='auto' bg='brand.white' borderRadius='4px'>
+    <TableContainer width='100%' maxHeight='calc(100% - 90px)' overflowY='auto' bg='brand.white' borderRadius='4px'>
       <Table variant='unstyled'>
         <Thead position='sticky' top='0' bg='brand.grey200' zIndex='1000'>
           <TableRow>
@@ -37,4 +37,4 @@ const Candidates = () => {
 
 }
 
-export default Candidates
+export default CandidatesList

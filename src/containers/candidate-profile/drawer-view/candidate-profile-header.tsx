@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Box, HStack, Text } from '@chakra-ui/react'
+import { Box, HStack, Text, Tr, useDisclosure } from '@chakra-ui/react'
 import RatingView from '../../../components/rating/rating-view'
 import DropdownList from '../../../components/dropdown/dropdown'
 import ChatIcon from '../../../../public/assets/icons/chat.svg'
 import TrashIcon from '../../../../public/assets/icons/trash-empty.svg'
+import AlertModal from '../../../components/alerts/alert-modal'
 
 type ProfileHeaderProps = {
   candidate: any
@@ -11,7 +12,7 @@ type ProfileHeaderProps = {
 
 const ProfileHeader = ({ candidate }: ProfileHeaderProps) => {
   const [selectedStage, setSelectedStage] = useState(candidate.stage)
-
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const handleDropdownItemChange = (stageName: string) => {
     setSelectedStage(stageName)
   }
@@ -75,47 +76,41 @@ const ProfileHeader = ({ candidate }: ProfileHeaderProps) => {
   const renderActionBtnsList = () => {
     return (
       <HStack alignItems='center'>
-        {renderActionBtn('Drop candidate', 'brand.red', <TrashIcon />)}
-        {renderActionBtn('Send a message', 'brand.primary', <ChatIcon />)}
+        <Box onClick={onOpen} cursor='pointer'><TrashIcon /></Box>
+        <Box cursor='pointer'><ChatIcon /></Box>
       </HStack>
     )
   }
 
-  const renderActionBtn = (text: string, color, icon: any) => {
-    return (
-      <HStack
-        fontSize='16px'
-        fontWeight='400'
-        color={color}
-        cursor='pointer'
-        spacing={1}
-        mr='8px'
-      >
-        <Text>{text}</Text>
-        {icon}
-      </HStack>
-    )
-  }
 
   return (
-    <HStack alignItems='center' justifyContent='center' pl='16px'>
-      <Box width='100%'>
-        <HStack>
-          <Text>{candidate.name} </Text>
-          {renderMatching()}
-        </HStack>
-        {renderRoleAndReviews()}
-        <HStack
-          alignItems='center'
-          justifyContent='space-between'
-          mt='8px'
-          spacing={6}
-        >
-          {renderStages({})}
-          {renderActionBtnsList()}
-        </HStack>
-      </Box>
-    </HStack >
+    <>
+      <HStack alignItems='center' justifyContent='center' pl='16px'>
+        <Box width='100%'>
+          <HStack>
+            <Text>{candidate.name} </Text>
+            {renderMatching()}
+          </HStack>
+          {renderRoleAndReviews()}
+          <HStack
+            alignItems='center'
+            justifyContent='space-between'
+            mt='8px'
+            pr='32px'
+          >
+            {renderStages({})}
+            {renderActionBtnsList()}
+          </HStack>
+        </Box>
+      </HStack >
+      <AlertModal
+        title='Drop Candidate?'
+        content={`Are you sure you want to drop '${candidate.name}'?`}
+        isOpen={isOpen}
+        onClose={onClose}
+        footerBtns={['No', 'Yes']}
+      />
+    </>
 
   )
 }

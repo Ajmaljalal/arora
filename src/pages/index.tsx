@@ -21,9 +21,7 @@ const Home = () => {
         <meta name="description" content="A dashboard of all your activities recruitement activities in arora" />
       </Head>
       <BodyLayout>
-        <Box>
-          <PageTitle text='Dashboard' />
-        </Box>
+        <PageTitle text='Dashboard' />
         <PageContentWrapper>
           <JobStatusCardsList />
           <Grid
@@ -31,7 +29,7 @@ const Home = () => {
             gap={2}
             mt='16px'
             autoFlow='row'
-            maxHeight='85%'
+            maxHeight='calc(100% - 140px)'
             overflowY='auto'
           >
             <GridItem>
@@ -39,6 +37,12 @@ const Home = () => {
             </GridItem>
             <GridItem>
               <ProfileStatus />
+            </GridItem>
+            <GridItem>
+              <NewApplications />
+            </GridItem>
+            <GridItem>
+              <NewApplications />
             </GridItem>
             <GridItem>
               <NewApplications />
