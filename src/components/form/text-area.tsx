@@ -7,16 +7,23 @@ type CustomTextAreaProps = {
   name?: string
   placeholderText: string
   handleChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
-  handleSubmit?: (e: any) => void
+  handleSubmit?: (e?: any) => void
 }
 
 const CustomTextArea = ({ value, name, placeholderText, handleChange, handleSubmit }: CustomTextAreaProps) => {
+
+  const handleFormSubmit = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey && e.target.value.trim().length) {
+      e.preventDefault()
+      handleSubmit(e)
+    }
+  }
   return (
     <Textarea
       value={value}
       name={name}
       onChange={handleChange}
-      onKeyDown={handleSubmit}
+      onKeyDown={handleFormSubmit}
       placeholder={`Type a ${placeholderText} and hit ENTER ⏎ to save!`}
       border='1px solid'
       borderColor='brand.grey200'
