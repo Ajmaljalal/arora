@@ -385,7 +385,7 @@ const ChatBox = ({ currentThread }: ChatBoxProps) => {
 
   const renderMessages = () => {
     return (
-      <Box alignItems='flex-start' p='16px' minHeight='calc(100vh - 280px)' maxHeight='calc(100vh - 300px)' overflowY='auto' >
+      <Box alignItems='flex-start' p='0px 16px' minHeight='calc(100vh - 280px)' maxHeight='calc(100vh - 300px)' overflowY='auto' >
         {
           currentMessagesList?.map((message: MessageObj) => {
             return (
