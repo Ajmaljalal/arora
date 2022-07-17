@@ -19,7 +19,7 @@ const CandidatesHeader = ({ }: CandidatesHeaderProps) => {
           fontWeight='400'
           color='brand.grey400'
         >
-          30 total vacancies
+          40 total candidates
         </Text>
       </Box>
     )
@@ -27,13 +27,11 @@ const CandidatesHeader = ({ }: CandidatesHeaderProps) => {
 
   const renderActionButtons = () => {
     return (
-      <Box>
-        <Link href='/create-job-post' passHref>
-          <a>
-            <BaseButton text='Post a job' color='brand.white' bg='brand.primary' />
-          </a>
-        </Link>
-      </Box>
+      <BaseButton
+        text='Shake the list'
+        color='brand.red'
+        fontWeight='400'
+      />
     )
   }
   return (

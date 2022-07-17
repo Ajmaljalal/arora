@@ -5,6 +5,7 @@ export type BaseButtonProps = {
   text: string
   color: string
   borderColor?: string
+  fontWeight?: string
   outlined?: boolean
   bg?: string
   icon?: JSX.Element
@@ -18,14 +19,16 @@ export const BaseButton = ({
   outlined = false,
   icon,
   iconPosition = 'left',
-  bg,
+  bg = 'transparent',
   borderColor,
+  fontWeight,
   onClick
 }: BaseButtonProps) => {
   return (
     <Button
       background={!outlined ? bg : 'transparent'}
       variant={outlined ? 'outline' : 'solid'}
+      fontWeight={fontWeight}
       color={color}
       height='38px'
       minWidth='80px'
