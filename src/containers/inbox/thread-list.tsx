@@ -83,7 +83,7 @@ const ThreadList = ({ onClickThread, currentThreadId }: ThreadListProps) => {
 
   const renderTheadList = () => {
     return (
-      <VStack alignItems='start' spacing={0}>
+      <VStack alignItems='start' spacing={0} mt='8px'>
         {
           threadList.map((thread: Thread) => {
             return (
