@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Box, Button, Menu, MenuButton, MenuList } from "@chakra-ui/react"
 import ChevronDown from '../../../public/assets/icons/chevron-down.svg'
-import { DropDownMenuItem } from "../../components/dropdown/dropdown-menu-item"
+import { DropDownMenuItem } from "../../components/dropdown/list/dropdown-item"
 
 
 const clientsList = [
@@ -23,18 +23,16 @@ const ClientsDropDown = () => {
 
   return (
     <Menu isLazy>
-      <Box>
-        <MenuButton
-          as={Button}
-          rightIcon={<ChevronDown />}
-          p='0 10px'
-          borderRadius='3px'
-          border='1px solid lightgray'
-          _focus={{ boxShadow: "none !important" }}
-        >
-          {`Client: ${clientDropDownOption}`}
-        </MenuButton>
-      </Box>
+      <MenuButton
+        as={Button}
+        rightIcon={<ChevronDown />}
+        p='0 10px'
+        borderRadius='3px'
+        border='1px solid lightgray'
+        _focus={{ boxShadow: "none !important" }}
+      >
+        {`Client: ${clientDropDownOption}`}
+      </MenuButton>
       <MenuList bg='brand.white'>
         {clientsList.map(item => {
           return <DropDownMenuItem key={item} btnText={item} onSelect={handleClientDropDownOptionChange} />

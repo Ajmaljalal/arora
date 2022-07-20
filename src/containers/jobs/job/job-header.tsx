@@ -3,9 +3,9 @@ import { Box, HStack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import PageTitle from '../../../components/headings/page-title'
 import { BaseButton } from '../../../components/buttons/button'
-import ChevronLeftIcon from '../../../../public/assets/icons/chevron-left.svg'
 import { useRouter } from 'next/router'
 import CustomTag from '../../../components/tag'
+import CircledBackButton from '../../../components/buttons/circled-back-button'
 
 type JobDetailsHeaderProps = {
   job: any
@@ -29,23 +29,7 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
     const showStatusText = job.isClosed || job.isPaused
     return (
       <Box display='flex' alignItems='flex-start'>
-        <Box
-          w='32px'
-          h='32px'
-          borderRadius='50%'
-          bg='brand.white'
-          mr='24px'
-          ml='-4px'
-          display='flex'
-          justifyContent='center'
-          alignItems='center'
-          border='1px solid'
-          borderColor='brand.grey200'
-          cursor='pointer'
-          onClick={handleClickBack}
-        >
-          <ChevronLeftIcon />
-        </Box>
+        <CircledBackButton onClick={handleClickBack} />
         <Box>
           <HStack>
             <PageTitle text={job.jobSummary.JobTitle} />
@@ -65,9 +49,9 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
 
   const renderCompanyName = () => {
     return (
-      <Link href='/company-profile'>
-        <a>
-          <Text color='brand.grey500'>Goolge LLC</Text>
+      <Link href='/profiles/company/whateveridofthecompany'>
+        <a target='_blank'>
+          <Text color='brand.grey400' width='fit-content' _hover={{ color: 'brand.primary', fontWeight: '600' }}>{job.company}</Text>
         </a>
       </Link>
     )

@@ -1,7 +1,7 @@
 import { Menu, MenuList } from '@chakra-ui/react'
 import React from 'react'
 import DropdownMenuButton from './dropdown-menu-button'
-import { DropDownMenuItem } from './dropdown-menu-item'
+import { DropDownMenuItem } from './dropdown-item'
 
 type Props = {
   selectedItem: string

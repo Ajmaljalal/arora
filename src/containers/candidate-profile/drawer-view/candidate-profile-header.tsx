@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box, HStack, Text, Tr, useDisclosure } from '@chakra-ui/react'
 import RatingView from '../../../components/rating/rating-view'
-import DropdownList from '../../../components/dropdown/dropdown'
+import DropdownList from '../../../components/dropdown/list'
 import ChatIcon from '../../../../public/assets/icons/chat.svg'
 import TrashIcon from '../../../../public/assets/icons/trash-empty.svg'
 import AlertModal from '../../../components/alerts/alert-modal'

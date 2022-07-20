@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Avatar, Box, HStack, Td, Text, useDisclosure } from '@chakra-ui/react'
 import TableRow from '../../../../components/table/table-row'
-import DropdownList from '../../../../components/dropdown/dropdown'
+import DropdownList from '../../../../components/dropdown/list'
 import CandidateProfile from '../../../candidate-profile/drawer-view/candidate-profile'
 import RatingView from '../../../../components/rating/rating-view'
 import ChatIcon from '../../../../../public/assets/icons/chat.svg'

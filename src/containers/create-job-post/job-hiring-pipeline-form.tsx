@@ -3,7 +3,7 @@ import { Box, Text, Wrap } from '@chakra-ui/react';
 import { JobHiringPipelineObject } from './utils/objects';
 import CustomTag from '../../components/tag';
 import FormWrapper from '../../components/form/form-wrapper';
-import DropdownList from '../../components/dropdown/dropdown';
+import DropdownList from '../../components/dropdown/list';
 
 export interface HiringPipelineProps {
   data: JobHiringPipelineObject
