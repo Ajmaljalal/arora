@@ -7,7 +7,6 @@ type JobImpactsProps = {
 }
 
 const JobImpacts = ({ impacts }: JobImpactsProps) => {
-  console.log('impacts: ', impacts)
   return (
     <Box>
       <Text color='brand.grey400'>In the first month: </Text>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Box, Button, Input, InputGroup, InputLeftAddon, Menu, MenuButton, MenuList } from '@chakra-ui/react'
 import SearchIcon from '../../../public/assets/icons/search.svg'
 import ChevronDown from '../../../public/assets/icons/chevron-down.svg'
-import { DropDownMenuItem } from '../../components/dropdown/dropdown-menu-item'
+import { DropDownMenuItem } from '../../components/dropdown/list/dropdown-item'
 const searchDropDownMenutItems = [
   'Jobs',
   'Candidates',
@@ -26,7 +26,7 @@ const SearchBar = () => {
           background='brand.grey100'
           borderRadius='0'
           _focus={{ boxShadow: "none !important" }}
-          _hover={{ background: 'brand.grey100' }}
+          // _hover={{ background: 'brand.grey100' }}
           _expanded={{ bg: 'brand.grey100' }}
         >
           {searchDropdownOption}
