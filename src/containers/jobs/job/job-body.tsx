@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, HStack, Tab, TabList, TabPanel, TabPanels, Tabs, VStack } from '@chakra-ui/react'
 import JobDetailsTile from './details/job-details-tile'
 import Candidates from './candidates/candidates-list'
+import TabHeader from '../../../components/tabs/tab-header'
 
 type JobDetailsProps = {
   job: any
@@ -12,25 +13,9 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
     return null
   }
 
-
-  const renderTab = (text: string) => {
-    return (
-      <Tab
-        p='0'
-        mr='40px'
-        color='brand.grey400'
-        fontSize='15px'
-        _focus={{ shadow: 'none' }}
-        _selected={{ color: 'brand.black', borderBottom: '3px solid', borderColor: 'brand.primary' }}
-      >
-        {text}
-      </Tab>
-    )
-  }
-
   const renderDetailsTab = () => {
     return (
-      <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} overflow='auto' position='relative'>
+      <TabPanel p='0' pb='20px' style={{ height: 'calc(100vh - 220px' }} overflow='auto' position='relative'>
         <HStack spacing='16px' align='flex-start'>
           <VStack flex={2}>
             <JobDetailsTile title='Skills' content={job.jobSkills?.skills} />
@@ -55,12 +40,12 @@ const JobDetailsBody = ({ job }: JobDetailsProps) => {
   return (
     <Tabs>
       <TabList borderBottom='2px solid' borderColor='brand.grey200'>
-        {renderTab('Job details')}
-        {renderTab('Candidates')}
+        <TabHeader text='Overview' />
+        <TabHeader text='Candidates' />
       </TabList>
-      <TabPanels mt='32px'>
+      <TabPanels mt='16px'>
         {renderDetailsTab()}
-        <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} >
+        <TabPanel p='0' style={{ height: 'calc(100vh - 220px' }} pb='20px' overflow='auto'>
           <Candidates />
         </TabPanel>
       </TabPanels>

@@ -11,7 +11,7 @@ const Culture = ({ culture }: CultureProps) => {
       {
         culture?.map(cultureItem => {
           return (
-            <ListItem>{cultureItem}</ListItem>
+            <ListItem key={cultureItem}>{cultureItem}</ListItem>
           )
         })
       }

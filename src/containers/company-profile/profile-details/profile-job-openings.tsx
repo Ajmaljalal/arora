@@ -44,13 +44,6 @@ const jobs = [
     location: 'Remote',
     type: 'Full time',
     deadline: '12/23/2022'
-  },
-  {
-    id: 'randomejobwithidFive',
-    title: 'UI/UX Engineer',
-    location: 'Remote',
-    type: 'Full time',
-    deadline: '12/23/2022'
   }
 ]
 
@@ -70,7 +63,7 @@ const JobOpenings = ({ companyId }: JobOpeningsProps) => {
       {
         jobs?.map(job => {
           return (
-            <Link href={`/jobs/${job.id}`}>
+            <Link href={`/jobs/${job.id}`} key={job.id}>
               <HStack
                 key={job.id}
                 px='4px'

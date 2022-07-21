@@ -3,7 +3,7 @@ import { Box, Heading, Text } from '@chakra-ui/react'
 import Benefits from './profile-benefits'
 import Culture from './profile-culture'
 import ProfileSummary from './profile-summary'
-import JobOpenings from '../company-job-openings'
+import JobOpenings from './profile-job-openings'
 
 type ProfileDetailTileProps = {
   title: string

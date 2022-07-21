@@ -17,7 +17,7 @@ const Candidates = () => {
     )
   }
   return (
-    <TableContainer width='100%' maxHeight='calc(100% - 10px)' overflowY='auto' bg='brand.white' borderRadius='4px'>
+    <TableContainer width='100%' maxHeight='100%' overflowY='auto' bg='brand.white' borderRadius='4px'>
       <Table variant='unstyled'>
         <Thead position='sticky' top='0' bg='brand.grey200' zIndex='1000'>
           <TableRow>
@@ -29,6 +29,9 @@ const Candidates = () => {
           </TableRow>
         </Thead>
         <Tbody>
+          {renderCandidatesList()}
+          {renderCandidatesList()}
+          {renderCandidatesList()}
           {renderCandidatesList()}
         </Tbody>
       </Table>

@@ -1,8 +1,8 @@
 import React from 'react'
-import { HStack, Tab, TabList, TabPanel, TabPanels, Tabs, VStack } from '@chakra-ui/react'
+import { HStack, TabList, TabPanel, TabPanels, Tabs, VStack } from '@chakra-ui/react'
 import ProfileDetailTile from './profile-details/profile-details-tile'
 import ProfileFeedback from './profile-details/profile-feedback'
-import JobOpenings from './company-job-openings'
+import TabHeader from '../../components/tabs/tab-header'
 
 type ProfileDetailsBodyProps = {
   company: any
@@ -11,20 +11,6 @@ type ProfileDetailsBodyProps = {
 const ProfileDetailsBody = ({ company }: ProfileDetailsBodyProps) => {
   if (!company) {
     return null
-  }
-
-  const renderTab = (text: string) => {
-    return (
-      <Tab
-        p='0'
-        mr='40px'
-        color='brand.grey400'
-        _focus={{ shadow: 'none' }}
-        _selected={{ color: 'brand.black', borderBottom: '3px solid', borderColor: 'brand.primary' }}
-      >
-        {text}
-      </Tab>
-    )
   }
 
   const renderDetailsTab = () => {
@@ -40,7 +26,7 @@ const ProfileDetailsBody = ({ company }: ProfileDetailsBodyProps) => {
       hiringProcessReviewsCount: company.hiringProcessReviewsCount,
     }
     return (
-      <TabPanel p='0' pb='20px' style={{ height: 'calc(100vh - 240px' }} overflow='auto' position='relative'>
+      <TabPanel p='0' pb='20px' style={{ height: 'calc(100vh - 220px' }} overflow='auto' position='relative'>
         <HStack spacing='16px' align='flex-start'>
           <VStack flex={2}>
             <ProfileDetailTile title='About' content={company.about} />
@@ -59,12 +45,12 @@ const ProfileDetailsBody = ({ company }: ProfileDetailsBodyProps) => {
 
   return (
     <Tabs>
-      <TabList borderBottom='2px solid' borderColor='brand.grey200'>
-        {renderTab('Company details')}
-        {renderTab('Reviews')}
-        {renderTab('Gallery')}
+      <TabList borderBottom='1px solid' borderColor='brand.grey200'>
+        <TabHeader text='Overview' />
+        <TabHeader text='Reviews' />
+        <TabHeader text='Gallery' />
       </TabList>
-      <TabPanels mt='32px'>
+      <TabPanels mt='16px'>
         {renderDetailsTab()}
       </TabPanels>
     </Tabs>
