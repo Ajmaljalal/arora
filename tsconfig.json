@@ -23,7 +23,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/fonts/index.js"
+    "src/components/fonts/index.js",
+    "src/containers/company-profile/profile-details"
   ],
   "exclude": [
     "node_modules"

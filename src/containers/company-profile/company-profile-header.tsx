@@ -19,14 +19,14 @@ const CompanyProfileHeader = ({ company }: CompanyProfileHeaderProps) => {
       <VStack alignItems='flex-start'>
         <HStack spacing={3}>
           <Avatar
-            size='md'
+            size='lg'
             name='Uber'
             src={logo.src}
-            border='none'
             cursor='pointer'
+            bg='transparent'
           />
           <Box>
-            <PageTitle text='Company name' />
+            <PageTitle text={company.name} />
             {renderCompanyWebUrl()}
           </Box>
         </HStack>
@@ -36,8 +36,8 @@ const CompanyProfileHeader = ({ company }: CompanyProfileHeaderProps) => {
 
   const renderCompanyWebUrl = () => {
     return (
-      <a target='_blank' href='https://www.google.com'>
-        <Text color='brand.grey400' width='fit-content' _hover={{ color: 'brand.primary', fontWeight: '600' }}>google.com</Text>
+      <a target='_blank' href={company.websiteUrl}>
+        <Text color='brand.grey400' width='fit-content' _hover={{ color: 'brand.primary', fontWeight: '600' }}>{company.websiteUrl}</Text>
       </a>
     )
   }
@@ -45,7 +45,7 @@ const CompanyProfileHeader = ({ company }: CompanyProfileHeaderProps) => {
   const renderActionButtons = () => {
     return (
       <HStack spacing={2}>
-        <BaseButton text='Public view' color='brand.red' outlined borderColor='brand.grey300' />
+        <BaseButton text='Public view' color='brand.primary' outlined borderColor='brand.grey300' />
         <BaseButton text='Edit company' color='brand.white' bg='brand.primary' borderColor='brand.grey300' />
       </HStack>
     )

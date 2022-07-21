@@ -16,7 +16,7 @@ import DashboardActiveIcon from '../../../public/assets/icons/navigation/dashboa
 import InboxActiveIcon from '../../../public/assets/icons/navigation/inbox-active.svg'
 import JobsActiveIcon from '../../../public/assets/icons/navigation/jobs-active.svg'
 import CandidatesActiveIcon from '../../../public/assets/icons/navigation/candidates-active.svg'
-import logo from '../../../public/assets/uber-logo.jpg'
+import logo from '../../../public/assets/lark-logo.png'
 import DropdownMenu from '../../components/dropdown/menu'
 
 
@@ -54,7 +54,6 @@ const Header = () => {
 		size='sm'
 		name='Uber'
 		src={logo.src}
-		border='none'
 		cursor='pointer'
 	/>
 
@@ -62,18 +61,6 @@ const Header = () => {
 		{
 			element: 'Company profile',
 			href: '/profiles/company/whateveridofthecompany'
-		},
-		{
-			element: 'Settings',
-			href: '/settings'
-		},
-		{
-			element: 'Logout',
-			action: () => console.log('logged out')
-		},
-		{
-			element: 'Company profile',
-			href: '/profiles/private/company/whateveridofthecompany'
 		},
 		{
 			element: 'Settings',
