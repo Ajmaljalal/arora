@@ -3,7 +3,9 @@ import Head from 'next/head'
 import React, { ReactElement } from 'react'
 import BodyLayout from '../../../components/layouts/body/body-layout'
 import PageContentWrapper from '../../../components/layouts/page-content-wrapper'
+import ProfileDetailsBody from '../../../containers/company-profile/company-profile-body'
 import CompanyProfileHeader from '../../../containers/company-profile/company-profile-header'
+import { company } from '../../../data'
 
 type Props = {}
 
@@ -15,11 +17,9 @@ const CompanyProfile = (props: Props) => {
         <meta name="description" content="Best videos of all kinds" />
       </Head>
       <BodyLayout>
-        <CompanyProfileHeader company={'company'} />
+        <CompanyProfileHeader company={company} />
         <PageContentWrapper>
-          {/* <JobDetailsBody job={job} />
-           */}
-          Company profile
+          <ProfileDetailsBody company={company} />
         </PageContentWrapper>
       </BodyLayout>
     </Box>

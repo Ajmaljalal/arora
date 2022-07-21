@@ -19,11 +19,11 @@ const CompanyProfileHeader = ({ company }: CompanyProfileHeaderProps) => {
       <VStack alignItems='flex-start'>
         <HStack spacing={3}>
           <Avatar
-            size='md'
+            size='lg'
             name='Uber'
             src={logo.src}
-            border='none'
             cursor='pointer'
+            bg='transparent'
           />
           <Box>
             <PageTitle text='Company name' />
@@ -45,7 +45,7 @@ const CompanyProfileHeader = ({ company }: CompanyProfileHeaderProps) => {
   const renderActionButtons = () => {
     return (
       <HStack spacing={2}>
-        <BaseButton text='Public view' color='brand.red' outlined borderColor='brand.grey300' />
+        <BaseButton text='Public view' color='brand.primary' outlined borderColor='brand.grey300' />
         <BaseButton text='Edit company' color='brand.white' bg='brand.primary' borderColor='brand.grey300' />
       </HStack>
     )
