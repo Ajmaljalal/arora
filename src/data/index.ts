@@ -572,13 +572,21 @@ export const candidates = [
 
 
 export const company = {
+  id: 'companyidhere',
+  name: 'Lark Health Tech',
+  numberOfEmployees: 32,
+  jobOpenings: 12,
+  averageHiringDuration: 2,
+  overallCompanyRating: 4,
+  reviewsCount: 40,
+  hiringProcessRating: 5,
+  hiringProcessReviewsCount: 20,
+  websiteUrl: 'https://www.lark.com',
+  logo: '',
   about: 'Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue.',
   culture: [
-    'Rewards',
     'Fun Enviroment',
     'Succesful Collaboration',
-    'Trust',
-    'Flexibility',
     'Positive Feedback',
     'Transparent Communications',
     'Practical Perks',

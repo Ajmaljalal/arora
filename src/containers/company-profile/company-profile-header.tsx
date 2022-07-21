@@ -26,7 +26,7 @@ const CompanyProfileHeader = ({ company }: CompanyProfileHeaderProps) => {
             bg='transparent'
           />
           <Box>
-            <PageTitle text='Company name' />
+            <PageTitle text={company.name} />
             {renderCompanyWebUrl()}
           </Box>
         </HStack>
@@ -36,8 +36,8 @@ const CompanyProfileHeader = ({ company }: CompanyProfileHeaderProps) => {
 
   const renderCompanyWebUrl = () => {
     return (
-      <a target='_blank' href='https://www.google.com'>
-        <Text color='brand.grey400' width='fit-content' _hover={{ color: 'brand.primary', fontWeight: '600' }}>google.com</Text>
+      <a target='_blank' href={company.websiteUrl}>
+        <Text color='brand.grey400' width='fit-content' _hover={{ color: 'brand.primary', fontWeight: '600' }}>{company.websiteUrl}</Text>
       </a>
     )
   }

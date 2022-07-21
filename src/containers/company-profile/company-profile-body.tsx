@@ -1,6 +1,8 @@
 import React from 'react'
 import { HStack, Tab, TabList, TabPanel, TabPanels, Tabs, VStack } from '@chakra-ui/react'
 import ProfileDetailTile from './profile-details/profile-details-tile'
+import ProfileFeedback from './profile-details/profile-feedback'
+import JobOpenings from './company-job-openings'
 
 type ProfileDetailsBodyProps = {
   company: any
@@ -26,6 +28,17 @@ const ProfileDetailsBody = ({ company }: ProfileDetailsBodyProps) => {
   }
 
   const renderDetailsTab = () => {
+    const summary = {
+      numberOfEmployees: company.numberOfEmployees,
+      jobOpenings: company.jobOpenings,
+    }
+    const feedbacks = {
+      averageHiringDuration: company.averageHiringDuration,
+      overallCompanyRating: company.overallCompanyRating,
+      reviewsCount: company.reviewsCount,
+      hiringProcessRating: company.hiringProcessRating,
+      hiringProcessReviewsCount: company.hiringProcessReviewsCount,
+    }
     return (
       <TabPanel p='0' pb='20px' style={{ height: 'calc(100vh - 240px' }} overflow='auto' position='relative'>
         <HStack spacing='16px' align='flex-start'>
@@ -33,10 +46,11 @@ const ProfileDetailsBody = ({ company }: ProfileDetailsBodyProps) => {
             <ProfileDetailTile title='About' content={company.about} />
             <ProfileDetailTile title='Culture' content={company.culture} />
             <ProfileDetailTile title='Benefits' content={company.benefits} />
+            <ProfileDetailTile title='Job Openings' content={company.id} />
           </VStack>
           <VStack flex={1} position='sticky' top='0'>
-            <ProfileDetailTile title='Summary' content={''} />
-            <ProfileDetailTile title='Benefits' content={company.benefits} />
+            <ProfileDetailTile title='Summary' content={summary} />
+            <ProfileFeedback feedback={feedbacks} />
           </VStack>
         </HStack>
       </TabPanel>
@@ -47,15 +61,11 @@ const ProfileDetailsBody = ({ company }: ProfileDetailsBodyProps) => {
     <Tabs>
       <TabList borderBottom='2px solid' borderColor='brand.grey200'>
         {renderTab('Company details')}
-        {renderTab('Jop openings')}
         {renderTab('Reviews')}
         {renderTab('Gallery')}
       </TabList>
       <TabPanels mt='32px'>
         {renderDetailsTab()}
-        <TabPanel p='0' style={{ height: 'calc(100vh - 240px' }} >
-          second one
-        </TabPanel>
       </TabPanels>
     </Tabs>
   )
