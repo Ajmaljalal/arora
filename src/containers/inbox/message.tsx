@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, background, Box, HStack, Text } from '@chakra-ui/react'
+import { Avatar, Box, HStack, Text } from '@chakra-ui/react'
 import { MessageObj } from './utils/objects'
 
 type MessageProps = {
@@ -16,13 +16,8 @@ const Message = ({ message }: MessageProps) => {
           <Box as='time' color='brand.grey400' fontSize='14px'>{message.date}</Box>
         </HStack>
         <Text
-          // bg={message.sender.id === 'senderMeid' ? 'brand.grey100' : 'brand.grey200'}
-          // p='4px 8px'
-          // borderRadius='8px'
-          // borderTopStartRadius='0'
           color={message.sender.id === 'senderMeid' ? 'brand.primary' : 'brand.black'}
           width='fit-content'
-        // minWidth='50px'
         >
           {message.messageText}
         </Text>

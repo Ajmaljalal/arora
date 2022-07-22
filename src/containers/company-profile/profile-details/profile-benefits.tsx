@@ -11,7 +11,7 @@ const Benefits = ({ benefits }: BenefitsProps) => {
       {
         benefits?.map(benefit => {
           return (
-            <ListItem>{benefit}</ListItem>
+            <ListItem key={benefit}>{benefit}</ListItem>
           )
         })
       }

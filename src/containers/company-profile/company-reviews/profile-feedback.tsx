@@ -1,8 +1,5 @@
 import React from 'react'
 import { Box, HStack, Text } from '@chakra-ui/react'
-import DurationIcon from '../../../../public/assets/icons/duration-clock.svg'
-import RatingOrangIcon from '../../../../public/assets/icons/rating-orange.svg'
-import RatingBlueIcon from '../../../../public/assets/icons/rating-blue.svg'
 import RatingView from '../../../components/rating/rating-view'
 
 type ProfileFeedbackProps = {
@@ -15,21 +12,18 @@ const ProfileFeedback = ({ feedback }: ProfileFeedbackProps) => {
       <ProfileFeedbackItem
         title='Overall company rating'
         rating={feedback.overallCompanyRating}
-        icon={<RatingOrangIcon />}
         reviewsCount={feedback.reviewsCount}
         color='brand.orange'
       />
       <ProfileFeedbackItem
         title='Hiring process rating'
         rating={feedback.hiringProcessRating}
-        icon={<RatingBlueIcon />}
         reviewsCount={feedback.hiringProcessReviewsCount}
         color='brand.primary'
       />
       <ProfileFeedbackItem
         title='Average hiring duration'
         rating={feedback.averageHiringDuration}
-        icon={<DurationIcon />}
         reviewsCount={feedback.hiringProcessReviewsCount}
         color='brand.secondary'
       />
@@ -37,19 +31,19 @@ const ProfileFeedback = ({ feedback }: ProfileFeedbackProps) => {
   )
 }
 
-const ProfileFeedbackItem = ({ title, color, icon, rating, reviewsCount = null }) => {
+const ProfileFeedbackItem = ({ title, color, rating, reviewsCount = null }) => {
   const renderContent = () => {
     if (title !== 'Average hiring duration') {
       return (
-        <HStack>
-          <Text fontWeight='600'>{rating}/5</Text>
+        <HStack px='8px'>
+          <Text color='brand.grey400'><span style={{ fontSize: '32px', color: 'black', fontWeight: 'bolder' }}>{rating}</span>/5</Text>
           <RatingView rating={rating} />
           <Text color='brand.grey400'>({reviewsCount} reviews)</Text>
-        </HStack>
+        </HStack >
       )
     } else {
       return (
-        <Text fontWeight='600'>{rating} days</Text>
+        <Text color='brand.grey400' px='8px'><span style={{ fontSize: '32px', color: 'black', fontWeight: 'bolder' }}>{rating}</span> days</Text>
       )
     }
   }
@@ -65,7 +59,7 @@ const ProfileFeedbackItem = ({ title, color, icon, rating, reviewsCount = null }
       mb='8px'
       alignItems='center'
     >
-      {icon}
+      {/* {icon} */}
       <Box ml='4px'>
         <Text fontSize='14' color='brand.grey400'>{title}</Text>
         {renderContent()}
