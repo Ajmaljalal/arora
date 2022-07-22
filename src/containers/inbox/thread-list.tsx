@@ -100,8 +100,8 @@ const ThreadList = ({ onClickThread, currentThreadId }: ThreadListProps) => {
                 onClick={() => onClickThread(thread)}
               >
                 <HStack>
-                  <Avatar name={thread.contactName} size='sm' />
-                  <Box fontSize='14px'>
+                  <Avatar name={thread.contactName} width='45px' height='45px' />
+                  <Box>
                     <Text fontWeight='600'>
                       {thread.contactName}
                       {renderMessageCountBadge(thread.recentMessagesCount)}

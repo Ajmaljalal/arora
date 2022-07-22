@@ -15,5 +15,8 @@ module.exports = {
 
     return config
   },
-  nextConfig
+  nextConfig,
+  images: {
+    domains: ["images.unsplash.com"],
+  },
 }

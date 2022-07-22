@@ -24,6 +24,7 @@ const NewApplications = () => {
         display='flex'
         justifyContent='space-between'
         maxHeight='200px'
+        height='200px'
         minWidth='300px'
         overflowY='auto'
       >
