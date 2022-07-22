@@ -10,6 +10,7 @@ export type BaseButtonProps = {
   bg?: string
   icon?: JSX.Element
   iconPosition?: 'left' | 'right'
+  isFullWidth?: boolean
   onClick?: (arg?: any) => void
 }
 
@@ -22,6 +23,7 @@ export const BaseButton = ({
   bg = 'transparent',
   borderColor,
   fontWeight,
+  isFullWidth,
   onClick
 }: BaseButtonProps) => {
   return (
@@ -31,7 +33,7 @@ export const BaseButton = ({
       fontWeight={fontWeight}
       color={color}
       height='38px'
-      minWidth='80px'
+      minWidth={isFullWidth ? 'full' : '80px'}
       leftIcon={iconPosition === 'left' ? icon : null}
       rightIcon={iconPosition === 'right' ? icon : null}
       iconSpacing='5px'

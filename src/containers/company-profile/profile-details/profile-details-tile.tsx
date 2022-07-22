@@ -4,6 +4,7 @@ import Benefits from './profile-benefits'
 import Culture from './profile-culture'
 import ProfileSummary from './profile-summary'
 import JobOpenings from './profile-job-openings'
+import TileWithTitle from '../../../components/tiles/tile-with-title'
 
 type ProfileDetailTileProps = {
   title: string
@@ -30,12 +31,9 @@ const ProfileDetailTile = ({ title, content, bg = 'brand.white' }: ProfileDetail
     }
   }
   return (
-    <Box w='100%' bg={bg} borderRadius='4px' p='16px'>
-      <Heading as='h2' fontSize='16px' fontWeight='600' mb='16px'>
-        {title}
-      </Heading>
+    <TileWithTitle title={title}>
       {renderContent()}
-    </Box>
+    </TileWithTitle>
   )
 }
 
