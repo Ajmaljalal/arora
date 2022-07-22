@@ -57,7 +57,6 @@ const TodaysInterviews = () => {
   const renderContent = () => {
     return (
       <Box
-        display='flex'
         justifyContent='space-between'
         maxHeight='500px'
         overflowY='auto'

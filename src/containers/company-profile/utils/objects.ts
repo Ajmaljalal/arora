@@ -10,3 +10,13 @@ export type ReviewObj = {
   likes: number,
   comments: number
 }
+
+export type ReplyObj = {
+  id: string,
+  text: string,
+  sender: {
+    name: string,
+    id: string
+  },
+  date: string
+}

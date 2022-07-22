@@ -24,27 +24,26 @@ const Home = () => {
         <PageTitle text='Dashboard' />
         <PageContentWrapper>
           <JobStatusCardsList />
+          {/* <TodaysInterviews /> */}
           <Grid
             templateColumns={`repeat(${gridColumn}, 1fr)`}
             gap={2}
             mt='16px'
+            pb='20px'
             autoFlow='row'
-            maxHeight='calc(100% - 140px)'
+            maxHeight='calc(100vh - 233px)'
             overflowY='auto'
           >
-            <GridItem>
-              <TodaysInterviews />
-            </GridItem>
-            <GridItem>
+            <GridItem h='fit-content'>
               <ProfileStatus />
             </GridItem>
-            <GridItem>
+            <GridItem h='fit-content'>
               <NewApplications />
             </GridItem>
-            <GridItem>
+            <GridItem h='fit-content'>
               <NewApplications />
             </GridItem>
-            <GridItem>
+            <GridItem h='fit-content'>
               <NewApplications />
             </GridItem>
           </Grid>

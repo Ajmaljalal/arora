@@ -5,6 +5,7 @@ import RatingView from '../../../components/rating/rating-view'
 import LikeIcon from '../../../../public/assets/icons/like.svg'
 import ChatIcon from '../../../../public/assets/icons/comment.svg'
 import CustomTextArea from '../../../components/form/text-area'
+import RepliesList from './replies-list'
 
 type ReviewProps = {
   review: ReviewObj
@@ -20,9 +21,9 @@ const Review = ({ review, currentReviewId, onClickComment }: ReviewProps) => {
 
   const handleSubmit = () => {
     const date = new Date()
-    const newMessage = {
+    const newReply = {
       id: 'messagesixid',
-      messageText: inputText,
+      text: inputText,
       sender: {
         name: 'Me',
         id: 'senderMeid'
@@ -53,7 +54,7 @@ const Review = ({ review, currentReviewId, onClickComment }: ReviewProps) => {
       borderColor='brand.grey200'
       p='16px'
       borderRadius='4px'
-      mb='8px'
+      mb='16px'
       _last={{ margin: '0' }}
     >
       {renderReviewHeader(review)}
@@ -64,6 +65,7 @@ const Review = ({ review, currentReviewId, onClickComment }: ReviewProps) => {
         <HStack spacing={1}><LikeIcon onClick={() => console.log('like clicked')} cursor='pointer' /><Text fontSize='14px'>{review.likes}</Text></HStack>
         <HStack spacing={1}><ChatIcon onClick={() => onClickComment(review.id)} cursor='pointer' /><Text fontSize='14px'>{review.comments}</Text></HStack>
       </HStack>
+      {currentReviewId === review.id && <RepliesList />}
       {currentReviewId === review.id && <CustomTextArea
         value={inputText}
         placeholderText='comment'
