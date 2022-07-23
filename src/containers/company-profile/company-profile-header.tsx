@@ -3,6 +3,8 @@ import { Avatar, Box, HStack, Text, VStack } from '@chakra-ui/react'
 import PageTitle from '../../components/headings/page-title'
 import { BaseButton } from '../../components/buttons/button'
 import logo from '../../../public/assets/lark-logo.png'
+import Link from 'next/link'
+import FileUpload from '../../components/form/file-upload'
 
 
 type CompanyProfileHeaderProps = {
@@ -45,8 +47,16 @@ const CompanyProfileHeader = ({ company }: CompanyProfileHeaderProps) => {
   const renderActionButtons = () => {
     return (
       <HStack spacing={2}>
-        <BaseButton text='Public view' color='brand.primary' outlined borderColor='brand.grey300' />
+        <Link href={`/profiles/company/${company.id}`} passHref>
+          <a>
+            <BaseButton text='Public view' color='brand.primary' outlined borderColor='brand.grey300' />
+          </a>
+        </Link>
         <BaseButton text='Edit company' color='brand.white' bg='brand.primary' borderColor='brand.grey300' />
+        <FileUpload
+          acceptedFileTypes="image/*"
+          onChange={(file) => console.log(file)}
+        />
       </HStack>
     )
   }
