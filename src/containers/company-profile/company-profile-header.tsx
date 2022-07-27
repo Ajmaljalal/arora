@@ -23,9 +23,9 @@ const CompanyProfileHeader = ({ company }: CompanyProfileHeaderProps) => {
           <Avatar
             size='lg'
             name='Uber'
-            src={logo.src}
+            // src={logo.src}
             cursor='pointer'
-            bg='transparent'
+          // bg='transparent'
           />
           <Box>
             <PageTitle text={company.name} />
@@ -47,12 +47,12 @@ const CompanyProfileHeader = ({ company }: CompanyProfileHeaderProps) => {
   const renderActionButtons = () => {
     return (
       <HStack spacing={2}>
-        <Link href={`/profiles/company/${company.id}`} passHref>
-          <a>
+        {/* <Link href={`/profiles/company/${company.id}`} passHref>
+          <a target='_blank'>
             <BaseButton text='Public view' color='brand.primary' outlined borderColor='brand.grey300' />
           </a>
-        </Link>
-        <BaseButton text='Edit company' color='brand.white' bg='brand.primary' borderColor='brand.grey300' />
+        </Link> */}
+        <BaseButton text='Edit' color='brand.white' bg='brand.primary' borderColor='brand.grey300' />
         <FileUpload
           acceptedFileTypes="image/*"
           onChange={(file) => console.log(file)}

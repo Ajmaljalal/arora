@@ -7,7 +7,8 @@ export const FileUpload = ({ acceptedFileTypes, onChange }) => {
     <Box>
       <input
         type='file'
-        onChange={(e) => onChange(e.target.files[0])}
+        multiple={true}
+        onChange={(e) => onChange(e.target.files)}
         accept={acceptedFileTypes}
         ref={inputRef}
         style={{ display: 'none' }} />
@@ -15,7 +16,7 @@ export const FileUpload = ({ acceptedFileTypes, onChange }) => {
       <Input
         onClick={() => inputRef.current.click()}
         readOnly={true}
-        width='135px'
+        width='130px'
         cursor='pointer'
         bg='brand.secondary'
         value='Upload image'

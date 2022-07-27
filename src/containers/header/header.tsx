@@ -53,7 +53,7 @@ const Header = () => {
 	const companyLogo = <Avatar
 		size='sm'
 		name='Uber'
-		src={logo.src}
+		// src={logo.src}
 		cursor='pointer'
 	/>
 
