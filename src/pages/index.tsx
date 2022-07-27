@@ -40,12 +40,6 @@ const Home = () => {
             <GridItem h='fit-content'>
               <NewApplications />
             </GridItem>
-            <GridItem h='fit-content'>
-              <NewApplications />
-            </GridItem>
-            <GridItem h='fit-content'>
-              <NewApplications />
-            </GridItem>
           </Grid>
         </PageContentWrapper>
       </BodyLayout>
