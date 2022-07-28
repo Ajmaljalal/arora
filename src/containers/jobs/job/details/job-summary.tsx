@@ -47,7 +47,7 @@ const JobSummary = ({ summary }: JobSummaryProps) => {
       <Box mt='16px'>
         {renderSummarItem('Type', summary.JobType)}
         {renderSummarItem('Method', summary.JobMethod)}
-        {renderSummarItem('location', summary.JobLocation)}
+        {renderSummarItem('location', summary.JobLocation ? summary.JobLocation : summary.JobMethod)}
         {renderSummarItem('Minimum Experience', summary.MinYearsofExperience)}
         {renderSummarItem('Deadline', summary.ApplicationDeadline)}
       </Box>

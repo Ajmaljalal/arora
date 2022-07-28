@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, ListItem, UnorderedList } from '@chakra-ui/react'
 import React from 'react'
 import BorderedListItem from '../../../../components/bordered-list-item'
 
@@ -8,13 +8,13 @@ type JobResponsibilitiesProps = {
 
 const JobResponsibilities = ({ responsibilities }: JobResponsibilitiesProps) => {
   return (
-    <Box>
+    <UnorderedList>
       {
         responsibilities?.map((responsibility, index) => {
-          return <BorderedListItem key={responsibility} text={responsibility} editable={false} bordered={false} />
+          return <ListItem key={responsibility}>{responsibility}</ListItem>
         })
       }
-    </Box>
+    </UnorderedList>
   )
 }
 
