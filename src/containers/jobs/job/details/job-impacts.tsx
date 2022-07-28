@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Text } from '@chakra-ui/react'
+import { Box, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 import BorderedListItem from '../../../../components/bordered-list-item'
 
 type JobImpactsProps = {
@@ -9,15 +9,15 @@ type JobImpactsProps = {
 const JobImpacts = ({ impacts }: JobImpactsProps) => {
   return (
     <Box>
-      <Text color='brand.grey400'>In the first month: </Text>
+      <Text color='brand.grey400' fontWeight='600'>In the first month: </Text>
       {impacts.firstMonth &&
-        <BorderedListItem text={impacts.firstMonth} bordered={false} editable={false} />}
-      <Text color='brand.grey400' mt='15px'>In three months:</Text>
+        <Text>{impacts.firstMonth}</Text>}
+      <Text color='brand.grey400' mt='15px' fontWeight='600'>In three months:</Text>
       {impacts.threeMonths &&
-        <BorderedListItem text={impacts.firstMonth} bordered={false} editable={false} />}
-      <Text color='brand.grey400' mt='15px'>In one year:</Text>
+        <Text>{impacts.threeMonths}</Text>}
+      <Text color='brand.grey400' mt='15px' fontWeight='600'>In one year:</Text>
       {impacts.oneYear &&
-        <BorderedListItem text={impacts.firstMonth} bordered={false} editable={false} />}
+        <Text>{impacts.oneYear}</Text>}
     </Box>
   )
 }
