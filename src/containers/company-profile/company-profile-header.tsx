@@ -2,8 +2,6 @@ import React from 'react'
 import { Avatar, Box, HStack, Text, VStack } from '@chakra-ui/react'
 import PageTitle from '../../components/headings/page-title'
 import { BaseButton } from '../../components/buttons/button'
-import logo from '../../../public/assets/lark-logo.png'
-import Link from 'next/link'
 import FileUpload from '../../components/form/file-upload'
 
 

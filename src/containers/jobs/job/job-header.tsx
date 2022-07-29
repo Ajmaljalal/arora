@@ -62,8 +62,8 @@ const JobDetailsHeader = ({ job }: JobDetailsHeaderProps) => {
     const closeBtnText = job?.isClosed ? 'Start job' : 'Close job'
     return (
       <HStack spacing={2}>
-        <BaseButton text={closeBtnText} color='brand.red' outlined borderColor='brand.grey300' />
-        {!job.isClosed && <BaseButton text={pauseBtnText} color='brand.primary' outlined borderColor='brand.grey300' />}
+        <BaseButton text={closeBtnText} color='brand.red' borderColor='brand.grey300' />
+        {!job.isClosed && <BaseButton text={pauseBtnText} color='brand.primary' borderColor='brand.grey300' />}
         <Link href={`/jobs/edit/${job.id}`} passHref>
           <a>
             <BaseButton text='Edit job' color='brand.white' bg='brand.primary' />

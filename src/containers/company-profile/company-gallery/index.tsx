@@ -1,6 +1,5 @@
 import React from 'react'
-import { Box, Flex, Image } from '@chakra-ui/react'
-import { BaseButton } from '../../../components/buttons/button'
+import { Box, Image } from '@chakra-ui/react'
 
 type GalleryProps = {
   images: string[]
