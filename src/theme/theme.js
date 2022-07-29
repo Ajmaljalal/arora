@@ -62,7 +62,15 @@ const theme = extendTheme({
         boxSizing: 'border-box'
       }
     }
+  },
+  omponents: {
+    Button: {
+      _focus: {
+        shadow: 'none'
+      }
+    }
   }
+
 })
 
 export default theme
