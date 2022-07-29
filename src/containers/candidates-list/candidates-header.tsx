@@ -30,7 +30,6 @@ const CandidatesHeader = ({ }: CandidatesHeaderProps) => {
       <BaseButton
         text='Shake the list'
         color='brand.red'
-        fontWeight='400'
       />
     )
   }

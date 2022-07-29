@@ -11,7 +11,6 @@ import { CurrentStepInitialState, formDataInitialValues, FormDataTypes } from '.
 import InlineAlert from '../../components/alerts/inline-alert'
 import { convertToRaw, EditorState } from 'draft-js'
 import { checkEmptyFields } from '../../utils/form'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 type CreateJobPostProps = {
@@ -189,7 +188,7 @@ const CreateJobPost = ({ job }: CreateJobPostProps) => {
         mt='50px'
         justifyContent='flex-end'
       >
-        <BaseButton text='Cancel' outlined={true} onClick={closeModal} borderColor='brand.primary' color='brand.primary' />
+        <BaseButton text='Cancel' onClick={closeModal} borderColor='brand.primary' color='brand.primary' />
         <BaseButton text='Next' onClick={handleCurrentStepChange} color='brand.white' bg='brand.primary' />
       </HStack>
     )

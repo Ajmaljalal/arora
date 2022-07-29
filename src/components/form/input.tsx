@@ -8,7 +8,7 @@ type InputFieldProps = {
   label?: string
   width?: string
   type?: string
-  leftAddOn?: string | null
+  leftAddOn?: string | JSX.Element
 }
 
 const InputField = ({
@@ -37,13 +37,10 @@ const InputField = ({
           id={label?.toLowerCase()}
           value={value}
           onChange={onChange}
-          placeholder={`Enter ${label?.toLowerCase()}`}
           name={label}
           border='1px solid'
           borderColor='brand.grey200'
           borderRadius='4px'
-          color='brand.grey300'
-          fontSize='18px'
           _hover={{
             borderColor: 'brand.grey300',
             color: 'brand.grey400'
