@@ -5,8 +5,8 @@ type withAuthorizationProps = {
   Component: JSX.Element
 }
 
-const withAuthorization = (Component) => {
-  return ({ ...props }) => {
+export default function withAuthorization(Component) {
+  return function ({ ...props }) {
     const [user, setUser] = useState(null)
 
     const getUser = async () => {
@@ -34,12 +34,10 @@ const withAuthorization = (Component) => {
     }
     useEffect(() => {
       checkAuth()
-    }, [])
+    }, [checkAuth])
 
     if (user) {
       return <Component {...props} />
     } else return null
   }
 }
-
-export default withAuthorization
