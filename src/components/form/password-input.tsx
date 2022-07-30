@@ -12,10 +12,11 @@ const PasswordInput = ({ ...props }: PasswordInputProps) => {
     <FormControl id="password" isRequired>
       <FormLabel>Password</FormLabel>
       <InputGroup>
-        <Input type={showPassword ? 'text' : 'password'} {...props} />
+        <Input type={showPassword ? 'text' : 'password'} borderRadius='4px' {...props} />
         <InputRightElement h={'full'} mr='10px'>
           <BaseButton
-            text={showPassword ? 'hide' : 'show'}
+            text={showPassword ? 'Hide' : 'Show'}
+            fontSize='12px'
             color='brand.primary'
             onClick={() => setShowPassword((showPassword) => !showPassword)}
           />

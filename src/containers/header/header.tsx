@@ -16,8 +16,8 @@ import DashboardActiveIcon from '../../../public/assets/icons/navigation/dashboa
 import InboxActiveIcon from '../../../public/assets/icons/navigation/inbox-active.svg'
 import JobsActiveIcon from '../../../public/assets/icons/navigation/jobs-active.svg'
 import CandidatesActiveIcon from '../../../public/assets/icons/navigation/candidates-active.svg'
-import logo from '../../../public/assets/lark-logo.png'
 import DropdownMenu from '../../components/dropdown/menu'
+import { signOut } from '../../aws-services/auth'
 
 
 const NavIcons = {
@@ -68,7 +68,7 @@ const Header = () => {
 		},
 		{
 			element: 'Logout',
-			action: () => console.log('logged out')
+			action: signOut
 		}
 	]
 

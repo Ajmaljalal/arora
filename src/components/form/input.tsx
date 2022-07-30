@@ -1,43 +1,35 @@
-import { FormControl, FormLabel, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { FormControl, FormLabel, Input, InputGroup, InputLeftElement, InputProps } from '@chakra-ui/react'
 import React from 'react'
 
 type InputFieldProps = {
-  onChange: (e) => void
+  label: string
   value: string | number
-  isRequired?: boolean
-  label?: string
-  width?: string
-  type?: string
   leftAddOn?: string | JSX.Element
-}
+  isRequired?: boolean
+} & InputProps
 
 const InputField = ({
-  onChange,
-  isRequired = false,
   label,
-  width,
-  type,
   leftAddOn = null,
-  value
+  value,
+  isRequired,
+  ...props
 }: InputFieldProps) => {
   return (
-    <FormControl mb='10px' width={width} isRequired={isRequired}>
+    <FormControl isRequired>
       <FormLabel htmlFor={label?.toLowerCase()} fontSize='16px' fontWeight='600'>{label}</FormLabel>
       <InputGroup>
         {
-          leftAddOn ? <InputLeftElement
+          leftAddOn && <InputLeftElement
             pointerEvents='none'
             color='gray.300'
             fontSize='1.2em'
-          >{leftAddOn}</InputLeftElement> : null
+          >{leftAddOn}</InputLeftElement>
         }
 
         <Input
-          type={type}
           id={label?.toLowerCase()}
           value={value}
-          onChange={onChange}
-          name={label}
           border='1px solid'
           borderColor='brand.grey200'
           borderRadius='4px'
@@ -50,6 +42,7 @@ const InputField = ({
             color: 'brand.black'
           }}
           _placeholder={{ color: 'brand.grey300' }}
+          {...props}
         />
       </InputGroup>
     </FormControl>
