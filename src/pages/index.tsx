@@ -18,7 +18,7 @@ const Home = () => {
     <Box>
       <Head>
         <title>Arora | Dashboard</title>
-        <meta name="description" content="A dashboard of all your activities recruitement activities in arora" />
+        <meta name="description" content="A dashboard of all your recruitement/hiring/job seeking activities in Assistian" />
       </Head>
       <BodyLayout>
         <PageTitle text='Dashboard' />

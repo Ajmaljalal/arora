@@ -2,47 +2,77 @@ import React, { useState } from 'react';
 import {
   Flex,
   Box,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  InputRightElement,
   Stack,
   Heading,
   Text,
   useColorModeValue,
-  Wrap,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { BaseButton } from '../../components/buttons/button';
 import InputField from '../../components/form/input';
 import PasswordInput from '../../components/form/password-input';
+import { signUp, confirmSignUp } from '../../aws-services/auth';
 
-type Props = {}
+type RegisterationFormProps = {}
 
-const RegisterationForm = ({ }: Props) => {
-  const [showPassword, setShowPassword] = useState(false);
+const RegisterationForm = ({ }: RegisterationFormProps) => {
+  const [isSignin, setIsSigning] = useState(false)
+  const [inVerificationScreen, setVerificationScreen] = useState(false)
+  const [error, setError] = useState(null)
+  const [verificationCode, setVerificationCode] = useState('')
+  const [formData, setFormDate] = useState({
+    name: '',
+    email: '',
+    password: ''
+  })
 
-  const renderNameFields = () => {
+  const handleChange = (e) => {
+    const value = e.target.value
+    const name = e.target.name
+    setFormDate({ ...formData, [name]: value })
+  }
+
+  const handleSubmit = async () => {
+    setIsSigning(true)
+    try {
+      await signUp({
+        username: formData.email,
+        password: formData.password,
+        name: formData.name
+      })
+      setVerificationScreen(true)
+    } catch (error) {
+      setError(error)
+    }
+    setIsSigning(false)
+  }
+
+  const handleVerificationCodeChange = (e) => {
+    setVerificationCode(e.target.value)
+  }
+
+  const submitVerificationCode = async () => {
+    setIsSigning(true)
+    try {
+      await confirmSignUp({ username: formData.email, code: verificationCode })
+      setVerificationCode('')
+    } catch (error) {
+      setError(error)
+    }
+    setIsSigning(false)
+  }
+
+  const renderNameField = () => {
     return (
-      <Box>
-        <Box>
-          <InputField
-            label='First Name'
-            value=''
-            type='text'
-            onChange={() => console.log('')}
-          />
-        </Box>
-        <Box>
-          <InputField
-            label='Last Name'
-            value=''
-            type='text'
-            onChange={() => console.log('')}
-          />
-        </Box>
-      </Box>
+      <InputField
+        name='name'
+        label='Full Name'
+        value={formData.name}
+        type='text'
+        onChange={handleChange}
+        isRequired
+      />
+
     )
   }
 
@@ -50,24 +80,29 @@ const RegisterationForm = ({ }: Props) => {
     return (
       <>
         <InputField
+          name='email'
           label='Email Address'
-          value=''
+          value={formData.email}
           type='email'
-          onChange={() => console.log('')}
+          onChange={handleChange}
+          isRequired
         />
-        <PasswordInput onChange={(e) => console.log(e.target.value)} />
+        <PasswordInput name='password' value={formData.password} onChange={handleChange} />
       </>
     )
   }
 
   const renderButtons = () => {
+    const isActive = formData.name && formData.email && formData.password
     return (
       <>
         <BaseButton
           text='Register'
-          isLoading={false}
+          isLoading={isSignin}
+          isDisabled={!isActive}
           bg={'brand.primary'}
           color={'brand.white'}
+          onClick={handleSubmit}
         />
         <Text align={'center'} >
           Already registered? <Link href='/login' passHref><a><BaseButton color='brand.primary' text='Login' /></a></Link>
@@ -76,37 +111,67 @@ const RegisterationForm = ({ }: Props) => {
     )
   }
 
+  const renderVerifyCodeButton = () => {
+    return (
+      <BaseButton
+        text='Verify'
+        isLoading={isSignin}
+        isDisabled={!verificationCode.length}
+        bg={'brand.primary'}
+        color={'brand.white'}
+        onClick={submitVerificationCode}
+      />
+    )
+  }
+
+  const reunderSignUpForm = () => {
+    return (
+      <Stack spacing={4}>
+        {renderNameField()}
+        {renderEmailPassword()}
+        {renderButtons()}
+      </Stack>
+    )
+  }
+
+  const renderConfirmSignUp = () => {
+    return (
+      <Stack spacing={4}>
+        <Text>Please enter the code you recieved in your email!</Text>
+        <InputField
+          name='code'
+          label='Verification code'
+          value={verificationCode}
+          type='text'
+          onChange={handleVerificationCodeChange}
+          isRequired
+        />
+        {renderVerifyCodeButton()}
+      </Stack>
+    )
+  }
+
   return (
     <Flex
       justify={'center'}
       width='100%'
-      minW='360px'
       height='100%'
       maxHeight='calc(100vh - 10px)'
       overflowY='auto'
       mt='32px'
     >
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} minW='360px' py={12} width='50%'>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'} textAlign={'center'}>
-            Register with Assistian
-          </Heading>
-          <Text fontSize={'lg'} color={'gray.600'}>
-            to enjoy all of the cool features ✌️
-          </Text>
-        </Stack>
-        <Box
-          rounded={'4px'}
-          bg={useColorModeValue('white', 'gray.700')}
-          boxShadow={'lg'}
-          p={8}>
-          <Stack spacing={4}>
-            {renderNameFields()}
-            {renderEmailPassword()}
-            {renderButtons()}
-          </Stack>
-        </Box>
-      </Stack >
+      <Box
+        rounded={'4px'}
+        bg={useColorModeValue('white', 'gray.700')}
+        boxShadow={'lg'}
+        p={8}
+        height='fit-content'
+        maxWidth='400px'
+        width='100%'
+        minWidth='300px'
+      >
+        {inVerificationScreen ? renderConfirmSignUp() : reunderSignUpForm()}
+      </Box>
     </Flex >
   )
 }

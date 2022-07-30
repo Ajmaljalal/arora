@@ -4,6 +4,7 @@ import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 import theme from '../theme/theme'
 import Layout from '../components/layouts'
 import Head from 'next/head'
+import '../aws-services/config'
 
 import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
