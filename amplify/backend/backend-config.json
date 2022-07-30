@@ -1,6 +1,6 @@
 {
   "auth": {
-    "assistian19b00638": {
+    "assistianb12c063a": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -25,13 +25,6 @@
           "EMAIL"
         ]
       }
-    }
-  },
-  "hosting": {
-    "amplifyhosting": {
-      "service": "amplifyhosting",
-      "type": "cicd",
-      "lastPushTimeStamp": "2022-07-30T23:04:31.209Z"
     }
   }
 }
