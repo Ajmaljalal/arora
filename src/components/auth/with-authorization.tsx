@@ -6,7 +6,7 @@ type withAuthorizationProps = {
 }
 
 export default function withAuthorization(Component) {
-  return function ({ ...props }) {
+  return function innerComponent({ ...props }) {
     const [user, setUser] = useState(null)
 
     const getUser = async () => {
@@ -17,7 +17,8 @@ export default function withAuthorization(Component) {
         setUser(null)
       }
     }
-    const checkAuth = () => {
+
+    useEffect(() => {
       Hub.listen("auth", ({ payload: { event, data } }) => {
         switch (event) {
           case "signIn":
@@ -31,10 +32,8 @@ export default function withAuthorization(Component) {
             break;
         }
       })
-    }
-    useEffect(() => {
-      checkAuth()
-    }, [checkAuth])
+
+    }, [])
 
     if (user) {
       return <Component {...props} />
