@@ -12,6 +12,7 @@ import { BaseButton } from '../../components/buttons/button';
 import InputField from '../../components/form/input';
 import PasswordInput from '../../components/form/password-input';
 import { signUp, confirmSignUp } from '../../aws-services/auth';
+import InlineAlert from '../../components/alerts/inline-alert';
 
 type RegisterationFormProps = {}
 
@@ -170,6 +171,7 @@ const RegisterationForm = ({ }: RegisterationFormProps) => {
         width='100%'
         minWidth='300px'
       >
+        {error && <InlineAlert message={error} status='error' title='' />}
         {inVerificationScreen ? renderConfirmSignUp() : reunderSignUpForm()}
       </Box>
     </Flex >

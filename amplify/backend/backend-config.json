@@ -1,6 +1,6 @@
 {
   "auth": {
-    "assistianb12c063a": {
+    "assistian5b14fac2": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
