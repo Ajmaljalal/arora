@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Auth, Hub } from 'aws-amplify'
 
 type withAuthorizationProps = {
@@ -6,7 +6,7 @@ type withAuthorizationProps = {
 }
 
 export default function withAuthorization(Component) {
-  return function innerComponent({ ...props }) {
+  return function wrappedComponent({ ...props }) {
     const [user, setUser] = useState(null)
 
     const getUser = async () => {
@@ -17,8 +17,7 @@ export default function withAuthorization(Component) {
         setUser(null)
       }
     }
-
-    useEffect(() => {
+    const checkAuth = useCallback(() => {
       Hub.listen("auth", ({ payload: { event, data } }) => {
         switch (event) {
           case "signIn":
@@ -32,8 +31,10 @@ export default function withAuthorization(Component) {
             break;
         }
       })
-
     }, [])
+    useEffect(() => {
+      checkAuth()
+    }, [checkAuth])
 
     if (user) {
       return <Component {...props} />
