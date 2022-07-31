@@ -3,7 +3,7 @@ import Head from 'next/head'
 import React from 'react'
 import BodyLayout from '../../components/layouts/body/body-layout'
 import PageContentWrapper from '../../components/layouts/page-content-wrapper'
-import RegisterationForm from '../../containers/registeration'
+import RegisterationForm from '../../containers/register'
 
 type Props = {}
 
