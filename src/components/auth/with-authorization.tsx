@@ -6,7 +6,7 @@ type withAuthorizationProps = {
 }
 
 export default function withAuthorization(Component) {
-  return function wrappedComponent({ ...props }) {
+  return function WrappedComponent({ ...props }) {
     const [user, setUser] = useState(null)
 
     const getUser = async () => {
