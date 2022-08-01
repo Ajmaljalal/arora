@@ -4,7 +4,7 @@ import React from 'react'
 type AlertType = 'error' | 'success' | 'warning' | 'info'
 type InlineAlertProps = {
   message: string
-  title: string
+  title?: string
   status: AlertType
 }
 
@@ -40,7 +40,7 @@ const InlineAlert = ({ status, message, title }: InlineAlertProps) => {
       mb='10px'
     >
       <AlertIcon color={alertColors[status].color} />
-      <AlertTitle>{title}:</AlertTitle>
+      {title && <AlertTitle>{title}:</AlertTitle>}
       <AlertDescription>{message}</AlertDescription>
     </Alert>
   )
