@@ -43,7 +43,7 @@ const RegisterationForm = ({ }: RegisterationFormProps) => {
       })
       setVerificationScreen(true)
     } catch (error) {
-      setError(error)
+      setError(error.message)
     }
     setIsSigning(false)
   }
@@ -58,7 +58,7 @@ const RegisterationForm = ({ }: RegisterationFormProps) => {
       await confirmSignUp({ username: formData.email, code: verificationCode })
       setVerificationCode('')
     } catch (error) {
-      setError(error)
+      setError(error.message)
     }
     setIsSigning(false)
   }
@@ -152,15 +152,26 @@ const RegisterationForm = ({ }: RegisterationFormProps) => {
     )
   }
 
+  console.log('error: ', error)
+
   return (
     <Flex
-      justify={'center'}
+      // justify={'center'}
+      flexDirection='column'
+      alignItems='center'
       width='100%'
       height='100%'
       maxHeight='calc(100vh - 10px)'
       overflowY='auto'
-      mt='32px'
     >
+      <Stack align={'center'} mt='20px'>
+        <Heading fontSize={'2rem'} textAlign={'center'}>
+          Register with Assistian
+        </Heading>
+        <Text fontSize={'lg'} color={'gray.600'} textAlign='center'>
+          to enjoy all of the cool features ✌️
+        </Text>
+      </Stack>
       <Box
         rounded={'4px'}
         bg={useColorModeValue('white', 'gray.700')}
@@ -170,8 +181,9 @@ const RegisterationForm = ({ }: RegisterationFormProps) => {
         maxWidth='400px'
         width='100%'
         minWidth='300px'
+        mt='20px'
       >
-        {error && <InlineAlert message={error} status='error' title='' />}
+        {error && <InlineAlert message={error} status='error' />}
         {inVerificationScreen ? renderConfirmSignUp() : reunderSignUpForm()}
       </Box>
     </Flex >

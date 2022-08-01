@@ -16,14 +16,6 @@ const Login = (props: Props) => {
       </Head>
       <BodyLayout>
         <PageContentWrapper>
-          <Stack align={'center'} mt='20px'>
-            <Heading fontSize={'2rem'} textAlign={'center'}>
-              Login to Assistian
-            </Heading>
-            <Text fontSize={'lg'} color={'gray.600'} textAlign='center'>
-              to enjoy all of the cool features ✌️
-            </Text>
-          </Stack>
           <LoginForm />
         </PageContentWrapper>
       </BodyLayout>

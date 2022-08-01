@@ -5,12 +5,14 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  Heading,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { BaseButton } from '../../components/buttons/button';
 import InputField from '../../components/form/input';
 import PasswordInput from '../../components/form/password-input';
 import { signIn } from '../../aws-services/auth';
+import InlineAlert from '../../components/alerts/inline-alert';
 
 type Props = {}
 
@@ -30,7 +32,6 @@ const LoginForm = ({ }: Props) => {
 
   const handleSubmit = async () => {
     setIsSigning(true)
-    console.log('here')
     try {
       await signIn({
         username: formData.email,
@@ -41,7 +42,7 @@ const LoginForm = ({ }: Props) => {
         password: ''
       })
     } catch (error) {
-      setError(error)
+      setError(error.message)
     }
     setIsSigning(false)
   }
@@ -84,13 +85,21 @@ const LoginForm = ({ }: Props) => {
 
   return (
     <Flex
-      justify={'center'}
+      align={'center'}
+      flexDirection='column'
       width='100%'
       height='100%'
       maxHeight='calc(100vh - 10px)'
       overflowY='auto'
-      mt='32px'
     >
+      <Stack align={'center'} mt='20px'>
+        <Heading fontSize={'2rem'} textAlign={'center'}>
+          Login to Assistian
+        </Heading>
+        <Text fontSize={'lg'} color={'gray.600'} textAlign='center'>
+          to enjoy all of the cool features ✌️
+        </Text>
+      </Stack>
       <Box
         rounded={'4px'}
         bg={useColorModeValue('white', 'gray.700')}
@@ -100,8 +109,10 @@ const LoginForm = ({ }: Props) => {
         maxWidth='400px'
         width='100%'
         minWidth='300px'
+        mt='20px'
       >
         <Stack spacing={4}>
+          {error && <InlineAlert message={error} status='error' />}
           {renderEmailPassword()}
           {renderButtons()}
         </Stack>

@@ -16,14 +16,6 @@ const Register = (props: Props) => {
       </Head>
       <BodyLayout>
         <PageContentWrapper>
-          <Stack align={'center'} mt='20px'>
-            <Heading fontSize={'2rem'} textAlign={'center'}>
-              Register with Assistian
-            </Heading>
-            <Text fontSize={'lg'} color={'gray.600'} textAlign='center'>
-              to enjoy all of the cool features ✌️
-            </Text>
-          </Stack>
           <RegisterationForm />
         </PageContentWrapper>
       </BodyLayout>
