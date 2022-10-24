@@ -105,12 +105,11 @@ export const JobImpactsInitialState = {
 }
 
 
-export enum FormDataTypes {
-  JobSummaryObject,
-  JobDescriptionObject,
-  JobResponsibilitiesObject,
-  JobSkillsReqObject,
-  JobImpactsObject,
-  JobHiringPipelineObject,
-  JobScoreCardObject
-}
+export type FormDataTypes =
+  | JobSummaryObject
+  | JobDescriptionObject
+  | JobResponsibilitiesObject
+  | JobSkillsReqObject
+  | JobImpactsObject
+  | JobHiringPipelineObject
+  | JobScoreCardObject
